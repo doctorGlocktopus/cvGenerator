@@ -1,7 +1,7 @@
 <body>
     @extends('layouts.app')
     <div>
-dsadsad
+
         @include('livewire.usermodal')
 
         <div class="container">
