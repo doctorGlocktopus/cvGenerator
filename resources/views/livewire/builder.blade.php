@@ -1,4 +1,7 @@
 Data Binding
+{{ $addressArrayOne[0]["street"] }}
+
+
 <div>
     <input wire:model="name" type="text">
 
@@ -98,14 +101,14 @@ Lifecycle Hooks
 
         <div class="flex spaceBetweeen addressLine">
             <div class="address">
-                {{ $name }}<br>
-                Augustenstr. 1<br>
-                70178 Stuttgart<br>
+                {{ $addressArrayOne[0]["name"] }}<br>
+                {{ $addressArrayOne[0]["street"] }} {{ $addressArrayOne[0]["number"] }}<br>
+                {{ $addressArrayOne[0]["postcode"] }} {{ $addressArrayOne[0]["city"] }}<br>
             </div>
             <div class="myAddress">
-                Fabian Laske<br>
-                Wernerstr. 6<br>
-                70469 Stuttgart
+                {{ $addressArrayTwo[0]["name"] }}<br>
+                {{ $addressArrayTwo[0]["street"] }} {{ $addressArrayTwo[0]["number"] }}<br>
+                {{ $addressArrayTwo[0]["postcode"] }} {{ $addressArrayTwo[0]["city"] }}<br>
             </div>
         </div>
 

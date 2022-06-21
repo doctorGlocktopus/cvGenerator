@@ -30,7 +30,8 @@ class HomeController extends Controller
     public function list()
     {
         ##$users = DB::table('users')->get();
-        $users = Auth::User();
+        ##$users = Auth::all();
+        $users = User::all();
 
         return view('overview', ['users' => $users]);
     }
