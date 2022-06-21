@@ -43,4 +43,16 @@ class HomeController extends Controller
 
         return view('build', ['users' => $users]);
     }
+
+    public function showUser($id)
+    {
+        $user = User::find($id);
+
+        if($id != Auth::user()->id)
+        {
+            return view('anouncment');
+        }
+        else
+        return view('user', ['user' => $user]);
+    }
 }

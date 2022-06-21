@@ -15,16 +15,21 @@ class Builder extends Component
 
     public $addressArrayTwo = [];
 
+        public $salutation = "Herr";
 
-    public $name = "Jelly";
+        public $title = "Dr";
 
-    public $street = "blablastreet";
+        public $first_name = "Jelly";
 
-    public $number = 6;
+        public $last_name = "Jelly";
 
-    public $postcode = 70469;
+        public $street = "blablastreet";
 
-    public $city = "Stuttgart";
+        public $number = 6;
+
+        public $postcode = 70469;
+
+        public $city = "Stuttgart";
 
 
 ## fülle erst, nach und nach den array um ihn später complett in die request zu schicken!"
@@ -36,19 +41,28 @@ class Builder extends Component
 
 
     public function mount() {
+
+        $user = Auth::User();
+
         array_push($this->addressArrayOne, [
-            "name" => $this->name,
+            "salutation" => $this->salutation,
+            "title" => $this->title,
+            "first_name" => $this->first_name,
+            "last_name" => $this->last_name,
             "street" => $this->street,
             "number" => $this->number,
             "postcode" => $this->postcode,
             "city" => $this->city,
         ]);
         array_push($this->addressArrayTwo, [
-            "name" => $this->name,
-            "street" => $this->street,
-            "number" => $this->number,
-            "postcode" => $this->postcode,
-            "city" => $this->city,
+            "salutation" => $user->salutation,
+            "title" => $user->title,
+            "first_name" => $user->first_name,
+            "last_name" => $user->last_name,
+            "street" => $user->address->street,
+            "number" => $user->address->number,
+            "postcode" => $user->address->postcode,
+            "city" => $user->address->city,
         ]);
     }
 

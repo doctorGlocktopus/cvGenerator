@@ -1,6 +1,67 @@
-Data Binding
-{{ $addressArrayOne[0]["street"] }}
 
+{{ $addressArrayOne[0]["salutation"] }}
+
+
+<div class="doc">
+    <div class="docContainer">
+
+        <div class="flex spaceBetweeen addressLine">
+            <div class="address">
+                @if($addressArrayOne[0]["salutation"])
+                    {{ $addressArrayOne[0]["salutation"] }}.
+                @endif
+                {{ $addressArrayOne[0]["title"] }} {{ $addressArrayOne[0]["first_name"] }} {{ $addressArrayOne[0]["last_name"] }}<br>
+                {{ $addressArrayOne[0]["street"] }} {{ $addressArrayOne[0]["number"] }}<br>
+                {{ $addressArrayOne[0]["postcode"] }} {{ $addressArrayOne[0]["city"] }}<br>
+            </div>
+            <div class="myAddress">
+                {{ $addressArrayOne[0]["title"] }}  {{ $addressArrayTwo[0]["first_name"] }} {{ $addressArrayTwo[0]["last_name"] }}<br>
+                {{ $addressArrayTwo[0]["street"] }} {{ $addressArrayTwo[0]["number"] }}<br>
+                {{ $addressArrayTwo[0]["postcode"] }} {{ $addressArrayTwo[0]["city"] }}<br>
+            </div>
+        </div>
+
+        <div class="date">{{ $addressArrayTwo[0]["city"] }} den, {{ date('d.m.Y') }}</div>
+{{-- user_id	name	street	postcode	country	job	start	contact	type	body	end	 --}}
+        <div class="letter">
+            <br>
+            <br>
+            <!-- type + job -->
+            Bewerbung als Cloud Service Developer
+            <br>
+            <br>
+            <br>
+            <!-- contact -->
+            Sehr geehrter Herr Bergmann,
+            <br>
+            <br>
+            <!-- introduction -->
+            die Aussicht bei einem so modernen Unternehmen wie der Accenture Dienstleistungen GmbH den Einstieg in ein für mich sehr attraktives Berufsfeld zu erhalten, finde ich spannend und halte es für die optimale Herausforderung.
+            <br>
+            <!-- body -->
+            Ich besitze sehr umfangreiches Wissen in PHP, HTML, CSS und Javascript.
+            Dieses wende ich unter Einsatz der Frameworks Angular 2 und Laravel an um eine Cloud fähige Business Software zu entwickeln.
+            Zu meinen täglichen Aufgaben gehörten neben der Front- und Backend Entwicklung, auch die optimierung für Suchmaschinen sowie die Gestaltung der Layouts für Webauftritte.
+            <br>
+            <!-- end -->
+            Im Juni 2022 werde ich voraussichtlich Ausbildung abschließen.
+            Ich bin überzeugt den Anforderungen gerecht zu werden, über ein persönliches Gespräch würde ich mich sehr freuen.
+            <br>
+            <br>
+            Mit freundlichen Grüßen,
+            <br>
+            <br>
+            <br>
+            <br>
+            Fabian Laske
+        </div>
+    </div>
+</div>
+
+
+
+
+{{-- Data Binding
 
 <div>
     <input wire:model="name" type="text">
@@ -90,62 +151,4 @@ Lifecycle Hooks
 
     <button type="submit">Save</button>
 </form>
-</div>
-
-
-
-
-
-<div class="doc">
-    <div class="docContainer">
-
-        <div class="flex spaceBetweeen addressLine">
-            <div class="address">
-                {{ $addressArrayOne[0]["name"] }}<br>
-                {{ $addressArrayOne[0]["street"] }} {{ $addressArrayOne[0]["number"] }}<br>
-                {{ $addressArrayOne[0]["postcode"] }} {{ $addressArrayOne[0]["city"] }}<br>
-            </div>
-            <div class="myAddress">
-                {{ $addressArrayTwo[0]["name"] }}<br>
-                {{ $addressArrayTwo[0]["street"] }} {{ $addressArrayTwo[0]["number"] }}<br>
-                {{ $addressArrayTwo[0]["postcode"] }} {{ $addressArrayTwo[0]["city"] }}<br>
-            </div>
-        </div>
-
-        <div class="date">Stuttgart den, {{ date('d-m-Y') }}</div>
-{{-- user_id	name	street	postcode	country	job	start	contact	type	body	end	 --}}
-        <div class="letter">
-            <br>
-            <br>
-            <!-- type + job -->
-            Bewerbung als Cloud Service Developer
-            <br>
-            <br>
-            <br>
-            <!-- contact -->
-            Sehr geehrter Herr Bergmann,
-            <br>
-            <br>
-            <!-- introduction -->
-            die Aussicht bei einem so modernen Unternehmen wie der Accenture Dienstleistungen GmbH den Einstieg in ein für mich sehr attraktives Berufsfeld zu erhalten, finde ich spannend und halte es für die optimale Herausforderung.
-            <br>
-            <!-- body -->
-            Ich besitze sehr umfangreiches Wissen in PHP, HTML, CSS und Javascript.
-            Dieses wende ich unter Einsatz der Frameworks Angular 2 und Laravel an um eine Cloud fähige Business Software zu entwickeln.
-            Zu meinen täglichen Aufgaben gehörten neben der Front- und Backend Entwicklung, auch die optimierung für Suchmaschinen sowie die Gestaltung der Layouts für Webauftritte.
-            <br>
-            <!-- end -->
-            Im Juni 2022 werde ich voraussichtlich Ausbildung abschließen.
-            Ich bin überzeugt den Anforderungen gerecht zu werden, über ein persönliches Gespräch würde ich mich sehr freuen.
-            <br>
-            <br>
-            Mit freundlichen Grüßen,
-            <br>
-            <br>
-            <br>
-            <br>
-            Fabian Laske
-        </div>
-    </div>
-</div>
-
+</div> --}}

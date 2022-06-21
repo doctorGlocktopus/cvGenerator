@@ -22,3 +22,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('anouncment');
 Route::get('/overview', [App\Http\Controllers\HomeController::class, 'list'])->name('overview');
 Route::get('/new', [App\Http\Controllers\HomeController::class, 'new'])->name('new');
+
+Route::get('/user/{id}', [App\Http\Controllers\HomeController::class, 'showUser'])->name('user');
