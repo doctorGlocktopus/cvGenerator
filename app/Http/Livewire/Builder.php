@@ -8,6 +8,8 @@ use Livewire\Component;
 
 use Auth;
 
+use App\Models\Announcement;
+
 class Builder extends Component
 {
 
@@ -15,29 +17,40 @@ class Builder extends Component
 
     public $addressArrayTwo = [];
 
-        public $salutation = "Herr";
+        public $salutation = "";
 
-        public $title = "Dr";
+        public $title = "";
 
-        public $first_name = "Jelly";
+        public $first_name = "";
 
-        public $last_name = "Jelly";
+        public $last_name = "";
 
-        public $street = "blablastreet";
+        public $street = "";
 
-        public $number = 6;
+        public $number = 0;
 
-        public $postcode = 70469;
+        public $postcode = 0;
 
-        public $city = "Stuttgart";
+        public $city = "";
+
+        public $company = "";
+
+        public $job = "";
+
+        public $contact = "";
+
+        public $type = "";
+
+        public $start = "die Aussicht bei einem so modernen Unternehmen wie der Accenture Dienstleistungen GmbH den Einstieg in ein für mich sehr attraktives Berufsfeld zu erhalten, finde ich spannend und halte es für die optimale Herausforderung.";
+
+        public $body = "Ich besitze sehr umfangreiches Wissen in PHP, HTML, CSS und Javascript.
+        Dieses wende ich unter Einsatz der Frameworks Angular 2 und Laravel an um eine Cloud fähige Business Software zu entwickeln.
+        Zu meinen täglichen Aufgaben gehörten neben der Front- und Backend Entwicklung, auch die optimierung für Suchmaschinen sowie die Gestaltung der Layouts für Webauftritte.<br>";
+
+        public $end = "Im Juni 2022 werde ich voraussichtlich Ausbildung abschließen.
+        Ich bin überzeugt den Anforderungen gerecht zu werden, über ein persönliches Gespräch würde ich mich sehr freuen.";
 
 ## fülle erst, nach und nach den array um ihn später complett in die request zu schicken!"
-
-
-    public $loud = false;
-
-    public $greeting = ["Hello"];
-
 
     public function mount() {
 
@@ -73,12 +86,27 @@ class Builder extends Component
     //     $this->name = $r->input('name', $name);
     // }
 
+    public function create()
+    {
+        $user = Auth::User();
+
+        return Announcement::create([
+            'user_id' => $user->id,
+            'address_id' => 1,
+    
+            'company' => "",
+            'job' => "",
+            'contact' => "",
+            'type' => "",
+    
+            'start' => "",
+            'body' => "",
+            'end' => "",
+        ]);
+    }
+
     public function render()
     {
         return view('livewire.builder');
-    }
-
-    public function resetName($name = "Chiko") {
-        $this->name = $name;
     }
 }

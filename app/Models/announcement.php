@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class announcement extends Model
+class Announcement extends Model
 {
     use HasFactory;
 
@@ -22,7 +22,6 @@ class announcement extends Model
         'start',
         'body',
         'end',
-
     ];
 
     public function user()

@@ -54,8 +54,8 @@ class User extends Authenticatable
         return $this->belongsTo(Address::class);
     }
 
-    public function announcment()
+    public function announcement()
     {
-        return $this->belongsTo(Announcment::class);
+        return $this->belongsTo(Announcement::class);
     }
 }

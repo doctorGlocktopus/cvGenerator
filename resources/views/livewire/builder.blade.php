@@ -1,7 +1,7 @@
 
 {{ $addressArrayOne[0]["salutation"] }}
 
-
+<button wire:click="create()">create</button>
 
 <div class="doc">
     <div class="docContainer">
@@ -33,20 +33,16 @@
             <br>
             <br>
             <!-- contact -->
-            Sehr geehrter Herr Bergmann,
+            Sehr geehrter {{$contact}},
             <br>
             <br>
-            <!-- introduction -->
-            die Aussicht bei einem so modernen Unternehmen wie der Accenture Dienstleistungen GmbH den Einstieg in ein für mich sehr attraktives Berufsfeld zu erhalten, finde ich spannend und halte es für die optimale Herausforderung.
+            <!-- start -->
+            {{ $start }}
             <br>
             <!-- body -->
-            Ich besitze sehr umfangreiches Wissen in PHP, HTML, CSS und Javascript.
-            Dieses wende ich unter Einsatz der Frameworks Angular 2 und Laravel an um eine Cloud fähige Business Software zu entwickeln.
-            Zu meinen täglichen Aufgaben gehörten neben der Front- und Backend Entwicklung, auch die optimierung für Suchmaschinen sowie die Gestaltung der Layouts für Webauftritte.
-            <br>
+            {{ $body }}
             <!-- end -->
-            Im Juni 2022 werde ich voraussichtlich Ausbildung abschließen.
-            Ich bin überzeugt den Anforderungen gerecht zu werden, über ein persönliches Gespräch würde ich mich sehr freuen.
+            {{ $end }}
             <br>
             <br>
             Mit freundlichen Grüßen,
