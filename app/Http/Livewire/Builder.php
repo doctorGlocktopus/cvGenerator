@@ -31,7 +31,6 @@ class Builder extends Component
 
         public $city = "Stuttgart";
 
-
 ## fülle erst, nach und nach den array um ihn später complett in die request zu schicken!"
 
 
@@ -54,15 +53,17 @@ class Builder extends Component
             "postcode" => $this->postcode,
             "city" => $this->city,
         ]);
+
         array_push($this->addressArrayTwo, [
             "salutation" => $user->salutation,
             "title" => $user->title,
             "first_name" => $user->first_name,
             "last_name" => $user->last_name,
-            "street" => $user->address->street,
-            "number" => $user->address->number,
-            "postcode" => $user->address->postcode,
-            "city" => $user->address->city,
+
+            "street" => isset($user->address->street)?$user->address->street:"fakestreet",
+            "number" => isset($user->address->number)?$user->address->number:1,
+            "postcode" => isset($user->address->postcode)?$user->address->postcode:12345,
+            "city" => isset($user->address->city)?$user->address->city:"FakeTown",
         ]);
     }
 

@@ -16,7 +16,7 @@ class address extends Model
         'country'
     ];
 
-    public function User()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

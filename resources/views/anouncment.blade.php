@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<h1>{{$error}}</h1>
 <div class="doc">
     <div class="docContainer">
 

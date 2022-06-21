@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('anouncment');
+        return view('anouncment', ['error' => ""]);
     }
     public function list()
     {
@@ -50,7 +50,7 @@ class HomeController extends Controller
 
         if($id != Auth::user()->id)
         {
-            return view('anouncment');
+            return view('anouncment', ['error' => "Bruder, dass sind nicht deine Daten"]);
         }
         else
         return view('user', ['user' => $user]);

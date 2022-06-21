@@ -12,6 +12,8 @@
         main {
             background-color: lightblue;
         }
+
+
         .doc {
             background-color: lightblue;
             width: 21cm;

@@ -17,14 +17,15 @@ class Announcement extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
                 $table->foreign('user_id')->references('id')->on('users')->constrained();
-            $table->string('name');
-            $table->string('street');
-            $table->string('postcode');
-            $table->string('country');
-            $table->string('job');
-            $table->date('start');
+            $table->unsignedBigInteger('address_id');
+                $table->foreign('address_id')->references('id')->on('addresses')->constrained();
+
+            $table->string('company');
             $table->string('contact');
+            $table->string('job');
             $table->string('type');
+
+            $table->date('start');
             $table->string('body');
             $table->string('end');
             $table->timestamps();
