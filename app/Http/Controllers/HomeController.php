@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Announcement;
 use Auth;
 
 class HomeController extends Controller
@@ -46,8 +47,18 @@ class HomeController extends Controller
 
     public function announcement($id)
     {
-        return view('announcement', ['id' => $id, 'error' => ""]);
+        $user = Auth::User();
+        $announcement = Announcement::find($id);
+        return view('announcement', ['id' => $id, 'error' => "", 'announcement' => $announcement, 'user' => $user]);
     }
+
+    public function overviewAnnouncement($id)
+    {
+        // $announcements = Announcement::where('user_id', $id);
+        $announcements = Announcement::where('user_id', $id)->get();
+        return view('overviewAnnouncement', ['announcements' => $announcements]);
+    }
+
 
     public function showUser($id)
     {

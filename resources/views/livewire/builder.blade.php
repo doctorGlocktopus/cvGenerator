@@ -4,8 +4,8 @@
     <div>
         <form wire:submit.prevent="submit">
             <div class="form-group">
-                <label for="exampleInputName">Name</label>
-                <input type="text" class="form-control" id="exampleInputName" placeholder="Enter name" wire:model="name">
+                <label for="exampleInputName">Firma</label>
+                <input type="text" class="form-control" id="exampleInputName" placeholder="WunschFirma" wire:model="company">
                 @error('name') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
         
@@ -15,6 +15,9 @@
                 @error('email') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
         
+
+
+
             <div class="form-group">
                 <label for="exampleInputbody">Body</label>
                 <textarea class="form-control" id="exampleInputbody" placeholder="Enter Body" wire:model="body"></textarea>
@@ -31,10 +34,7 @@
 
             <div class="flex spaceBetweeen addressLine">
                 <div class="address">
-                    @if($addressArrayOne[0]["salutation"])
-                        {{ $addressArrayOne[0]["salutation"] }}.
-                    @endif
-                    {{ $addressArrayOne[0]["title"] }} {{ $addressArrayOne[0]["first_name"] }} {{ $addressArrayOne[0]["last_name"] }}<br>
+                    {{ $addressArrayOne[0]["company"] }}<br>
                     {{ $addressArrayOne[0]["street"] }} {{ $addressArrayOne[0]["number"] }}<br>
                     {{ $addressArrayOne[0]["postcode"] }} {{ $addressArrayOne[0]["city"] }}<br>
                 </div>
@@ -51,7 +51,7 @@
                 <br>
                 <br>
                 <!-- type + job -->
-                Bewerbung als {{ $job }}
+                Bewerbung als {{ $job }}  in {{$type}}
                 <br>
                 <br>
                 <br>
@@ -73,7 +73,10 @@
                 <br>
                 <br>
                 <br>
-                Fabian Laske
+                @if($addressArrayTwo[0]["title"])
+                    {{ $addressArrayTwo[0]["title"] }}.
+                @endif
+                    {{ $addressArrayTwo[0]["first_name"] }} {{ $addressArrayTwo[0]["last_name"] }}
             </div>
         </div>
     </div>

@@ -25,3 +25,4 @@ Route::get('/new', [App\Http\Controllers\HomeController::class, 'new'])->name('n
 
 Route::get('/user/{id}', [App\Http\Controllers\HomeController::class, 'showUser'])->name('user');
 Route::get('/announcement/{id}', [App\Http\Controllers\HomeController::class, 'announcement'])->name('announcement');
+Route::get('/overviewAnnouncement/{id}', [App\Http\Controllers\HomeController::class, 'overviewAnnouncement'])->name('overviewAnnouncement');

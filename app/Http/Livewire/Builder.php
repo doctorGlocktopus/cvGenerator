@@ -59,8 +59,7 @@ class Builder extends Component
         array_push($this->addressArrayOne, [
             "salutation" => $this->salutation,
             "title" => $this->title,
-            "first_name" => $this->first_name,
-            "last_name" => $this->last_name,
+            "company" => $this->company,
             "street" => $this->street,
             "number" => $this->number,
             "postcode" => $this->postcode,
@@ -93,7 +92,6 @@ class Builder extends Component
 
     public function submit()
     {
-        $data = "da";
         // $data = $this->validate([
         //     'user_id' => 'required',
         //     'address_id' => 'required',
@@ -108,8 +106,27 @@ class Builder extends Component
         // ]);
   
         // Contact::create($data);
+        $user = Auth::User();
+        $data = Announcement::create([
+            'user_id' => $user->id,
+            'address_id' => 1,
+    
+            'company' => $this->company,
+            'job' => "MeineArbeit",
+            'contact' => "Herr Martin",
+            'type' => "Vollzeit",
+    
+            'start' => "bla",
+            'body' => "bla",
+            'end' => "bla",
+        ]);
+
+        $string = "announcement/$data->id";
+
+
+        return redirect()->to($string);
   
-        return redirect()->to('announcement', ['id' => 1]);
+        ##return redirect()->to('announcement', ['id' => $data->id]);
     }
 
     public function create()
