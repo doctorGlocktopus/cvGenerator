@@ -1,18 +1,37 @@
 <style>
 
-    body {
-        display: flex;
-        justify-content: center;
-        background-image:
-       repeating-linear-gradient(45deg,
-                                white 0%,
-                                white 4px, grey 4px,
-                                grey 8px, white 8px);
-    }
-        main {
-            background-color: lightblue;
+        body {
+
+            font-style: italic!important;
+            font-family: monospace!important;
+            padding: 1%;
+            display: flex;
+            justify-content: center;
+            background-image: repeating-linear-gradient(45deg, #596f80 0%, #596f80 4%, #cfdce6 2%, #cfdce6 8%, white 2%);
         }
 
+        .w33 {
+            width: 33%;
+        }
+
+        main {
+            background-color: #cfdce6;
+            outline: auto;
+            outline-style: auto;
+        }
+
+        .contentWrapper {
+            width: 100%;
+            padding: 5%;
+        }
+
+        .banner {
+            font-size: 436%!important;
+            padding: 20px;
+            background: #6096bf;
+            outline: auto;
+            outline-style: auto;
+        }
 
         .doc {
             background-color: lightblue;
@@ -44,6 +63,7 @@
 
         .flex {
             display: flex;
+            flex-direction: column;
         }
 
         .spaceBetweeen {
@@ -66,6 +86,8 @@
             background: white;
             left: 10;
             padding: 10;
+            outline: auto;
+            outline-style: auto;
             display: flex;
                     flex-direction: column;
                     line-height: 2;
@@ -109,7 +131,7 @@
 
             <br>
 
-            <a href="/print"><i class='fa fa-print'></i>Print</a>
+            <a href="/print"><i class='fa fa-print'></i> Drucken</a>
 
             </div>
 

@@ -18,8 +18,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('announcement');
 Route::get('/overview', [App\Http\Controllers\HomeController::class, 'list'])->name('overview');
 Route::get('/new', [App\Http\Controllers\HomeController::class, 'new'])->name('new');
 

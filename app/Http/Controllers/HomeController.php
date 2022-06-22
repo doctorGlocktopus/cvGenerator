@@ -17,6 +17,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->user = Auth::User();
     }
 
     /**
@@ -24,10 +25,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('anouncment', ['error' => ""]);
-    }
+
     public function list()
     {
         ##$users = DB::table('users')->get();
@@ -39,15 +37,11 @@ class HomeController extends Controller
 
     public function new()
     {
-        ##$users = DB::table('users')->get();
-        $users = Auth::User();
-
-        return view('build', ['users' => $users]);
+        return view('new');
     }
 
     public function announcement($id)
     {
-        $user = Auth::User();
         $announcement = Announcement::find($id);
         return view('announcement', ['id' => $id, 'error' => "", 'announcement' => $announcement, 'user' => $user]);
     }
