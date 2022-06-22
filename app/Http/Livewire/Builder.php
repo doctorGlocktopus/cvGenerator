@@ -17,29 +17,29 @@ class Builder extends Component
 
     public $addressArrayTwo = [];
 
-        public $salutation = "";
+        public $salutation = "Herr";
 
-        public $title = "";
+        public $title = "Dr.";
 
-        public $first_name = "";
+        public $first_name = "Vorname";
 
-        public $last_name = "";
+        public $last_name = "Nachname";
 
-        public $street = "";
+        public $street = "Fakestreet";
 
-        public $number = 0;
+        public $number = 16;
 
-        public $postcode = 0;
+        public $postcode = 12345;
 
-        public $city = "";
+        public $city = "FakeTown";
 
-        public $company = "";
+        public $company = "WunschFirma";
 
-        public $job = "";
+        public $job = "WunschJob";
 
-        public $contact = "";
+        public $contact = "Herr Jelly";
 
-        public $type = "";
+        public $type = "Vollzeit";
 
         public $start = "die Aussicht bei einem so modernen Unternehmen wie der Accenture Dienstleistungen GmbH den Einstieg in ein für mich sehr attraktives Berufsfeld zu erhalten, finde ich spannend und halte es für die optimale Herausforderung.";
 
@@ -86,6 +86,32 @@ class Builder extends Component
     //     $this->name = $r->input('name', $name);
     // }
 
+    public function setJob() {
+        $this->job = "Chiko";
+    }
+
+
+    public function submit()
+    {
+        $data = "da";
+        // $data = $this->validate([
+        //     'user_id' => 'required',
+        //     'address_id' => 'required',
+    
+        //     'company' => 'required',
+        //     'job' => 'required',
+        //     'contact' => 'required',
+        //     'type' => 'required',
+    
+        //     'start' => 'required',
+        //     'body' => 'required',
+        // ]);
+  
+        // Contact::create($data);
+  
+        return redirect()->to('announcement', ['id' => 1]);
+    }
+
     public function create()
     {
         $user = Auth::User();
@@ -94,14 +120,14 @@ class Builder extends Component
             'user_id' => $user->id,
             'address_id' => 1,
     
-            'company' => "",
-            'job' => "",
-            'contact' => "",
-            'type' => "",
+            'company' => "WunschFirma",
+            'job' => "MeineArbeit",
+            'contact' => "Herr Martin",
+            'type' => "Vollzeit",
     
-            'start' => "",
-            'body' => "",
-            'end' => "",
+            'start' => "bla",
+            'body' => "bla",
+            'end' => "bla",
         ]);
     }
 

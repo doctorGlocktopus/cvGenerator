@@ -1,60 +1,83 @@
-
-{{ $addressArrayOne[0]["salutation"] }}
-
-<button wire:click="create()">create</button>
-
-<div class="doc">
-    <div class="docContainer">
-
-        <div class="flex spaceBetweeen addressLine">
-            <div class="address">
-                @if($addressArrayOne[0]["salutation"])
-                    {{ $addressArrayOne[0]["salutation"] }}.
-                @endif
-                {{ $addressArrayOne[0]["title"] }} {{ $addressArrayOne[0]["first_name"] }} {{ $addressArrayOne[0]["last_name"] }}<br>
-                {{ $addressArrayOne[0]["street"] }} {{ $addressArrayOne[0]["number"] }}<br>
-                {{ $addressArrayOne[0]["postcode"] }} {{ $addressArrayOne[0]["city"] }}<br>
+{{-- 
+{{ $addressArrayOne[0]["salutation"] }} --}}
+<div>
+    <div>
+        <form wire:submit.prevent="submit">
+            <div class="form-group">
+                <label for="exampleInputName">Name</label>
+                <input type="text" class="form-control" id="exampleInputName" placeholder="Enter name" wire:model="name">
+                @error('name') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
-            <div class="myAddress">
-                {{ $addressArrayOne[0]["title"] }}  {{ $addressArrayTwo[0]["first_name"] }} {{ $addressArrayTwo[0]["last_name"] }}<br>
-                {{ $addressArrayTwo[0]["street"] }} {{ $addressArrayTwo[0]["number"] }}<br>
-                {{ $addressArrayTwo[0]["postcode"] }} {{ $addressArrayTwo[0]["city"] }}<br>
+        
+            <div class="form-group">
+                <label for="exampleInputEmail">Email</label>
+                <input type="text" class="form-control" id="exampleInputEmail" placeholder="Enter name" wire:model="email">
+                @error('email') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
-        </div>
+        
+            <div class="form-group">
+                <label for="exampleInputbody">Body</label>
+                <textarea class="form-control" id="exampleInputbody" placeholder="Enter Body" wire:model="body"></textarea>
+                @error('body') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+        
+            <button type="submit" class="btn btn-primary">Save Contact</button>
+        </form>
+     </div>
+{{-- <button wire:click="create()">create</button> --}}
 
-        <div class="date">{{ $addressArrayTwo[0]["city"] }} den, {{ date('d.m.Y') }}</div>
-{{-- user_id	name	street	postcode	country	job	start	contact	type	body	end	 --}}
-        <div class="letter">
-            <br>
-            <br>
-            <!-- type + job -->
-            Bewerbung als Cloud Service Developer
-            <br>
-            <br>
-            <br>
-            <!-- contact -->
-            Sehr geehrter {{$contact}},
-            <br>
-            <br>
-            <!-- start -->
-            {{ $start }}
-            <br>
-            <!-- body -->
-            {{ $body }}
-            <!-- end -->
-            {{ $end }}
-            <br>
-            <br>
-            Mit freundlichen Grüßen,
-            <br>
-            <br>
-            <br>
-            <br>
-            Fabian Laske
+    <div class="doc">
+        <div class="docContainer">
+
+            <div class="flex spaceBetweeen addressLine">
+                <div class="address">
+                    @if($addressArrayOne[0]["salutation"])
+                        {{ $addressArrayOne[0]["salutation"] }}.
+                    @endif
+                    {{ $addressArrayOne[0]["title"] }} {{ $addressArrayOne[0]["first_name"] }} {{ $addressArrayOne[0]["last_name"] }}<br>
+                    {{ $addressArrayOne[0]["street"] }} {{ $addressArrayOne[0]["number"] }}<br>
+                    {{ $addressArrayOne[0]["postcode"] }} {{ $addressArrayOne[0]["city"] }}<br>
+                </div>
+                <div class="myAddress">
+                    {{ $addressArrayOne[0]["title"] }}  {{ $addressArrayTwo[0]["first_name"] }} {{ $addressArrayTwo[0]["last_name"] }}<br>
+                    {{ $addressArrayTwo[0]["street"] }} {{ $addressArrayTwo[0]["number"] }}<br>
+                    {{ $addressArrayTwo[0]["postcode"] }} {{ $addressArrayTwo[0]["city"] }}<br>
+                </div>
+            </div>
+
+            <div class="date">{{ $addressArrayTwo[0]["city"] }} den, {{ date('d.m.Y') }}</div>
+    {{-- user_id	name	street	postcode	country	job	start	contact	type	body	end	 --}}
+            <div class="letter">
+                <br>
+                <br>
+                <!-- type + job -->
+                Bewerbung als {{ $job }}
+                <br>
+                <br>
+                <br>
+                <!-- contact -->
+                Sehr geehrter {{ $contact}},
+                <br>
+                <br>
+                <!-- start -->
+                {{ $start }}
+                <br>
+                <!-- body -->
+                {{ $body }}
+                <!-- end -->
+                {{ $end }}
+                <br>
+                <br>
+                Mit freundlichen Grüßen,
+                <br>
+                <br>
+                <br>
+                <br>
+                Fabian Laske
+            </div>
         </div>
     </div>
 </div>
-
 
 
 

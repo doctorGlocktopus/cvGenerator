@@ -44,13 +44,18 @@ class HomeController extends Controller
         return view('build', ['users' => $users]);
     }
 
+    public function announcement($id)
+    {
+        return view('announcement', ['id' => $id, 'error' => ""]);
+    }
+
     public function showUser($id)
     {
         $user = User::find($id);
 
         if($id != Auth::user()->id)
         {
-            return view('anouncment', ['error' => "Bruder, dass sind nicht deine Daten"]);
+            return view('announcement', ['error' => "Bruder, dass sind nicht deine Daten"]);
         }
         else
         return view('user', ['user' => $user]);
