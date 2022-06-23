@@ -42,6 +42,7 @@ class HomeController extends Controller
 
     public function announcement($id)
     {
+        $user = Auth::User();
         $announcement = Announcement::find($id);
         return view('announcement', ['id' => $id, 'error' => "", 'announcement' => $announcement, 'user' => $user]);
     }

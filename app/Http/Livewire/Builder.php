@@ -8,10 +8,13 @@ use Livewire\Component;
 
 use Auth;
 
+use App\Models\Address;
+
 use App\Models\Announcement;
 
 class Builder extends Component
 {
+    public $template = "Elegant professionell";
 
     public $addressArrayOne = [];
 
@@ -92,6 +95,7 @@ class Builder extends Component
 
     public function submit()
     {
+
         // $data = $this->validate([
         //     'user_id' => 'required',
         //     'address_id' => 'required',
@@ -107,11 +111,25 @@ class Builder extends Component
   
         // Contact::create($data);
         $user = Auth::User();
+
+        if($user->address) {
+            $address_id = $user->address->id;
+        } else {
+            $address = Address::create([
+                'street' => "fakestreet",
+                'postcode' => 71287,
+                'country' => "Weissach",
+            ]);
+
+            $address_id = $address->id;
+        }
+
+
         $data = Announcement::create([
             'user_id' => $user->id,
-            'address_id' => 1,
+            'address_id' => $address_id,
     
-            'company' => $this->company,
+            'company' => "sss",
             'job' => "MeineArbeit",
             'contact' => "Herr Martin",
             'type' => "Vollzeit",
@@ -123,16 +141,15 @@ class Builder extends Component
 
         $string = "announcement/$data->id";
 
-
         return redirect()->to($string);
-  
-        ##return redirect()->to('announcement', ['id' => $data->id]);
+
     }
 
     public function create()
     {
         $user = Auth::User();
 
+        dd($user);
         return Announcement::create([
             'user_id' => $user->id,
             'address_id' => 1,
@@ -146,6 +163,7 @@ class Builder extends Component
             'body' => "bla",
             'end' => "bla",
         ]);
+        return redirect()->to("/");
     }
 
     public function render()

@@ -1,99 +1,123 @@
 <style>
+    body {
 
-        body {
+        font-style: italic!important;
+        font-family: monospace!important;
+        padding: 1%;
+        display: flex;
+        justify-content: center;
 
-            font-style: italic!important;
-            font-family: monospace!important;
-            padding: 1%;
-            display: flex;
-            justify-content: center;
-            background-image: repeating-linear-gradient(45deg, #596f80 0%, #596f80 4%, #cfdce6 2%, #cfdce6 8%, white 2%);
-        }
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
 
-        .w33 {
-            width: 33%;
-        }
+        background-image: repeating-linear-gradient(45deg, #596f80 0%, #596f80 4%, #cfdce6 2%, #cfdce6 8%, white 2%);
+    }
 
-        main {
-            background-color: #cfdce6;
-            outline: auto;
-            outline-style: auto;
-        }
+    .w33 {
+        width: 33%;
+    }
 
-        .contentWrapper {
-            width: 100%;
-            padding: 5%;
-        }
+    .templateHeader {
+        color: wheat;
+        background: #596f80;
+        padding: 1%;
+        font-size: 150%;
+        /* width: fit-content; */
+    }
 
-        .banner {
-            font-size: 436%!important;
-            padding: 20px;
-            background: #6096bf;
-            outline: auto;
-            outline-style: auto;
-        }
+    main {
+        background-color: #cfdce6;
+        outline: auto;
+        outline-style: auto;
+        box-shadow: 5px 5px 10px 0px;
+        height: fit-content;
+    }
 
-        .doc {
-            background-color: lightblue;
-            width: 21cm;
-            height: 29.7cm;
-            line-height: 1.5;
-        }
+    .contentWrapper {
+        width: 100%;
+        padding: 5%;
+    }
 
-        .docContainer {
-            margin-top: 4.5cm;
-            margin-left: 2.5cm;
-            margin-right: 2cm;
-            margin-bottom: 2.5cm;
-        }
+    .banner {
+        font-size: 436%!important;
+        padding: 20px;
+        background: #6096bf;
+        outline: auto;
+        outline-style: auto;
+        box-shadow: 5px 5px 10px 0px;
+    }
 
-        .addressLine {
-            height: 5.5cm;
-            background-color:grey;
-        }
+    .doc {
+        background-color: lightblue;
+        line-height: 1.5;
+    }
 
-        .address {
-            width: 11cm;
-        }
+    .docContainer {
+        font-style: initial;
+        font-family: arial;
+        padding-top: 4.5cm;
+        padding-left: 2.5cm;
+        padding-right: 2cm;
+        padding-bottom: 2.5cm;
+        width: 21cm;
+        height: 29.7cm;
+        background-color: white!important;
+    }
 
-        .myAddress {
-            background-color:red;
-            text-align: end;
-        }
+    .addressLine {
+        height: 5.5cm;
+    }
 
-        .flex {
-            display: flex;
-            flex-direction: column;
-        }
+    .address {
+        width: 11cm;
+    }
 
-        .spaceBetweeen {
-            justify-content: space-between;
-        }
+    .myAddress {
+        text-align: end;
+    }
 
-        .date {
-            width: 100%;
-            background-color:green;
-            text-align: end;
-        }
+    .flex {
+        display: flex;
+    }
 
-        .letter {
-            text-align: justify;
-            background-color: blueviolet;
-        }
+    .columnD {
+        flex-direction: column;
+    }
 
-        nav {
-            position: fixed;
-            background: white;
-            left: 10;
-            padding: 10;
-            outline: auto;
-            outline-style: auto;
-            display: flex;
-                    flex-direction: column;
-                    line-height: 2;
-        }
+    .padding10pc {
+        padding: 10%;
+    }
 
-    </style>
+    .minW800 {
+        min-width: 800px;
+    }
+
+    .spaceBetweeen {
+        justify-content: space-between;
+    }
+
+    .date {
+        width: 100%;
+        text-align: end;
+    }
+
+    .letter {
+        text-align: justify;
+    }
+
+    nav {
+        position: fixed;
+        background: white;
+        left: 10;
+        padding: 10;
+        outline: auto;
+        outline-style: auto;
+        box-shadow: 5px 5px 10px 0px;
+        line-height: 2;
+    }
+</style>
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -102,7 +126,7 @@
 
 
 <body>
-    <nav>
+    <nav class="flex columnD">
         @guest
             @if (Route::has('login'))
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

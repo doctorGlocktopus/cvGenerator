@@ -1,35 +1,32 @@
 {{-- 
 {{ $addressArrayOne[0]["salutation"] }} --}}
-<div>
-    <div>
-        <form wire:submit.prevent="submit">
-            <div class="form-group">
-                <label for="exampleInputName">Firma</label>
-                <input type="text" class="form-control" id="exampleInputName" placeholder="WunschFirma" wire:model="company">
-                @error('name') <span class="text-danger">{{ $message }}</span> @enderror
-            </div>
-        
-            <div class="form-group">
-                <label for="exampleInputEmail">Email</label>
-                <input type="text" class="form-control" id="exampleInputEmail" placeholder="Enter name" wire:model="email">
-                @error('email') <span class="text-danger">{{ $message }}</span> @enderror
-            </div>
-        
+@section('content')
+
+<div class="templateHeader">{{ $template }}</div>
 
 
+<div class="contentWrapper">
+    <h2><label for="address" >{{ __('Adresse Empfänger') }}</label></h2>
+    <form wire:submit.prevent="submit">
 
-            <div class="form-group">
-                <label for="exampleInputbody">Body</label>
-                <textarea class="form-control" id="exampleInputbody" placeholder="Enter Body" wire:model="body"></textarea>
-                @error('body') <span class="text-danger">{{ $message }}</span> @enderror
-            </div>
-        
-            <button type="submit" class="btn btn-primary">Save Contact</button>
-        </form>
-     </div>
-{{-- <button wire:click="create()">create</button> --}}
+        <div class="form-group">
+            <label for="company">Firma</label>
+            <input type="text" class="form-control" id="company" placeholder="{{$company}}" wire:model="company">
+            @error('company') <span class="text-danger">{{ $message }}</span> @enderror
+        </div>
+    
+        <div class="form-group">
+            <label for="exampleInputEmail">Email</label>
+            <input type="text" class="form-control" id="exampleInputEmail" placeholder="Enter name" wire:model="email">
+            @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+        </div>  
 
-    <div class="doc">
+    
+        <button type="submit" class="btn btn-primary">Save Contact</button>
+    </form>
+</div>
+
+<div >
         <div class="docContainer">
 
             <div class="flex spaceBetweeen addressLine">
@@ -81,7 +78,7 @@
         </div>
     </div>
 </div>
-
+@endsection
 
 
 {{-- Data Binding
