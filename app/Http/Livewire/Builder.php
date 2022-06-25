@@ -12,6 +12,8 @@ use App\Models\Address;
 
 use App\Models\Announcement;
 
+use Illuminate\Http\Request;
+
 class Builder extends Component
 {
     public $template = "Elegant professionell";
@@ -60,8 +62,10 @@ class Builder extends Component
     public $name;
     public $email;
   
-    public function submit() {   
+    public function submit(Request $request) {   
 
+
+        // validation nach create mal anschauen komplexes thema
         // $data = $this->validate([
         //     'user_id' => 'required',
         //     'address_id' => 'required',
@@ -72,8 +76,6 @@ class Builder extends Component
         //     'start' => 'required',
         //     'body' => 'required',
         // ]);
-
-
 
         $user = Auth::User();
 
@@ -106,7 +108,7 @@ class Builder extends Component
             'end' => "bla",
         ]);
         
-        return redirect()->to('/');
+        return redirect()->to('/announcement'."/".$data->id);
         
     }
 

@@ -4,8 +4,8 @@
     <form wire:submit.prevent="submit">
      <div class="form-group">
          <label for="exampleInputName">Name</label>
-         <input type="text" class="form-control" id="exampleInputName" placeholder="Enter name" wire:model="name">
-         @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+         <input type="text" class="form-control" id="exampleInputName" placeholder="Enter name" wire:model="addressArrayTwo.firt_name">
+         @error('firt_name') <span class="text-danger">{{ $message }}</span> @enderror
      </div>
    
      <div class="form-group">
