@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
 use Livewire\Component;
 
@@ -53,77 +53,44 @@ class Builder extends Component
         public $end = "Im Juni 2022 werde ich voraussichtlich Ausbildung abschließen.
         Ich bin überzeugt den Anforderungen gerecht zu werden, über ein persönliches Gespräch würde ich mich sehr freuen.";
 
-## fülle erst, nach und nach den array um ihn später complett in die request zu schicken!"
-
-    public function mount() {
-
-        $user = Auth::User();
-
-        array_push($this->addressArrayOne, [
-            "salutation" => $this->salutation,
-            "title" => $this->title,
-            "company" => $this->company,
-            "street" => $this->street,
-            "number" => $this->number,
-            "postcode" => $this->postcode,
-            "city" => $this->city,
-        ]);
-
-        array_push($this->addressArrayTwo, [
-            "salutation" => $user->salutation,
-            "title" => $user->title,
-            "first_name" => $user->first_name,
-            "last_name" => $user->last_name,
-
-            "street" => isset($user->address->street)?$user->address->street:"fakestreet",
-            "number" => isset($user->address->number)?$user->address->number:1,
-            "postcode" => isset($user->address->postcode)?$user->address->postcode:12345,
-            "city" => isset($user->address->city)?$user->address->city:"FakeTown",
-        ]);
-    }
-
-## Mount ist wie Construcktor, wird beim startup ausgeführt
-    // public function mount(Request $r, $name)
-    // {
-    //     $this->name = $r->input('name', $name);
-    // }
-
-    public function setJob() {
-        $this->job = "Chiko";
-    }
 
 
-    public function submit()
-    {
+
+
+    public $name;
+    public $email;
+  
+    public function submit() {   
 
         // $data = $this->validate([
         //     'user_id' => 'required',
         //     'address_id' => 'required',
-    
         //     'company' => 'required',
         //     'job' => 'required',
         //     'contact' => 'required',
         //     'type' => 'required',
-    
         //     'start' => 'required',
         //     'body' => 'required',
         // ]);
-  
-        // Contact::create($data);
+
+
+
         $user = Auth::User();
+
+        $user->address = NULL;
 
         if($user->address) {
             $address_id = $user->address->id;
         } else {
             $address = Address::create([
                 'street' => "fakestreet",
+                'number' => 1,
                 'postcode' => 71287,
                 'country' => "Weissach",
             ]);
 
             $address_id = $address->id;
         }
-
 
         $data = Announcement::create([
             'user_id' => $user->id,
@@ -138,32 +105,9 @@ class Builder extends Component
             'body' => "bla",
             'end' => "bla",
         ]);
-
-        $string = "announcement/$data->id";
-
-        return redirect()->to($string);
-
-    }
-
-    public function create()
-    {
-        $user = Auth::User();
-
-        dd($user);
-        return Announcement::create([
-            'user_id' => $user->id,
-            'address_id' => 1,
-    
-            'company' => "WunschFirma",
-            'job' => "MeineArbeit",
-            'contact' => "Herr Martin",
-            'type' => "Vollzeit",
-    
-            'start' => "bla",
-            'body' => "bla",
-            'end' => "bla",
-        ]);
-        return redirect()->to("/");
+        
+        return redirect()->to('/');
+        
     }
 
     public function render()

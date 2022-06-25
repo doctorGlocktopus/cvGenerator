@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Address;
 use App\Models\Announcement;
 use Auth;
 
@@ -64,6 +65,48 @@ class HomeController extends Controller
             return view('announcement', ['error' => "Bruder, dass sind nicht deine Daten"]);
         }
         else
+        return view('user', ['user' => $user]);
+    }
+
+
+
+
+
+## Kappa probier das mal im normalen controller. dann weißt du ob die query right ist
+
+
+    public function newTest() {
+
+        $user = Auth::User();
+
+        $user->address = NULL;
+
+        if($user->address) {
+            $address_id = $user->address->id;
+        } else {
+            $address = Address::create([
+                'street' => "fakestreet",
+                'postcode' => 71287,
+                'country' => "Weissach",
+            ]);
+
+            $address_id = $address->id;
+        }
+
+        $data = Announcement::create([
+            'user_id' => $user->id,
+            'address_id' => $address_id,
+    
+            'company' => "sss",
+            'job' => "MeineArbeit",
+            'contact' => "Herr Martin",
+            'type' => "Vollzeit",
+    
+            'start' => "bla",
+            'body' => "bla",
+            'end' => "bla",
+        ]);
+
         return view('user', ['user' => $user]);
     }
 }
