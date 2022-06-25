@@ -12,48 +12,44 @@ use App\Models\Address;
 
 use App\Models\Announcement;
 
-use Illuminate\Http\Request;
-
 class Builder extends Component
 {
     public $template = "Elegant professionell";
 
     public $addressArrayOne = [];
 
-    public $addressArrayTwo = [];
+    public $salutation = "Herr";
 
-        public $salutation = "Herr";
+    public $title = "Dr.";
 
-        public $title = "Dr.";
+    public $first_name = "Vorname";
 
-        public $first_name = "Vorname";
+    public $last_name = "Nachname";
 
-        public $last_name = "Nachname";
+    public $street = "Fakestreet";
 
-        public $street = "Fakestreet";
+    public $number = 16;
 
-        public $number = 16;
+    public $postcode = 12345;
 
-        public $postcode = 12345;
+    public $city = "FakeTown";
 
-        public $city = "FakeTown";
+    public $company;
 
-        public $company = "WunschFirma";
+    public $job = "WunschJob";
 
-        public $job = "WunschJob";
+    public $contact = "Herr Jelly";
 
-        public $contact = "Herr Jelly";
+    public $type = "Vollzeit";
 
-        public $type = "Vollzeit";
+    public $start = "die Aussicht bei einem so modernen Unternehmen wie der Accenture Dienstleistungen GmbH den Einstieg in ein für mich sehr attraktives Berufsfeld zu erhalten, finde ich spannend und halte es für die optimale Herausforderung.";
 
-        public $start = "die Aussicht bei einem so modernen Unternehmen wie der Accenture Dienstleistungen GmbH den Einstieg in ein für mich sehr attraktives Berufsfeld zu erhalten, finde ich spannend und halte es für die optimale Herausforderung.";
+    public $body = "Ich besitze sehr umfangreiches Wissen in PHP, HTML, CSS und Javascript.
+    Dieses wende ich unter Einsatz der Frameworks Angular 2 und Laravel an um eine Cloud fähige Business Software zu entwickeln.
+    Zu meinen täglichen Aufgaben gehörten neben der Front- und Backend Entwicklung, auch die optimierung für Suchmaschinen sowie die Gestaltung der Layouts für Webauftritte.<br>";
 
-        public $body = "Ich besitze sehr umfangreiches Wissen in PHP, HTML, CSS und Javascript.
-        Dieses wende ich unter Einsatz der Frameworks Angular 2 und Laravel an um eine Cloud fähige Business Software zu entwickeln.
-        Zu meinen täglichen Aufgaben gehörten neben der Front- und Backend Entwicklung, auch die optimierung für Suchmaschinen sowie die Gestaltung der Layouts für Webauftritte.<br>";
-
-        public $end = "Im Juni 2022 werde ich voraussichtlich Ausbildung abschließen.
-        Ich bin überzeugt den Anforderungen gerecht zu werden, über ein persönliches Gespräch würde ich mich sehr freuen.";
+    public $end = "Im Juni 2022 werde ich voraussichtlich Ausbildung abschließen.
+    Ich bin überzeugt den Anforderungen gerecht zu werden, über ein persönliches Gespräch würde ich mich sehr freuen.";
 
 
 
@@ -62,7 +58,11 @@ class Builder extends Component
     public $name;
     public $email;
   
-    public function submit(Request $request) {   
+    public function submit() {   
+
+        ##$this->validate();
+
+
 
 
         // validation nach create mal anschauen komplexes thema
@@ -76,6 +76,7 @@ class Builder extends Component
         //     'start' => 'required',
         //     'body' => 'required',
         // ]);
+
 
         $user = Auth::User();
 
@@ -98,7 +99,7 @@ class Builder extends Component
             'user_id' => $user->id,
             'address_id' => $address_id,
     
-            'company' => "sss",
+            'company' => $this->company,
             'job' => "MeineArbeit",
             'contact' => "Herr Martin",
             'type' => "Vollzeit",

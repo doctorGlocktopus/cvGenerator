@@ -1,13 +1,25 @@
 @section('content')
 
+user_id
+address_id
+company
+job
+contact
+start
+body
+end
+
+
+
 <div>
     <form wire:submit.prevent="submit">
      <div class="form-group">
          <label for="exampleInputName">Name</label>
-         <input type="text" class="form-control" id="exampleInputName" placeholder="Enter name" wire:model="addressArrayTwo.firt_name">
+         <input type="text" class="form-control" id="exampleInputName" placeholder="Enter name" wire:model="company">
          @error('firt_name') <span class="text-danger">{{ $message }}</span> @enderror
+
      </div>
-   
+
      <div class="form-group">
          <label for="exampleInputEmail">Email</label>
          <input type="text" class="form-control" id="exampleInputEmail" placeholder="Enter name" wire:model="email">
