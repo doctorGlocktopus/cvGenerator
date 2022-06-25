@@ -18,45 +18,37 @@ class Builder extends Component
 
     public $addressArrayOne = [];
 
-    public $salutation = "Herr";
+    public $salutation;
 
-    public $title = "Dr.";
+    public $title;
 
-    public $first_name = "Vorname";
+    public $first_name;
 
-    public $last_name = "Nachname";
+    public $last_name;
 
-    public $street = "Fakestreet";
+    public $street;
 
-    public $number = 16;
+    public $number;
 
-    public $postcode = 12345;
+    public $postcode;
 
-    public $city = "FakeTown";
+    public $city;
 
     public $company;
 
-    public $job = "WunschJob";
+    public $job;
 
-    public $contact = "Herr Jelly";
+    public $contactGender;
 
-    public $type = "Vollzeit";
+    public $contact;
 
-    public $start = "die Aussicht bei einem so modernen Unternehmen wie der Accenture Dienstleistungen GmbH den Einstieg in ein für mich sehr attraktives Berufsfeld zu erhalten, finde ich spannend und halte es für die optimale Herausforderung.";
+    public $type;
 
-    public $body = "Ich besitze sehr umfangreiches Wissen in PHP, HTML, CSS und Javascript.
-    Dieses wende ich unter Einsatz der Frameworks Angular 2 und Laravel an um eine Cloud fähige Business Software zu entwickeln.
-    Zu meinen täglichen Aufgaben gehörten neben der Front- und Backend Entwicklung, auch die optimierung für Suchmaschinen sowie die Gestaltung der Layouts für Webauftritte.<br>";
+    public $start;
 
-    public $end = "Im Juni 2022 werde ich voraussichtlich Ausbildung abschließen.
-    Ich bin überzeugt den Anforderungen gerecht zu werden, über ein persönliches Gespräch würde ich mich sehr freuen.";
+    public $body;
 
-
-
-
-
-    public $name;
-    public $email;
+    public $end;
   
     public function submit() {   
 
@@ -82,6 +74,7 @@ class Builder extends Component
 
         $user->address = NULL;
 
+
         if($user->address) {
             $address_id = $user->address->id;
         } else {
@@ -95,18 +88,20 @@ class Builder extends Component
             $address_id = $address->id;
         }
 
+        $comboContact = $this->contactGender." ".$this->contact;
+
         $data = Announcement::create([
             'user_id' => $user->id,
             'address_id' => $address_id,
     
             'company' => $this->company,
-            'job' => "MeineArbeit",
-            'contact' => "Herr Martin",
-            'type' => "Vollzeit",
+            'job' => $this->job,
+            'contact' => $comboContact,
+            'type' => $this->type,
     
-            'start' => "bla",
-            'body' => "bla",
-            'end' => "bla",
+            'start' => $this->start,
+            'body' => $this->body,
+            'end' => $this->end,
         ]);
         
         return redirect()->to('/announcement'."/".$data->id);
