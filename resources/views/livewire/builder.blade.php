@@ -13,8 +13,7 @@
             <input type="text" class="form-control" placeholder="Arbeitsplatz" wire:model="job">
             @error('Arbeitsplatz') <span class="text-danger">{{ $message }}</span> @enderror
             <label>Beschäftigungsart</label>
-            <select class="form-control form-select" wire:model="type" aria-label="Default select example">
-                <option value=""></option>
+            <select class="form-control form-select" wire:model="type" aria-label="Beschäftigungsart">
                 <option value="Vollzeit">Vollzeit</option>
                 <option value="Teilzeit">Teilzeit</option>
                 <option value="450€ Basis">Divers</option>
@@ -22,15 +21,23 @@
             @error('Beruf') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
 
+
+
         <div class="form-group">
-            <label>kennen wir eine Kontaktperson? // optional</label>
-                <select class="form-control form-select" wire:model="contactGender" aria-label="Default select example">
-                    <option value=""></option>
-                    <option value="Herr">Herr</option>
-                    <option value="Frau">Frau</option>
-                    <option value="Es">Divers</option>
-                </select>
-            <input type="text" class="form-control" placeholder="Kontaktperson" wire:model="contact">
+                <div class="flex">
+                    <div>
+                        <label>Anrede</label>
+                        <select class="form-control form-select w33" wire:model="contactGender" aria-label="Geschlecht">
+                            <option value="Herr">Herr</option>
+                            <option value="Frau">Frau</option>
+                            <option value="Es">Divers</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Nachname</label>
+                        <input type="text" class="form-control" placeholder="Kontaktperson" wire:model="contact">
+                    </div>
+                </div>
             @error('Kontaktperson') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
 
