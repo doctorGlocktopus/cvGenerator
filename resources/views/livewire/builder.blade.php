@@ -1,6 +1,4 @@
-@section('content')
-
-<div class="flex columnD padding10pc minW800">
+<div class=" flex columnD padding10pc minW800">
     <h3>Adresse des Empfängers</h3>
     <form wire:submit.prevent="submit">
 

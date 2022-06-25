@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @livewireScripts
 @livewireStyles
-
-<div class="doc">
-    <livewire:builder />
-</div>
-
+@section('content')
+    <div>
+        <livewire:builder />
+    </div>
+@endsection
 {{--
 <div wire:ignore.self id="studentModal" tabindex="0" aria-labelledby="studentModalLabel" style="position: absolute;"
     aria-hidden="true">
