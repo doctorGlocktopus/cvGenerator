@@ -10,6 +10,8 @@ use Auth;
 
 use App\Models\Address;
 
+use App\Models\User;
+
 use App\Models\Announcement;
 
 class Builder extends Component
@@ -32,7 +34,7 @@ class Builder extends Component
 
     public $postcode;
 
-    public $city;
+    public $country;
 
     public $company;
 
@@ -49,6 +51,14 @@ class Builder extends Component
     public $body;
 
     public $end;
+
+    public $test;
+
+    public function mount() {
+        if(Auth::User()->address_id == NULL) {
+            $this->test = 1;
+        };
+    }
   
     public function submit() {   
 
@@ -111,5 +121,20 @@ class Builder extends Component
     public function render()
     {
         return view('livewire.builder');
+    }
+
+    
+    public function address()
+    {
+        $address = Address::create([
+            'street' => $this->street,
+            'number' => $this->number,
+            'postcode' => $this->postcode,
+            'country' => $this->country,
+        ]);
+
+        User::where('id', '=', Auth::User()->id)->update(['address_id' => $address->id]);
+
+        $this->test = "dasdas";
     }
 }

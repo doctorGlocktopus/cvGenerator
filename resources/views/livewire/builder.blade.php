@@ -1,4 +1,40 @@
-<div class=" flex columnD padding10pc minW800">
+@if($test == 1)
+<div class="flex columnD padding10pc minW800">
+
+    <h3>Wir brauchen zu erst deine eigene Adresse</h3>
+    <form wire:submit.prevent="address">
+
+        <div class="inLineFlex">
+            <div class="form-group">
+                <label>Straße</label>
+                <input type="text" class="form-control" placeholder="Straße" wire:model="street">
+                @error('Straße') <span class="text-danger">{{ $message }}</span> @enderror          
+
+                <label>Hausnummer</label>
+                <input type="number" class="form-control" placeholder="Hausnummer" wire:model="number">
+                @error('Hausnumme') <span class="text-danger">{{ $message }}</span> @enderror          
+            </div>
+        </div>
+
+        <div class="inLineFlex">
+            <div class="form-group">
+                <label>Postleitzahl</label>
+                <input type="number" class="form-control" placeholder="Postleitzahl" wire:model="postcode">
+                @error('Postleitzahl') <span class="text-danger">{{ $message }}</span> @enderror          
+
+                <label>Stadt</label>
+                <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model="country">
+                @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror          
+            </div>
+        </div>
+
+    
+        <button type="submit" class="btn btn-primary">Meine Adresse speichern</button>
+    </form>
+</div>
+
+@else
+<div class="flex columnD padding10pc minW800">
     <h3>Adresse des Empfängers</h3>
     <form wire:submit.prevent="submit">
 
@@ -67,3 +103,5 @@
         <button type="submit" class="btn btn-primary">Save Contact</button>
     </form>
 </div>
+
+@endif

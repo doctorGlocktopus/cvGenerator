@@ -75,38 +75,38 @@ class HomeController extends Controller
 ## Kappa probier das mal im normalen controller. dann weißt du ob die query right ist
 
 
-    public function newTest() {
+    // public function newTest() {
 
-        $user = Auth::User();
+    //     $user = Auth::User();
 
-        $user->address = NULL;
+    //     $user->address = NULL;
 
-        if($user->address) {
-            $address_id = $user->address->id;
-        } else {
-            $address = Address::create([
-                'street' => "fakestreet",
-                'postcode' => 71287,
-                'country' => "Weissach",
-            ]);
+    //     if($user->address) {
+    //         $address_id = $user->address->id;
+    //     } else {
+    //         $address = Address::create([
+    //             'street' => "fakestreet",
+    //             'postcode' => 71287,
+    //             'country' => "Weissach",
+    //         ]);
 
-            $address_id = $address->id;
-        }
+    //         $address_id = $address->id;
+    //     }
 
-        $data = Announcement::create([
-            'user_id' => $user->id,
-            'address_id' => $address_id,
+    //     $data = Announcement::create([
+    //         'user_id' => $user->id,
+    //         'address_id' => $address_id,
     
-            'company' => "sss",
-            'job' => "MeineArbeit",
-            'contact' => "Herr Martin",
-            'type' => "Vollzeit",
+    //         'company' => "sss",
+    //         'job' => "MeineArbeit",
+    //         'contact' => "Herr Martin",
+    //         'type' => "Vollzeit",
     
-            'start' => "bla",
-            'body' => "bla",
-            'end' => "bla",
-        ]);
+    //         'start' => "bla",
+    //         'body' => "bla",
+    //         'end' => "bla",
+    //     ]);
 
-        return view('user', ['user' => $user]);
-    }
+    //     return view('user', ['user' => $user]);
+    // }
 }
