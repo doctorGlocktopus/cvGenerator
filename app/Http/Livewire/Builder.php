@@ -34,7 +34,7 @@ class Builder extends Component
 
     public $postcode;
 
-    public $country;
+    public $city;
 
     public $company;
 
@@ -52,11 +52,11 @@ class Builder extends Component
 
     public $end;
 
-    public $test;
+    public $step;
 
     public function mount() {
         if(Auth::User()->address_id == NULL) {
-            $this->test = 1;
+            $this->step = 0;
         };
     }
   
@@ -89,10 +89,9 @@ class Builder extends Component
             $address_id = $user->address->id;
         } else {
             $address = Address::create([
-                'street' => "fakestreet",
-                'number' => 1,
+                'street' => "fakestreet 1",
                 'postcode' => 71287,
-                'country' => "Weissach",
+                'city' => "Weissach",
             ]);
 
             $address_id = $address->id;
@@ -117,24 +116,25 @@ class Builder extends Component
         return redirect()->to('/announcement'."/".$data->id);
         
     }
-
-    public function render()
-    {
-        return view('livewire.builder');
-    }
-
     
     public function address()
     {
+        $street = $this->street;
+        $street .=  " $this->number";
+
         $address = Address::create([
             'street' => $this->street,
-            'number' => $this->number,
             'postcode' => $this->postcode,
-            'country' => $this->country,
+            'city' => $this->city,
         ]);
 
         User::where('id', '=', Auth::User()->id)->update(['address_id' => $address->id]);
 
-        $this->test = "dasdas";
+        $this->step = 1;
+    }
+
+    public function render()
+    {
+        return view('livewire.builder');
     }
 }

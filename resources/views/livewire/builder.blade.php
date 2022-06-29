@@ -1,6 +1,5 @@
-@if($test == 1)
+@if($step == 0)
 <div class="flex columnD padding10pc minW800">
-
     <h3>Wir brauchen zu erst deine eigene Adresse</h3>
     <form wire:submit.prevent="address">
 
@@ -23,7 +22,7 @@
                 @error('Postleitzahl') <span class="text-danger">{{ $message }}</span> @enderror          
 
                 <label>Stadt</label>
-                <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model="country">
+                <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model="city">
                 @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror          
             </div>
         </div>
@@ -34,6 +33,7 @@
 </div>
 
 @else
+
 <div class="flex columnD padding10pc minW800">
     <h3>Adresse des Empfängers</h3>
     <form wire:submit.prevent="submit">

@@ -11,9 +11,8 @@ class address extends Model
 
     protected $fillable = [
         'street',
-        'number',
         'postcode',
-        'country'
+        'city'
     ];
 
     public function user()
