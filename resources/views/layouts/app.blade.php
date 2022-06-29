@@ -14,6 +14,14 @@
         background-image: repeating-linear-gradient(45deg, #596f80 0%, #596f80 4%, #cfdce6 2%, #cfdce6 8%, white 2%);
     }
 
+    .link {
+        cursor: pointer;
+    }
+
+    .inLineFlex {
+        display: inline-flex;
+    }
+
     .w33 {
         width: 33%;
     }
@@ -40,7 +48,8 @@
     }
 
     .banner {
-        font-size: 436%!important;
+        font-family: papyrus;
+        font-size: 473%!important;
         padding: 20px;
         background: #6096bf;
         outline: auto;

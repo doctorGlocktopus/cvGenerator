@@ -30,11 +30,15 @@
             Sehr geehrter {{$announcement->contact}},
             <br>
             <br>
+            <!-- start -->
             {{ $announcement->start }}
+            <br>
             <br>
             <!-- body -->
             {{ $announcement->body }}
             <!-- end -->
+            <br>
+            <br>
             {{ $announcement->end }}
             <br>
             <br>
