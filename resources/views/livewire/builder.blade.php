@@ -1,3 +1,5 @@
+{{$blast}}
+
 @if($step == 0)
 <div class="flex columnD padding10pc minW800">
     <h3>Wir brauchen zu erst deine eigene Adresse</h3>

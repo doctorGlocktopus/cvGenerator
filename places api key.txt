@@ -1,0 +1,16 @@
+fsq34CTYpSiQvowj4PUG9hFJfJf/XqKM4fSrkWniRLaNqx0=
+
+
+
+https://de.foursquare.com/developers/orgs/62c02ff8752a7357c462a871/projects/62c02ff8752a7357c462a87d/settings
+
+
+
+Client Id
+TPQZJDKV3MDGMCMKK343YIMFVFAEFB25OMVUJG0IWZ2BP2B5
+
+Client Secret
+4UAK2QRK0H54LNE22XD3JH2504TBA5FQJN1LI3CGQTMUAT3J
+
+
+http://bewerbung.test/api/addresses

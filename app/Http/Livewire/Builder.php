@@ -14,6 +14,8 @@ use App\Models\User;
 
 use App\Models\Announcement;
 
+use Illuminate\Routing\Router;
+
 class Builder extends Component
 {
     public $template = "Elegant professionell";
@@ -54,7 +56,31 @@ class Builder extends Component
 
     public $step;
 
+
+
+    public $blast;
+
+    public $CLIENT_ID = "TPQZJDKV3MDGMCMKK343YIMFVFAEFB25OMVUJG0IWZ2BP2B5";
+
+    public $CLIENT_SECRET = "4UAK2QRK0H54LNE22XD3JH2504TBA5FQJN1LI3CGQTMUAT3J";
+
+    public $venue_id = "fsq34CTYpSiQvowj4PUG9hFJfJf/XqKM4fSrkWniRLaNqx0=";
+
     public function mount() {
+
+
+        $url = 'https://api.foursquare.com/v2/venues/${venue_id}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=20180323';
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HTTPGET, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response_json = curl_exec($ch);
+        curl_close($ch);
+        $response=json_decode($response_json, true);
+
+        dd($response);
+
+        // $blast = Route::get(`https://api.foursquare.com/v2/venues/${venue_id}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=20180323`);
+
         if(Auth::User()->address_id == NULL) {
             $this->step = 0;
         };
