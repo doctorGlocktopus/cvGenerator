@@ -69,7 +69,7 @@ class Builder extends Component
     public function mount() {
 
 
-        $url = 'https://api.foursquare.com/v2/venues/${venue_id}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=20180323';
+        $url = "https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id=TPQZJDKV3MDGMCMKK343YIMFVFAEFB25OMVUJG0IWZ2BP2B5&client_secret=4UAK2QRK0H54LNE22XD3JH2504TBA5FQJN1LI3CGQTMUAT3J&v=20180323";
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HTTPGET, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
