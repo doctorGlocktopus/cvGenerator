@@ -8,7 +8,7 @@
             @foreach($users as $user)
                 <a href="/overviewAnnouncement/{{$user->id}}" >ID: {{ $user->id }} {{$user->first_name}} {{$user->last_name}}</a> <br>
                 Straße: {{$user->address->street}} {{$user->address->number}}<br>
-                Stadt: {{$user->address->country}} <br>
+                Stadt: {{$user->address->city}} <br>
                 <br>
             @endforeach
         </div>

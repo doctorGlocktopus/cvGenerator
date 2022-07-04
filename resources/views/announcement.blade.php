@@ -1,8 +1,12 @@
 @extends('layouts.app')
-<h1>{{$error}}</h1>
+
+@section('content')
+<div>
+    <h1>{{$error}}</h1>
+    <h1>{{ $announcement->id }}</h1>
+</div>
 <div class="doc">
     <div class="docContainer">
-        <h1>{{ $announcement->id }}</h1>
         <div class="flex spaceBetweeen addressLine">
             <div class="address">
                 {{ $announcement->company }}<br>
@@ -51,3 +55,4 @@
         </div>
     </div>
 </div>
+@endsection
