@@ -68,21 +68,10 @@ class Builder extends Component
 
     public function mount() {
 
-
-        $url = "https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id=TPQZJDKV3MDGMCMKK343YIMFVFAEFB25OMVUJG0IWZ2BP2B5&client_secret=4UAK2QRK0H54LNE22XD3JH2504TBA5FQJN1LI3CGQTMUAT3J&v=20180323";
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_HTTPGET, true);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response_json = curl_exec($ch);
-        curl_close($ch);
-        $response=json_decode($response_json, true);
-
-        dd($response);
-
-        // $blast = Route::get(`https://api.foursquare.com/v2/venues/${venue_id}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=20180323`);
-
         if(Auth::User()->address_id == NULL) {
             $this->step = 0;
+        } else {
+            $this->step = 1;
         };
     }
   
@@ -109,19 +98,6 @@ class Builder extends Component
         $user = Auth::User();
 
         $user->address = NULL;
-
-
-        if($user->address) {
-            $address_id = $user->address->id;
-        } else {
-            $address = Address::create([
-                'street' => "fakestreet 1",
-                'postcode' => 71287,
-                'city' => "Weissach",
-            ]);
-
-            $address_id = $address->id;
-        }
 
         $comboContact = $this->contactGender." ".$this->contact;
 
