@@ -27,16 +27,6 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    public function list()
-    {
-        if(!Auth::User()->address) {
-            return view('new');
-        }
-
-        $users = User::all();
-
-        return view('overview', ['users' => $users]);
-    }
 
     public function new()
     {
@@ -51,13 +41,6 @@ class HomeController extends Controller
         $user = Auth::User();
         $announcement = Announcement::find($id);
         return view('announcement', ['id' => $id, 'error' => "", 'announcement' => $announcement, 'user' => $user]);
-    }
-
-    public function overviewAnnouncement($id)
-    {
-        // $announcements = Announcement::where('user_id', $id);
-        $announcements = Announcement::where('user_id', $id)->get();
-        return view('overviewAnnouncement', ['announcements' => $announcements]);
     }
 
 

@@ -50,8 +50,6 @@ class Builder extends Component
 
     public $type;
 
-    public $receiverAddress;
-
     public $start;
 
     public $body;
@@ -68,6 +66,10 @@ class Builder extends Component
 
     public $venue_id = "fsq34CTYpSiQvowj4PUG9hFJfJf/XqKM4fSrkWniRLaNqx0=";
 
+
+
+    public $address;
+
     public function mount() {
 
         if(Auth::User()->address_id == NULL) {
@@ -78,7 +80,6 @@ class Builder extends Component
     }
   
     public function submit() {   
-
         ##$this->validate();
 
 
@@ -102,10 +103,18 @@ class Builder extends Component
 
         $comboContact = $this->contactGender." ".$this->contact;
 
+        $street = $this->street;
+        $street .=  " $this->number";
+
+        $address = Address::create([
+            'street' => $this->street,
+            'postcode' => $this->postcode,
+            'city' => $this->city,
+        ]);
 
         $data = Announcement::create([
             'user_id' => $user->id,
-            'address_id' => $this->receiverAddress,
+            'address_id' => $address->id,
     
             'company' => $this->company,
             'job' => $this->job,
@@ -122,18 +131,16 @@ class Builder extends Component
     }
 
     public function receiverAddress() {
-        $street = $this->street;
-        $street .=  " $this->number";
+        // $street = $this->street;
+        // $street .=  " $this->number";
 
-        $address = Address::create([
-            'street' => $this->street,
-            'postcode' => $this->postcode,
-            'city' => $this->city,
-        ]);
-
+        // $address = Address::create([
+        //     'street' => $this->street,
+        //     'postcode' => $this->postcode,
+        //     'city' => $this->city,
+        // ]);
+        
         $this->step = 2;
-
-        $this->receiverAddress= $address->id;
     }
     
     public function address() {
