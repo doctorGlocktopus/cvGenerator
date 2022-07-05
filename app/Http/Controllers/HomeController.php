@@ -29,8 +29,10 @@ class HomeController extends Controller
 
     public function list()
     {
-        ##$users = DB::table('users')->get();
-        ##$users = Auth::all();
+        if(!Auth::User()->address) {
+            return view('new');
+        }
+
         $users = User::all();
 
         return view('overview', ['users' => $users]);
@@ -43,6 +45,9 @@ class HomeController extends Controller
 
     public function announcement($id)
     {
+        if(!Auth::User()->address) {
+            return view('new');
+        }
         $user = Auth::User();
         $announcement = Announcement::find($id);
         return view('announcement', ['id' => $id, 'error' => "", 'announcement' => $announcement, 'user' => $user]);
@@ -58,6 +63,10 @@ class HomeController extends Controller
 
     public function showUser($id)
     {
+        if(!Auth::User()->address) {
+            return view('new');
+        }
+
         $user = User::find($id);
 
         if($id != Auth::user()->id)
@@ -67,6 +76,9 @@ class HomeController extends Controller
         else
         return view('user', ['user' => $user]);
     }
+
+
+// testroute für addresses grep via places api
 
     public function addresses() {
         return dd(1);

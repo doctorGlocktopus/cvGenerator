@@ -13,7 +13,7 @@ class Announcement extends Migration
      */
     public function up()
     {
-        Schema::create('announcments', function (Blueprint $table) {
+        Schema::create('announcements', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
                 $table->foreign('user_id')->references('id')->on('users')->constrained();

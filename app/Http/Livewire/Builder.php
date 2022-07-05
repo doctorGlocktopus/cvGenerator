@@ -12,6 +12,8 @@ use App\Models\Address;
 
 use App\Models\User;
 
+use App\Models\Template;
+
 use App\Models\Announcement;
 
 use Illuminate\Routing\Router;
@@ -48,6 +50,8 @@ class Builder extends Component
 
     public $type;
 
+    public $receiverAddress;
+
     public $start;
 
     public $body;
@@ -55,8 +59,6 @@ class Builder extends Component
     public $end;
 
     public $step;
-
-
 
     public $blast;
 
@@ -97,19 +99,19 @@ class Builder extends Component
 
         $user = Auth::User();
 
-        $user->address = NULL;
 
         $comboContact = $this->contactGender." ".$this->contact;
 
+
         $data = Announcement::create([
             'user_id' => $user->id,
-            'address_id' => $address_id,
+            'address_id' => $this->receiverAddress,
     
             'company' => $this->company,
             'job' => $this->job,
             'contact' => $comboContact,
             'type' => $this->type,
-    
+
             'start' => $this->start,
             'body' => $this->body,
             'end' => $this->end,
@@ -118,9 +120,23 @@ class Builder extends Component
         return redirect()->to('/announcement'."/".$data->id);
         
     }
+
+    public function receiverAddress() {
+        $street = $this->street;
+        $street .=  " $this->number";
+
+        $address = Address::create([
+            'street' => $this->street,
+            'postcode' => $this->postcode,
+            'city' => $this->city,
+        ]);
+
+        $this->step = 2;
+
+        $this->receiverAddress= $address->id;
+    }
     
-    public function address()
-    {
+    public function address() {
         $street = $this->street;
         $street .=  " $this->number";
 
