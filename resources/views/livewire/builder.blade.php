@@ -127,7 +127,7 @@
             <div class="form-group">
                 <label>Einleitung</label>
                 <select class="form-control form-select w33" wire:model="start" aria-label="Einleitung">
-                    <option disabled>Geschlecht wählen</option>
+                    <option disabled>Einleitung wählen</option>
                     <option value="die Aussicht bei einem so modernen Unternehmen wie der Accenture Dienstleistungen GmbH den Einstieg in ein für mich sehr attraktives Berufsfeld zu erhalten, finde ich spannend und halte es für die optimale Herausforderung.">einfach</option>
                     <option value="Frau">Komplex</option>
                     <option value="Es">Divers</option>
@@ -142,17 +142,38 @@
             </div>
 
             <div class="form-group">
-                <label>Hauptteil</label>
-                <textarea class="form-control" placeholder="Hauptteil" wire:model="body"></textarea>
-                @error('Hauptteil') <span class="text-danger">{{ $message }}</span> @enderror
+                <label>Einleitung</label>
+                <select class="form-control form-select w33" wire:model="body" aria-label="Einleitung">
+                    <option disabled>Einleitung wählen</option>
+                    <option value="die Aussicht bei einem so modernen Unternehmen wie der Accenture Dienstleistungen GmbH den Einstieg in ein für mich sehr attraktives Berufsfeld zu erhalten, finde ich spannend und halte es für die optimale Herausforderung.">einfach</option>
+                    <option value="Frau">Komplex</option>
+                    <option value="Es">Divers</option>
+                </select>
+                <textarea class="form-control" placeholder="Einleitung" wire:model="body"></textarea>
+                @error('Einleitung') <span class="text-danger">{{ $message }}</span> @enderror
+                @if(!$body == "")
+                    <div class="myModal">
+                        {{$body}}
+                    </div>
+                @endif
             </div>
-        
+
             <div class="form-group">
-                <label>Schluss</label>
-                <textarea class="form-control" placeholder="Schluss" wire:model="end"></textarea>
-                @error('Schluss') <span class="text-danger">{{ $message }}</span> @enderror
-            </div>
-        
+                <label>Einleitung</label>
+                <select class="form-control form-select w33" wire:model="end" aria-label="Einleitung">
+                    <option disabled>Einleitung wählen</option>
+                    <option value="die Aussicht bei einem so modernen Unternehmen wie der Accenture Dienstleistungen GmbH den Einstieg in ein für mich sehr attraktives Berufsfeld zu erhalten, finde ich spannend und halte es für die optimale Herausforderung.">einfach</option>
+                    <option value="Frau">Komplex</option>
+                    <option value="Es">Divers</option>
+                </select>
+                <textarea class="form-control" placeholder="Einleitung" wire:model="end"></textarea>
+                @error('Einleitung') <span class="text-danger">{{ $message }}</span> @enderror
+                @if(!$end == "")
+                    <div class="myModal">
+                        {{$end}}
+                    </div>
+                @endif
+            </div>  
             <button type="submit" class="btn btn-primary">Save Contact</button>
         </form>
     </div>
