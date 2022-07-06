@@ -125,6 +125,19 @@
         box-shadow: 5px 5px 10px 0px;
         line-height: 2;
     }
+
+    .myModal {
+        position: absolute;
+        background: white;
+        left: 10;
+        padding: 10;
+        outline: auto;
+        outline-style: auto;
+        box-shadow: 5px 5px 10px 0px;
+        line-height: 2;
+        width: 28%;
+        top: 22%;
+    }
 </style>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">

@@ -70,7 +70,6 @@
     </div>
 @endif
 
-
 @if($step == 2)
     <div class="flex columnD padding10pc minW800">
         <h3>Daten des Empfängers</h3>
@@ -101,8 +100,6 @@
                 @error('Beruf') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
-
-
             <div class="form-group">
                     <div class="flex">
                         <div>
@@ -129,14 +126,19 @@
 
             <div class="form-group">
                 <label>Einleitung</label>
-                <select class="form-control form-select w33" wire:model="start" aria-label="Geschlecht">
+                <select class="form-control form-select w33" wire:model="start" aria-label="Einleitung">
                     <option disabled>Geschlecht wählen</option>
-                    <option value="Herr">Herr</option>
-                    <option value="Frau">Frau</option>
+                    <option value="die Aussicht bei einem so modernen Unternehmen wie der Accenture Dienstleistungen GmbH den Einstieg in ein für mich sehr attraktives Berufsfeld zu erhalten, finde ich spannend und halte es für die optimale Herausforderung.">einfach</option>
+                    <option value="Frau">Komplex</option>
                     <option value="Es">Divers</option>
                 </select>
                 <textarea class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
                 @error('Einleitung') <span class="text-danger">{{ $message }}</span> @enderror
+                @if(!$start == "")
+                    <div class="myModal">
+                        {{$start}}
+                    </div>
+                @endif
             </div>
 
             <div class="form-group">

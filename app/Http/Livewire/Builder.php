@@ -68,7 +68,7 @@ class Builder extends Component
 
     public $address;
 
-    
+
     public function mount() {
 
         if(Auth::User()->address_id == NULL) {
@@ -132,6 +132,7 @@ class Builder extends Component
     public function receiverAddress() {
         $this->step = 2;
     }
+
     
     public function address() {
         $street = $this->street;
