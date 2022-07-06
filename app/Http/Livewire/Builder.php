@@ -66,10 +66,9 @@ class Builder extends Component
 
     public $venue_id = "fsq34CTYpSiQvowj4PUG9hFJfJf/XqKM4fSrkWniRLaNqx0=";
 
-
-
     public $address;
 
+    
     public function mount() {
 
         if(Auth::User()->address_id == NULL) {
@@ -78,7 +77,7 @@ class Builder extends Component
             $this->step = 1;
         };
     }
-  
+
     public function submit() {   
         ##$this->validate();
 
@@ -131,15 +130,6 @@ class Builder extends Component
     }
 
     public function receiverAddress() {
-        // $street = $this->street;
-        // $street .=  " $this->number";
-
-        // $address = Address::create([
-        //     'street' => $this->street,
-        //     'postcode' => $this->postcode,
-        //     'city' => $this->city,
-        // ]);
-        
         $this->step = 2;
     }
     

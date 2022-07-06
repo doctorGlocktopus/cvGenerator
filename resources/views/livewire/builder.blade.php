@@ -70,9 +70,10 @@
     </div>
 @endif
 
+
 @if($step == 2)
     <div class="flex columnD padding10pc minW800">
-        <h3>Adresse des Empfängers</h3>
+        <h3>Daten des Empfängers</h3>
         <form wire:submit.prevent="submit">
 
             <div class="form-group">
@@ -86,11 +87,17 @@
                 <input type="text" class="form-control" placeholder="Arbeitsplatz" wire:model="job">
                 @error('Arbeitsplatz') <span class="text-danger">{{ $message }}</span> @enderror
                 <label>Beschäftigungsart</label>
+                @if(!$type == "eigene")
                 <select class="form-control form-select" wire:model="type" aria-label="Beschäftigungsart">
+                    <option disabled> Beschäftigungsart wählen</option>
                     <option value="Vollzeit">Vollzeit</option>
                     <option value="Teilzeit">Teilzeit</option>
-                    <option value="450€ Basis">Divers</option>
+                    <option value="450€ Basis">450€ Basis</option>
+                    <option value="eigene">eigene Angabe wählen</option>
                 </select>
+                @else
+                    <input class="form-control form-select" wire:model="type" aria-label="Beschäftigungsart">
+                @endif
                 @error('Beruf') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
@@ -100,11 +107,16 @@
                     <div class="flex">
                         <div>
                             <label>Anrede</label>
+                            @if(!$contactGender == "eigene")
                             <select class="form-control form-select w33" wire:model="contactGender" aria-label="Geschlecht">
-                                <option value="Herr">Herr</option>
+                                <option disabled>Geschlecht wählen</option>
+                                <option selected value="Herr">Herr</option>
                                 <option value="Frau">Frau</option>
-                                <option value="Es">Divers</option>
+                                <option value="eigene">eigene Definition</option>
                             </select>
+                            @else
+                                <input class="form-control form-select" wire:model="contactGender" aria-label="Beschäftigungsart">
+                            @endif
                         </div>
                         <div>
                             <label>Nachname</label>
@@ -115,13 +127,10 @@
             </div>
 
 
-
-
-
-
             <div class="form-group">
                 <label>Einleitung</label>
                 <select class="form-control form-select w33" wire:model="start" aria-label="Geschlecht">
+                    <option disabled>Geschlecht wählen</option>
                     <option value="Herr">Herr</option>
                     <option value="Frau">Frau</option>
                     <option value="Es">Divers</option>
