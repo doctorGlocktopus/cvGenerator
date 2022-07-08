@@ -127,17 +127,29 @@
     }
 
     .myModal {
-        position: absolute;
+        position: relative;
         background: white;
-        left: 10;
         padding: 10;
         outline: auto;
         outline-style: auto;
         box-shadow: 5px 5px 10px 0px;
         line-height: 2;
-        width: 28%;
-        top: 22%;
+        cursor: pointer;
+        margin-bottom: 3%;
+        font-style: initial;
     }
+
+    .myModal > label {
+        text-decoration: underline;
+    }
+
+    .modalContainer {
+        position: absolute;
+        left: 10;
+        top: 22%;
+        width: 28%;
+    }
+
 </style>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
