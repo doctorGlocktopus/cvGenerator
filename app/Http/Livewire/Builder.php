@@ -123,6 +123,8 @@ class Builder extends Component
             'start' => $this->start,
             'body' => $this->body,
             'end' => $this->end,
+
+            'temp' => "elegant Proffesionel",
         ]);
         
         return redirect()->to('/announcement'."/".$data->id);

@@ -40,6 +40,10 @@
         outline-style: auto;
         box-shadow: 5px 5px 10px 0px;
         height: fit-content;
+
+        animation: fadeInAnimation ease 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
     }
 
     .contentWrapper {
@@ -124,6 +128,7 @@
         outline-style: auto;
         box-shadow: 5px 5px 10px 0px;
         line-height: 2;
+        z-index: 10;
     }
 
     .myModal {
@@ -134,10 +139,24 @@
         outline-style: auto;
         box-shadow: 5px 5px 10px 0px;
         line-height: 2;
-        cursor: pointer;
         margin-bottom: 3%;
         font-style: initial;
+
+
+
+            animation: fadeInAnimation ease 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
     }
+
+        @keyframes fadeInAnimation {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
 
     .myModal > label {
         text-decoration: underline;

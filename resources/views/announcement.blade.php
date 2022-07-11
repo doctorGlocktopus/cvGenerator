@@ -3,7 +3,8 @@
 @section('content')
 <div>
     <h1>{{$error}}</h1>
-    <h1>{{ $announcement->id }}</h1>
+    <h1>{{ $announcement->id }} User</h1>
+    <h1>{{ $announcement->temp }} Template</h1>
 </div>
 <div class="doc">
     <div class="docContainer">

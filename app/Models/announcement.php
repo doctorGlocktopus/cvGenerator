@@ -22,6 +22,8 @@ class Announcement extends Model
         'start',
         'body',
         'end',
+
+        'temp',
     ];
 
     public function user()

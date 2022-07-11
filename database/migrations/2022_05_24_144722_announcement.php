@@ -28,6 +28,8 @@ class Announcement extends Migration
             $table->string('start');
             $table->string('body');
             $table->string('end');
+
+            $table->string('temp');
             $table->timestamps();
         });
 

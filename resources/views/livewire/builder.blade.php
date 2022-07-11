@@ -162,7 +162,20 @@
             </div>  
             <button type="submit" class="btn btn-primary">Save Contact</button>
         </form>
+        
         <div class="modalContainer">
+            @if(!$company == "")
+                <div class="myModal">
+                    <label>Firma und Stelle</label><br>
+                    {{$company}} als {{$job}} in {{$type}}
+                </div>
+            @endif      
+            @if(!$contact == "")
+                <div class="myModal">
+                    <label>Kontaktperson</label><br>
+                    {{$contactGender}} {{$contact}}
+                </div>
+            @endif           
             @if(!$start == "")
                 <div class="myModal">
                     <label>Einleitung:</label><br>
