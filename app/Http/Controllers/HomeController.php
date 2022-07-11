@@ -18,7 +18,6 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->user = Auth::User();
     }
 
     /**
@@ -40,42 +39,17 @@ class HomeController extends Controller
         }
         $user = Auth::User();
         $announcement = Announcement::find($id);
+        
         return view('announcement', ['id' => $id, 'error' => "", 'announcement' => $announcement, 'user' => $user]);
     }
 
 
-    public function showUser($id)
+    public function list()
     {
         if(!Auth::User()->address) {
             return view('new');
+        } else {
+            return view('user');
         }
-
-        $user = User::find($id);
-
-        if($id != Auth::user()->id)
-        {
-            return view('announcement', ['error' => "Bruder, dass sind nicht deine Daten"]);
-        }
-        else
-        return view('user', ['user' => $user]);
-    }
-
-
-// testroute für addresses grep via places api
-
-    public function addresses() {
-        return dd(1);
-    }
-
-    public function update($id) {
-
-        $announcement = Announcement::find($id);
-        $announcement->start = 'abc';
-        $announcement->body = 'abc';
-        $announcement->end = 'abc';
-
-        dd($announcement);
-        $announcement->save();
-
     }
 }

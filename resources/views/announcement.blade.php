@@ -1,12 +1,5 @@
 @extends('layouts.app')
-
 @section('content')
-<div>
-    <h1>{{$error}}</h1>
-    <h1>{{ $announcement->id }} User</h1>
-    <h1>{{ $announcement->temp }} Template</h1>
-    <a href="/announcement/update/{{$announcement->id}}">Update File</a>
-</div>
 <div class="doc">
     <div class="docContainer">
         <div class="flex spaceBetweeen addressLine">

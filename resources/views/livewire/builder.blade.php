@@ -160,7 +160,7 @@
                 @error('Schluss') <span class="text-danger">{{ $message }}</span> @enderror
 
             </div>  
-            <button type="submit" class="btn btn-primary">Save Contact</button>
+            <button type="submit" class="btn btn-primary">Bewerbung abspeichern</button>
         </form>
         
         <div class="modalContainer">

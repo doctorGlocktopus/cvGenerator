@@ -26,6 +26,10 @@
         width: 33%;
     }
 
+    .w100 {
+        width: 100%;
+    }
+
     .templateHeader {
         color: wheat;
         background: #596f80;
@@ -189,7 +193,7 @@
                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
             @endif
         @else
-            <a href="/user/<?= Auth::user()->id; ?>">
+            <a href="/list">
                 {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
             </a>
             <a href="{{ route('logout') }}"
