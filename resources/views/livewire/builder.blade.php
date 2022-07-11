@@ -128,9 +128,9 @@
                 <label>Einleitung</label>
                 <select class="form-control form-select w33" wire:model="start" aria-label="Einleitung">
                     <option disabled>Einleitung wählen</option>
-                    <option value="die Aussicht bei einem so modernen Unternehmen wie der Accenture Dienstleistungen GmbH den Einstieg in ein für mich sehr attraktives Berufsfeld zu erhalten, finde ich spannend und halte es für die optimale Herausforderung.">einfach</option>
-                    <option value="Frau">Komplex</option>
-                    <option value="Es">Divers</option>
+                    @foreach($templates as $temp)
+                        <option value="{{$temp->start}}">{{$temp->name}}</option>
+                    @endforeach
                 </select>
                 <textarea class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
                 @error('Einleitung') <span class="text-danger">{{ $message }}</span> @enderror
@@ -140,9 +140,9 @@
                 <label>Hauptteil</label>
                 <select class="form-control form-select w33" wire:model="body" aria-label="Hauptteil">
                     <option disabled>Hauptteil wählen</option>
-                    <option value="die Aussicht bei einem so modernen Unternehmen wie der Accenture Dienstleistungen GmbH den Einstieg in ein für mich sehr attraktives Berufsfeld zu erhalten, finde ich spannend und halte es für die optimale Herausforderung.">einfach</option>
-                    <option value="Frau">Komplex</option>
-                    <option value="Es">Divers</option>
+                    @foreach($templates as $temp)
+                        <option value="{{$temp->body}}">{{$temp->name}}</option>
+                    @endforeach
                 </select>
                 <textarea class="form-control" placeholder="Hauptteil" wire:model="body"></textarea>
                 @error('Hauptteil') <span class="text-danger">{{ $message }}</span> @enderror
@@ -152,9 +152,9 @@
                 <label>Schluss</label>
                 <select class="form-control form-select w33" wire:model="end" aria-label="Schluss">
                     <option disabled>Schluss wählen</option>
-                    <option value="die Aussicht bei einem so modernen Unternehmen wie der Accenture Dienstleistungen GmbH den Einstieg in ein für mich sehr attraktives Berufsfeld zu erhalten, finde ich spannend und halte es für die optimale Herausforderung.">einfach</option>
-                    <option value="Frau">Komplex</option>
-                    <option value="Es">Divers</option>
+                    @foreach($templates as $temp)
+                        <option value="{{$temp->end}}">{{$temp->name}}</option>
+                    @endforeach
                 </select>
                 <textarea class="form-control" placeholder="Schluss" wire:model="end"></textarea>
                 @error('Schluss') <span class="text-danger">{{ $message }}</span> @enderror

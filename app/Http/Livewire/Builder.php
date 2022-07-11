@@ -2,8 +2,6 @@
 
 namespace App\Http\Livewire;
 
-// use Illuminate\Http\Request;
-
 use Livewire\Component;
 
 use Auth;
@@ -68,6 +66,13 @@ class Builder extends Component
 
     public $address;
 
+    public $test = [
+        "a" => 1,
+        "b" => 2,
+        "c" => 3,
+    ];
+
+    public $templates;
 
     public function mount() {
 
@@ -75,6 +80,7 @@ class Builder extends Component
             $this->step = 0;
         } else {
             $this->step = 1;
+            $this->templates = Template::all();
         };
     }
 
