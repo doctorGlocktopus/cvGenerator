@@ -5,6 +5,7 @@
     <h1>{{$error}}</h1>
     <h1>{{ $announcement->id }} User</h1>
     <h1>{{ $announcement->temp }} Template</h1>
+    <a href="/announcement/update/{{$announcement->id}}">Update File</a>
 </div>
 <div class="doc">
     <div class="docContainer">
@@ -27,7 +28,7 @@
             <br>
             <br>
             <!-- type + job -->
-            Bewerbung als {{$announcement->job}} in {{$announcement->type}}
+            <span class="input" role="textbox" contenteditable>Bewerbung als {{$announcement->job}} in {{$announcement->type}}</span>
             <br>
             <br>
             <br>
@@ -36,15 +37,16 @@
             <br>
             <br>
             <!-- start -->
-            {{ $announcement->start }}
+            <span class="input" role="textbox" contenteditable>{{ $announcement->start }}</span>
+            
             <br>
             <br>
             <!-- body -->
-            {{ $announcement->body }}
+            <span class="input" role="textbox" contenteditable>{{ $announcement->body }}</span>
             <!-- end -->
             <br>
             <br>
-            {{ $announcement->end }}
+            <span class="input" role="textbox" contenteditable>{{ $announcement->end }}</span>
             <br>
             <br>
             Mit freundlichen Grüßen,

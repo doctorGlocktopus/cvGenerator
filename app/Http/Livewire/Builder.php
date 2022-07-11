@@ -66,12 +66,6 @@ class Builder extends Component
 
     public $address;
 
-    public $test = [
-        "a" => 1,
-        "b" => 2,
-        "c" => 3,
-    ];
-
     public $templates;
 
     public function mount() {

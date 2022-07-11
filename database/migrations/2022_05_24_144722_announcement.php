@@ -25,9 +25,9 @@ class Announcement extends Migration
             $table->string('job');
             $table->string('type');
 
-            $table->string('start');
-            $table->string('body');
-            $table->string('end');
+            $table->text('start');
+            $table->text('body');
+            $table->text('end');
 
             $table->string('temp');
             $table->timestamps();

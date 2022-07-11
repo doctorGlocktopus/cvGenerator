@@ -66,4 +66,16 @@ class HomeController extends Controller
     public function addresses() {
         return dd(1);
     }
+
+    public function update($id) {
+
+        $announcement = Announcement::find($id);
+        $announcement->start = 'abc';
+        $announcement->body = 'abc';
+        $announcement->end = 'abc';
+
+        dd($announcement);
+        $announcement->save();
+
+    }
 }
