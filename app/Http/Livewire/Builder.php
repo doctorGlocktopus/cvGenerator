@@ -72,21 +72,9 @@ class Builder extends Component
 
     public $json;
 
-// Route::get('code/{pattern}', 'SearchController@byCode');
-// Route::get('name/{pattern}', 'SearchController@byName');
-// Route::get('search/{pattern}', 'SearchController@byBoth');
-
-
-// http://localhost/postcode_api-master/public/api/search/stuttgart
 
     public function mount() {
-        // // $this->json = json_decode(file_get_contents('http://localhost/postcode_api-master/public/api/search/stuttgart'), true);
-        // $json_string = file_get_contents('http://localhost/postcode_api-master/public/api/search/stuttgart');
-        // $json_array = json_decode($json_string, TRUE);
-        // $quote = $json_array[$key];
-        // $keys = implode(" ",array_keys($quote));
-        // $values = implode(" ", array_values ($quote));
-        // dd($keys, $values);
+
 
         $this->user = Auth::user();
         $this->templates = Template::all();
