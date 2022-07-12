@@ -70,7 +70,9 @@ class Builder extends Component
 
     public function mount() {
 
-        if(Auth::User()->address_id == NULL) {
+        $this->user = Auth::user();
+
+        if($this->user->address_id == NULL) {
             $this->step = 0;
         } else {
             $this->step = 1;

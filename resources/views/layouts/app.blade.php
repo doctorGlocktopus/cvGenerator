@@ -133,6 +133,7 @@
         box-shadow: 5px 5px 10px 0px;
         line-height: 2;
         z-index: 10;
+        width: 28%;
     }
 
     .myModal {
@@ -167,7 +168,7 @@
     }
 
     .modalContainer {
-        position: absolute;
+        position: fixed;
         left: 10;
         top: 22%;
         width: 28%;
@@ -212,7 +213,6 @@
 
             <a href="/print"><i class='fa fa-print'></i> Drucken</a>
 
-            </div>
 
         @endguest
 

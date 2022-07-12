@@ -20,18 +20,16 @@ class Announcement extends Component
 
     public $start;
 
-    public $list;
-
-    public $step;
-    
+    public $list;    
 
     public function mount() {
+
         $this->list = anno::all();
-        $this->user = Auth::user(); 
+        $this->user = Auth::user();
+        $this->announcement = anno::where('user_id', $this->user->id)->first();
     }
 
-    public function step($id) {
-        $this->step = 1;
+    public function choose($id) {
         $this->announcement = anno::find($id);
     }
 

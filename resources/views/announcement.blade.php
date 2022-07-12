@@ -21,7 +21,7 @@
             <br>
             <br>
             <!-- type + job -->
-            <span class="input" role="textbox" contenteditable>Bewerbung als {{$announcement->job}} in {{$announcement->type}}</span>
+            Bewerbung als {{$announcement->job}} in {{$announcement->type}}
             <br>
             <br>
             <br>
@@ -30,16 +30,16 @@
             <br>
             <br>
             <!-- start -->
-            <span class="input" role="textbox" contenteditable>{{ $announcement->start }}</span>
+            {{ $announcement->start }}
             
             <br>
             <br>
             <!-- body -->
-            <span class="input" role="textbox" contenteditable>{{ $announcement->body }}</span>
+            {{ $announcement->body }}
             <!-- end -->
             <br>
             <br>
-            <span class="input" role="textbox" contenteditable>{{ $announcement->end }}</span>
+            {{ $announcement->end }}
             <br>
             <br>
             Mit freundlichen Grüßen,
