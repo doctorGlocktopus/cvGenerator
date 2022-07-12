@@ -80,6 +80,11 @@ class Builder extends Component
         };
     }
 
+    public function choose($id) {
+        $this->announcement = Announcement::find($id);
+        $this->step = 3;
+    }
+
     public function submit() {   
         ##$this->validate();
 

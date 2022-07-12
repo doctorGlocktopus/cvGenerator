@@ -56,6 +56,7 @@
     }
 
     .banner {
+        position: fixed;
         font-family: papyrus;
         font-size: 473%!important;
         padding: 20px;
@@ -134,6 +135,7 @@
         line-height: 2;
         z-index: 10;
         width: 28%;
+        margin-bottom: 1%;
     }
 
     .myModal {
@@ -194,7 +196,7 @@
                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
             @endif
         @else
-            <a href="/list">
+            <a href="/">
                 {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
             </a>
             <a href="{{ route('logout') }}"
