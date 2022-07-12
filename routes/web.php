@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Select2AutoSearch;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/newTest', [App\Http\Controllers\HomeController::class, 'newTest'])->name('newTest');
+
+
+
+
+Route::get('/api', Select2AutoSearch::class);
+
 
 
 
