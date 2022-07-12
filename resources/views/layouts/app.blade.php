@@ -215,9 +215,10 @@
 
             <a href="/print"><i class='fa fa-print'></i> Drucken</a>
 
-
+            @if(Auth::user())
+                <a onclick="alert('wir löschen deine Daten unwiederuflich!')"style="position: absolute; right: 1%;" href="/delete/{{Auth::user()->id}}" class="btn btn-primary">Account löschen?</a>
+            @endif
         @endguest
-
     </nav>
 
     <main>

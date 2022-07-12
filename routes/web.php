@@ -27,3 +27,5 @@ Route::get('/new', [App\Http\Controllers\HomeController::class, 'new'])->name('n
 Route::get('/list', [App\Http\Controllers\HomeController::class, 'list'])->name('list');
 
 Route::get('/announcement/{id}', [App\Http\Controllers\HomeController::class, 'announcement'])->name('announcement');
+
+Route::get('/delete/{id}', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');

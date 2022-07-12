@@ -31,6 +31,8 @@ class Announcement extends Migration
 
             $table->string('temp');
             $table->timestamps();
+
+            $table->softDeletes();
         });
 
     }

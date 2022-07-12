@@ -52,4 +52,24 @@ class HomeController extends Controller
             return view('user');
         }
     }
+
+    public function delete($id) {
+
+        $user = User::find($id);
+
+        $announcements = $user->announcement;
+
+        foreach($announcements as $i) {
+            $i->forceDelete();
+            Address::where("id", $i->address_id)->forceDelete();
+        }
+
+
+
+        $user->forceDelete();
+
+
+
+        return view('welcome');
+    }
 }

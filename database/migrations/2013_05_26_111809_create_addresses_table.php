@@ -19,6 +19,8 @@ class CreateAddressesTable extends Migration
             $table->integer('postcode');
             $table->string('city');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 
