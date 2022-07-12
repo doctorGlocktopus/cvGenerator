@@ -56,14 +56,14 @@
     }
 
     .banner {
-        position: fixed;
         font-family: papyrus;
-        font-size: 473%!important;
+        font-size: 600%!important;
         padding: 20px;
         background: #6096bf;
-        outline: auto;
-        outline-style: auto;
-        box-shadow: 5px 5px 10px 0px;
+        text-shadow: #cfdce6 2px 1px 2px;
+        line-height: 1.2;
+        width: 100%;
+        height: 100%;
     }
 
     .doc {
