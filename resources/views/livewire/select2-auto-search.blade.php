@@ -7,7 +7,9 @@
         return xmlHttpReq.responseText;
         }
             document.addEventListener('livewire:load', function () {
-                @this.json =  httpGet('http://localhost/postcode_api-master/public/api/search/stuttgart');
+                @this.json =  httpGet('http://localhost/postcode_api-master/public/api/code/711')
+                json =  httpGet('http://localhost/postcode_api-master/public/api/code/711')
+                console.log(json)
             })
 </script>
 
@@ -17,12 +19,12 @@
         <select class="form-control" id="select2">
             <option value="">Choose Song</option>
             @foreach($songs as $data)
-            <option value="{{ $data }}">{{ $data }}</option>
+                <option value="{{ $data }}">{{ $data }}</option>
             @endforeach
         </select>
     </div>
 
-</div>{{$json}}
+</div>
 
 @push('scripts')
 
