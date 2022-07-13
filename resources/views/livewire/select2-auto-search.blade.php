@@ -7,7 +7,7 @@
             return xmlHttpReq.responseText;
             }
                 document.addEventListener('livewire:load', function () {
-                    @this.json =  httpGet('http://127.0.0.1:88/api/code/711')
+                    @this.json =  httpGet('http://127.0.0.1:88/api/code/712')
                     
                     data = httpGet('http://127.0.0.1:88/api/code/711')
                 
@@ -16,7 +16,7 @@
 
 
     <button wire:click='Utf8_ansi({{$json}})'> json: </button>
-{{var_dump($output)}}
+    {{$code}} {{$name}}
     {{-- {{var_dump($json)}} --}}
     {{-- <input wire:model="json" placeholder="{{$json}}"/> --}}
     <div wire:ignore>

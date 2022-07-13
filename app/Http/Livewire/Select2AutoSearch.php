@@ -18,7 +18,8 @@ class Select2AutoSearch extends Component
 
     public $json;
 
-    public $output;
+    public $code;
+    public $name;
 
     public $data;
 
@@ -100,11 +101,13 @@ class Select2AutoSearch extends Component
 
         foreach($valor as $i) {
             $data[$x] = new Postcode();
-            $data[$x]->code = $i[0];
+            $data[$x]->code = (int)$i[0];
             $data[$x]->name = strtr($i[1], $utf8_ansi2);
             $x++;
         }
-        $this->output = $data;
+        // dd($data[0]);
+        $this->code = $data[0]["code"];
+        $this->name = $data[0]["name"];
     }
 
 
