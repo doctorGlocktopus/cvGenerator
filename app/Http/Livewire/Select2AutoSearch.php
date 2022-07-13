@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
-
+use App\Models\Postcode;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
@@ -17,6 +17,8 @@ class Select2AutoSearch extends Component
     public $viralSongs = '';
 
     public $json;
+
+    public $output;
 
     public $data;
 
@@ -31,7 +33,7 @@ class Select2AutoSearch extends Component
     ];
 
 
-    public static function Utf8_ansi($valor ='') {
+    public function Utf8_ansi($valor ='') {
 
         $utf8_ansi2 = array(
         "\u00c0" =>"À",
@@ -94,12 +96,15 @@ class Select2AutoSearch extends Component
         "\u00fd" =>"ý",
         "\u00ff" =>"ÿ");
 
-        $array = [];
+        $x = 0;
 
         foreach($valor as $i) {
-            array_push($array, ["code" => $i[0], "name" => strtr($i[1], $utf8_ansi2)]);
+            $data[$x] = new Postcode();
+            $data[$x]->code = $i[0];
+            $data[$x]->name = strtr($i[1], $utf8_ansi2);
+            $x++;
         }
-        $data = $array;
+        $this->output = $data;
     }
 
 

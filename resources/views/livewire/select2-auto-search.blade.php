@@ -16,7 +16,7 @@
 
 
     <button wire:click='Utf8_ansi({{$json}})'> json: </button>
-    {{$data}}
+{{var_dump($output)}}
     {{-- {{var_dump($json)}} --}}
     {{-- <input wire:model="json" placeholder="{{$json}}"/> --}}
     <div wire:ignore>
