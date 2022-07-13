@@ -1,20 +1,24 @@
 <div>
-<script>
-    function httpGet(theUrl) {
-        let xmlHttpReq = new XMLHttpRequest();
-        xmlHttpReq.open("GET", theUrl, false); 
-        xmlHttpReq.send(null);
-        return xmlHttpReq.responseText;
-        }
-            document.addEventListener('livewire:load', function () {
-                @this.json =  httpGet('http://localhost/postcode_api-master/public/api/code/711')
-                json =  httpGet('http://localhost/postcode_api-master/public/api/code/711')
-                console.log(json)
-            })
-</script>
+    <script>
+        function httpGet(theUrl) {
+            let xmlHttpReq = new XMLHttpRequest();
+            xmlHttpReq.open("GET", theUrl, false); 
+            xmlHttpReq.send(null);
+            return xmlHttpReq.responseText;
+            }
+                document.addEventListener('livewire:load', function () {
+                    @this.json =  httpGet('http://127.0.0.1:88/api/code/711')
+                    
+                    data = httpGet('http://127.0.0.1:88/api/code/711')
+                
+                })
+    </script>
 
-<div>
-<input wire:model="json" placeholder="{{$json}}"/>
+
+    <button wire:click='Utf8_ansi({{$json}})'> json: </button>
+    {{$data}}
+    {{-- {{var_dump($json)}} --}}
+    {{-- <input wire:model="json" placeholder="{{$json}}"/> --}}
     <div wire:ignore>
         <select class="form-control" id="select2">
             <option value="">Choose Song</option>
