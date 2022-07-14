@@ -27,8 +27,12 @@ class Select2AutoSearch extends Component
 
     public $search = [];
 
+    public $step = 0;
 
     public function Utf8_ansi($valor ='') {
+
+        $this->step = 1;
+
         $utf8_ansi2 = array(
         "\u00c0" =>"À",
         "\u00c1" =>"Á",

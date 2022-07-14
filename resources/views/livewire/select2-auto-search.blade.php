@@ -12,20 +12,29 @@
             }
 
             document.addEventListener('livewire:load', function () {
+                
                 @this.json =  httpGet('http://127.0.0.1:88/api/code/666');
             })
     </script>
-
-    <input type="text" wire:change ='Utf8_ansi({{$json}})'>
-    <div >
+    @if($step == 0)
+        <input wire:model="input" type="text" oninput="myFunction()" wire:change ='Utf8_ansi({{$json}})'>
+    @else
         <select class="form-control" id="select2">
             <option value="">{{$code}} {{$name}}</option>
             @foreach($search as $data)
                 <option value="{{ $data }}">{{ $data["code"] }} {{ $data["name"] }}</option>
             @endforeach
         </select>
-    </div>
+    @endif
 </div>
+
+
+https://www.youtube.com/watch?v=1iysNUrI3lw
+
+
+
+
+
 
 {{-- @push('scripts')
 
