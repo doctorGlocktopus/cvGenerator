@@ -23,19 +23,12 @@ class Select2AutoSearch extends Component
 
     public $data;
 
-    public $songs = [
-        'Say So',
-        'The Box',
-        'Laxed',
-        'Savage',
-        'Dance Monkey',
-        'Viral',
-        'Hotline Billing',
-    ];
+    public $input;
+
+    public $songs = [];
 
 
     public function Utf8_ansi($valor ='') {
-
         $utf8_ansi2 = array(
         "\u00c0" =>"À",
         "\u00c1" =>"Á",
@@ -103,9 +96,9 @@ class Select2AutoSearch extends Component
             $data[$x] = new Postcode();
             $data[$x]->code = (int)$i[0];
             $data[$x]->name = strtr($i[1], $utf8_ansi2);
+            array_push($this->songs, $data[$x]);
             $x++;
         }
-        // dd($data[0]);
         $this->code = $data[0]["code"];
         $this->name = $data[0]["name"];
     }
@@ -113,20 +106,6 @@ class Select2AutoSearch extends Component
 
     public function mount() {
 
-        // $this->utf8_decode($i)
-
-        // $client = new Client();
-        // $guzzleResponse = $client->get('http://127.0.0.1:88/api/code/711', []);
-        // dd($guzzleResponse);
-
-
-        // $request = new Request('GET', 'http://localhost/postcode_api-master/public/api/code/711', ['body' => 'content']);
-        // dd($request);
-        // dd(Http::get('http://localhost/postcode_api-master/public/api/code/711'));
-        // $this->response = Http::get('http://localhost/postcode_api-master/public/api/code/711');
-        // $jsonData = $this->response->json();
-         
-        // dd($this->response);
     }
 
     public function render()
