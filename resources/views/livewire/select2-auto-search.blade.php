@@ -12,8 +12,7 @@
             }
 
             document.addEventListener('livewire:load', function () {
-                @this.json =  httpGet('http://127.0.0.1:88/api/code/711');
-                // Livewire.emit('Utf8_ansi()');
+                @this.json =  httpGet('http://127.0.0.1:88/api/code/666');
             })
     </script>
 
