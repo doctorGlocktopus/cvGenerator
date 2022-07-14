@@ -20,15 +20,15 @@
     <input type="text" wire:change ='Utf8_ansi({{$json}})'>
     <div >
         <select class="form-control" id="select2">
-            <option value="">Choose Song</option>
-            @foreach($songs as $data)
+            <option value="">{{$code}} {{$name}}</option>
+            @foreach($search as $data)
                 <option value="{{ $data }}">{{ $data["code"] }} {{ $data["name"] }}</option>
             @endforeach
         </select>
     </div>
 </div>
 
-@push('scripts')
+{{-- @push('scripts')
 
     <script>
         $(document).ready(function () {
@@ -40,5 +40,5 @@
         });
     </script>
 
-@endpush
+@endpush --}}
 </div>

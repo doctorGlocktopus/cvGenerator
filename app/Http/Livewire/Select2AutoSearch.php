@@ -25,7 +25,7 @@ class Select2AutoSearch extends Component
 
     public $input;
 
-    public $songs = [];
+    public $search = [];
 
 
     public function Utf8_ansi($valor ='') {
@@ -94,9 +94,9 @@ class Select2AutoSearch extends Component
 
         foreach($valor as $i) {
             $data[$x] = new Postcode();
-            $data[$x]->code = (int)$i[0];
+            $data[$x]->code = $i[0];
             $data[$x]->name = strtr($i[1], $utf8_ansi2);
-            array_push($this->songs, $data[$x]);
+            array_push($this->search, $data[$x]);
             $x++;
         }
         $this->code = $data[0]["code"];
