@@ -1,5 +1,24 @@
 <head>
 <style>
+
+
+    #modal {
+        position: absolute;
+        background: bisque;
+        height: -webkit-fill-available;
+        width: -webkit-fill-available;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        animation: fadeInAnimation ease 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+    }
+
+
     body {
 
         font-style: italic!important;

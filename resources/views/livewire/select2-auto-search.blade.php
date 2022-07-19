@@ -1,21 +1,22 @@
 <div>
-    <script>
+<script>
 
 
 
-        function httpGet(theUrl) {
-            let xmlHttpReq = new XMLHttpRequest();
-            xmlHttpReq.open("GET", theUrl, false); 
-            xmlHttpReq.send(null);
+    function httpGet(theUrl) {
+        let xmlHttpReq = new XMLHttpRequest();
+        xmlHttpReq.open("GET", theUrl, false); 
+        xmlHttpReq.send(null);
 
-            return xmlHttpReq.responseText;
-            }
+        return xmlHttpReq.responseText;
+        }
 
-            document.addEventListener('livewire:load', function () {
-                
-                @this.json =  httpGet('http://127.0.0.1:88/api/code/666');
-            })
-    </script>
+        document.addEventListener('livewire:load', function () {
+            
+            @this.json =  httpGet('http://127.0.0.1:88/api/code/666');
+        })
+</script>
+
     @if($step == 0)
         <input wire:model="input" type="text" oninput="myFunction()" wire:change ='Utf8_ansi({{$json}})'>
     @else
@@ -26,10 +27,17 @@
             @endforeach
         </select>
     @endif
+
+
+    <button class="btn" wire:click="buff()">Modal öffnen</button>
+    @if($buff == 1)
+        <div id="modal">
+            Versuch doch die select funktion selber zu machen mit der Modal IDee, also anstatt eventmanager machst du ein clickevent, was ein div öffnet, dass wie eine selectbox aussieht.<br>
+        </div>
+    @endif
 </div>
 
 
-https://www.youtube.com/watch?v=1iysNUrI3lw
 
 
 
