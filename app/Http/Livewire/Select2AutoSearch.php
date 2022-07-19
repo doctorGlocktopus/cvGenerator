@@ -107,8 +107,8 @@ class Select2AutoSearch extends Component
         $this->name = $data[0]["name"];
     }
 
-    public function buff() {
-        $this->buff = 1;
+    public function buff($hit) {
+        $this->buff = +$hit;
     }
 
 
