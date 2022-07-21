@@ -4,7 +4,13 @@
         function buff(hit) {
             @this.buff = hit;
         }
-    
+
+        function blend() {
+            console.log(@this.start);
+            @this.start.replace("<br>", /\n/g );
+        }
+
+
     </script>
     <div class="modalContainer">
         @if($user->announcement)
@@ -200,7 +206,7 @@
                                 <option value="{{$temp->start}}">{{$temp->name}}</option>
                             @endforeach
                         </select>
-                        <textarea name="text" cols="75" rows="15" class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
+                        <textarea onchange="blend()" name="text" cols="75" rows="15" class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
                         @error('Einleitung') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <a class="btn btn-primary" onclick="buff(5)">nächster Schritt</a>
