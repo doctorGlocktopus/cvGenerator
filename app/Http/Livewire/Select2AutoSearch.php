@@ -15,10 +15,13 @@ use GuzzleHttp\Exception\RequestException;
 class Select2AutoSearch extends Component
 {
     public $viralSongs = '';
-    public $buff;
+
+    public $buff = 0;
+
     public $json;
 
     public $code;
+
     public $name;
 
     public $data;
@@ -108,6 +111,10 @@ class Select2AutoSearch extends Component
     }
 
     public function buff($hit) {
+        $this->buff = +$hit;
+    }
+
+    public function puff($hit) {
         $this->buff = +$hit;
     }
 

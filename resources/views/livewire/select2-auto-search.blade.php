@@ -1,7 +1,11 @@
 <div>
 <script>
 
-
+    function buff(hit) {
+        
+        @this.buff = hit;
+        console.log(hit);
+    }
 
     function httpGet(theUrl) {
         let xmlHttpReq = new XMLHttpRequest();
@@ -27,21 +31,20 @@
                 @endforeach
             </select>
         @endif
+{{$buff}}
 
-
-        <button class="btn" wire:click="buff(1)">Modal öffnen</button>
+        <button class="btn" onclick="buff(1)">Modal öffnen</button>
         @if($buff == 1)
             <div id="modal">
                 Versuch doch die select funktion selber zu machen mit der Modal IDee, also anstatt eventmanager machst du ein clickevent, was ein div öffnet, dass wie eine selectbox aussieht.<br>
 
-                <button class="btn" wire:click="buff(1)">Modal öffnen</button>
+                <button class="btn" onclick="buff(2)">Modal öffnen</button>{{$buff}}
             </div>
         @endif
         @if($buff == 2)
             <div id="modal">
-                Versuch doch die select funktion selber zu machen mit der Modal IDee, also anstatt eventmanager machst du ein clickevent, was ein div öffnet, dass wie eine selectbox aussieht.<br>
 
-                <button class="btn" wire:click="buff(1)">Modal öffnen</button>
+                <button class="btn" onclick="buff(0)">schließen</button>{{$buff}}
             </div>
         @endif
     </div>
