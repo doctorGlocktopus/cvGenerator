@@ -1,9 +1,10 @@
 <div>
     <script>
-
+        // Buff manage the Modals
         function buff(hit) {
             @this.buff = hit;
         }
+    
     </script>
     <div class="modalContainer">
         @if($user->announcement)
@@ -14,8 +15,8 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Firma</th>
+                        <th scope="col">Addresse</th>
                         <th scope="col">Anstellung</th>
-                        <th scope="col">Datum</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -23,8 +24,8 @@
                         <tr wire:click="choose({{$i->id}})">
                             <th scope="row">{{$i->id}}</th>
                             <td>{{$i->company}}</td>
+                            <td>{{$i->address->street}} {{$i->address->postcode}}</td>
                             <td>{{$i->job}}</td>
-                            <td>{{date_format($i->created_at,'d.m.Y')}}</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -140,7 +141,7 @@
                             <input type="text" class="form-control" placeholder="Firma" wire:model="company">
                             @error('Firma') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <a class="btn" onclick="buff(2)">Modal öffnen</a>
+                        <a class="btn btn-primary" onclick="buff(2)">nächster Schritt</a>
                     @endif
                 @if($buff == 2)
                     <div class="form-group">
@@ -161,7 +162,7 @@
                         @endif
                         @error('Beruf') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <a class="btn" onclick="buff(3)">Modal öffnen</a>
+                    <a class="btn btn-primary" onclick="buff(3)">nächster Schritt</a>
 
                 @endif
                 @if($buff == 3)
@@ -187,7 +188,7 @@
                             </div>
                         @error('Kontaktperson') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <a class="btn" onclick="buff(4)">Modal öffnen</a>
+                    <a class="btn btn-primary" onclick="buff(4)">nächster Schritt</a>
 
                 @endif
                 @if($buff == 4)
@@ -199,10 +200,10 @@
                                 <option value="{{$temp->start}}">{{$temp->name}}</option>
                             @endforeach
                         </select>
-                        <textarea class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
+                        <textarea name="text" cols="75" rows="15" class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
                         @error('Einleitung') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <a class="btn" onclick="buff(5)">Modal öffnen</a>
+                    <a class="btn btn-primary" onclick="buff(5)">nächster Schritt</a>
 
                 @endif
                 @if($buff == 5)
@@ -214,10 +215,10 @@
                                 <option value="{{$temp->body}}">{{$temp->name}}</option>
                             @endforeach
                         </select>
-                        <textarea class="form-control" placeholder="Hauptteil" wire:model="body"></textarea>
+                        <textarea rows="10" class="form-control" placeholder="Hauptteil" wire:model="body"></textarea>
                         @error('Hauptteil') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <a class="btn" onclick="buff(6)">Modal öffnen</a>
+                    <a class="btn btn-primary" onclick="buff(6)">nächster Schritt</a>
 
                 @endif
                 @if($buff == 6)
@@ -229,7 +230,7 @@
                                 <option value="{{$temp->end}}">{{$temp->name}}</option>
                             @endforeach
                         </select>
-                        <textarea class="form-control" placeholder="Schluss" wire:model="end"></textarea>
+                        <textarea rows="10" class="form-control" placeholder="Schluss" wire:model="end"></textarea>
                         @error('Schluss') <span class="text-danger">{{ $message }}</span> @enderror
 
                     </div>  

@@ -2,6 +2,10 @@
 <style>
 
 
+    textarea {
+        background-color: white; border: none; width:660px;font-family: Arial, Helvetica, sans-serif; font-size:1.0em; resize:none;"
+    }
+
     #modal {
         position: absolute;
         background: bisque;
@@ -129,6 +133,7 @@
 
     .minW800 {
         min-width: 800px;
+        width: 0;
     }
 
     .spaceBetweeen {
