@@ -37,8 +37,8 @@
         @if($buff == 1)
             <div id="modal">
                 Versuch doch die select funktion selber zu machen mit der Modal IDee, also anstatt eventmanager machst du ein clickevent, was ein div öffnet, dass wie eine selectbox aussieht.<br>
-
-                <button class="btn" onclick="buff(2)">Modal öffnen</button>{{$buff}}
+<br>
+                <button class="btn" onclick="buff(2)">weiter</button>{{$buff}}
             </div>
         @endif
         @if($buff == 2)

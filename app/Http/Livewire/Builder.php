@@ -18,6 +18,9 @@ use Illuminate\Routing\Router;
 
 class Builder extends Component
 {
+
+    public $buff = 1;
+
     public $template = "Elegant professionell";
 
     public $addressArrayOne = [];

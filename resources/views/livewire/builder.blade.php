@@ -1,4 +1,10 @@
 <div>
+    <script>
+
+        function buff(hit) {
+            @this.buff = hit;
+        }
+    </script>
     <div class="modalContainer">
         @if($user->announcement)
             <div class="myModal">
@@ -128,93 +134,107 @@
         <div class="flex columnD padding10pc minW800">
             <h3>Daten des Empfängers</h3>
             <form wire:submit.prevent="submit">
-
-                <div class="form-group">
-                    <label>Firmenname</label>
-                    <input type="text" class="form-control" placeholder="Firma" wire:model="company">
-                    @error('Firma') <span class="text-danger">{{ $message }}</span> @enderror
-                </div>
-
-                <div class="form-group">
-                    <label>gewünschter Arbeitplatz</label>
-                    <input type="text" class="form-control" placeholder="Arbeitsplatz" wire:model="job">
-                    @error('Arbeitsplatz') <span class="text-danger">{{ $message }}</span> @enderror
-                    <label>Beschäftigungsart</label>
-                    @if(!$type == "eigene")
-                    <select class="form-control form-select" wire:model="type" aria-label="Beschäftigungsart">
-                        <option disabled> Beschäftigungsart wählen</option>
-                        <option value="Vollzeit">Vollzeit</option>
-                        <option value="Teilzeit">Teilzeit</option>
-                        <option value="450€ Basis">450€ Basis</option>
-                        <option value="eigene">eigene Angabe wählen</option>
-                    </select>
-                    @else
-                        <input class="form-control form-select" wire:model="type" aria-label="Beschäftigungsart">
-                    @endif
-                    @error('Beruf') <span class="text-danger">{{ $message }}</span> @enderror
-                </div>
-
-                <div class="form-group">
-                        <div class="flex">
-                            <div>
-                                <label>Anrede</label>
-                                @if(!$contactGender == "eigene")
-                                <select class="form-control form-select w33" wire:model="contactGender" aria-label="Geschlecht">
-                                    <option disabled>Geschlecht wählen</option>
-                                    <option selected value="Herr">Herr</option>
-                                    <option value="Frau">Frau</option>
-                                    <option value="eigene">eigene Definition</option>
-                                </select>
-                                @else
-                                    <input class="form-control form-select" wire:model="contactGender" aria-label="Beschäftigungsart">
-                                @endif
-                            </div>
-                            <div>
-                                <label>Nachname</label>
-                                <input type="text" class="form-control" placeholder="Kontaktperson" wire:model="contact">
-                            </div>
+                    @if($buff == 1)
+                        <div class="form-group">
+                            <label>Firmenname</label>
+                            <input type="text" class="form-control" placeholder="Firma" wire:model="company">
+                            @error('Firma') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                    @error('Kontaktperson') <span class="text-danger">{{ $message }}</span> @enderror
-                </div>
+                        <a class="btn" onclick="buff(2)">Modal öffnen</a>
+                    @endif
+                @if($buff == 2)
+                    <div class="form-group">
+                        <label>gewünschter Arbeitplatz</label>
+                        <input type="text" class="form-control" placeholder="Arbeitsplatz" wire:model="job">
+                        @error('Arbeitsplatz') <span class="text-danger">{{ $message }}</span> @enderror
+                        <label>Beschäftigungsart</label>
+                        @if(!$type == "eigene")
+                        <select class="form-control form-select" wire:model="type" aria-label="Beschäftigungsart">
+                            <option disabled> Beschäftigungsart wählen</option>
+                            <option value="Vollzeit">Vollzeit</option>
+                            <option value="Teilzeit">Teilzeit</option>
+                            <option value="450€ Basis">450€ Basis</option>
+                            <option value="eigene">eigene Angabe wählen</option>
+                        </select>
+                        @else
+                            <input class="form-control form-select" wire:model="type" aria-label="Beschäftigungsart">
+                        @endif
+                        @error('Beruf') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+                    <a class="btn" onclick="buff(3)">Modal öffnen</a>
 
+                @endif
+                @if($buff == 3)
+                    <div class="form-group">
+                            <div class="flex">
+                                <div>
+                                    <label>Anrede</label>
+                                    @if(!$contactGender == "eigene")
+                                    <select class="form-control form-select w33" wire:model="contactGender" aria-label="Geschlecht">
+                                        <option disabled>Geschlecht wählen</option>
+                                        <option selected value="Herr">Herr</option>
+                                        <option value="Frau">Frau</option>
+                                        <option value="eigene">eigene Definition</option>
+                                    </select>
+                                    @else
+                                        <input class="form-control form-select" wire:model="contactGender" aria-label="Beschäftigungsart">
+                                    @endif
+                                </div>
+                                <div>
+                                    <label>Nachname</label>
+                                    <input type="text" class="form-control" placeholder="Kontaktperson" wire:model="contact">
+                                </div>
+                            </div>
+                        @error('Kontaktperson') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+                    <a class="btn" onclick="buff(4)">Modal öffnen</a>
 
-                <div class="form-group">
-                    <label>Einleitung</label>
-                    <select class="form-control form-select w33" wire:model="start" aria-label="Einleitung">
-                        <option disabled>Einleitung wählen</option>
-                        @foreach($templates as $temp)
-                            <option value="{{$temp->start}}">{{$temp->name}}</option>
-                        @endforeach
-                    </select>
-                    <textarea class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
-                    @error('Einleitung') <span class="text-danger">{{ $message }}</span> @enderror
-                </div>
+                @endif
+                @if($buff == 4)
+                    <div class="form-group">
+                        <label>Einleitung</label>
+                        <select class="form-control form-select w33" wire:model="start" aria-label="Einleitung">
+                            <option disabled>Einleitung wählen</option>
+                            @foreach($templates as $temp)
+                                <option value="{{$temp->start}}">{{$temp->name}}</option>
+                            @endforeach
+                        </select>
+                        <textarea class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
+                        @error('Einleitung') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+                    <a class="btn" onclick="buff(5)">Modal öffnen</a>
 
-                <div class="form-group">
-                    <label>Hauptteil</label>
-                    <select class="form-control form-select w33" wire:model="body" aria-label="Hauptteil">
-                        <option disabled>Hauptteil wählen</option>
-                        @foreach($templates as $temp)
-                            <option value="{{$temp->body}}">{{$temp->name}}</option>
-                        @endforeach
-                    </select>
-                    <textarea class="form-control" placeholder="Hauptteil" wire:model="body"></textarea>
-                    @error('Hauptteil') <span class="text-danger">{{ $message }}</span> @enderror
-                </div>
+                @endif
+                @if($buff == 5)
+                    <div class="form-group">
+                        <label>Hauptteil</label>
+                        <select class="form-control form-select w33" wire:model="body" aria-label="Hauptteil">
+                            <option disabled>Hauptteil wählen</option>
+                            @foreach($templates as $temp)
+                                <option value="{{$temp->body}}">{{$temp->name}}</option>
+                            @endforeach
+                        </select>
+                        <textarea class="form-control" placeholder="Hauptteil" wire:model="body"></textarea>
+                        @error('Hauptteil') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+                    <a class="btn" onclick="buff(6)">Modal öffnen</a>
 
-                <div class="form-group">
-                    <label>Schluss</label>
-                    <select class="form-control form-select w33" wire:model="end" aria-label="Schluss">
-                        <option disabled>Schluss wählen</option>
-                        @foreach($templates as $temp)
-                            <option value="{{$temp->end}}">{{$temp->name}}</option>
-                        @endforeach
-                    </select>
-                    <textarea class="form-control" placeholder="Schluss" wire:model="end"></textarea>
-                    @error('Schluss') <span class="text-danger">{{ $message }}</span> @enderror
+                @endif
+                @if($buff == 6)
+                    <div class="form-group">
+                        <label>Schluss</label>
+                        <select class="form-control form-select w33" wire:model="end" aria-label="Schluss">
+                            <option disabled>Schluss wählen</option>
+                            @foreach($templates as $temp)
+                                <option value="{{$temp->end}}">{{$temp->name}}</option>
+                            @endforeach
+                        </select>
+                        <textarea class="form-control" placeholder="Schluss" wire:model="end"></textarea>
+                        @error('Schluss') <span class="text-danger">{{ $message }}</span> @enderror
 
-                </div>  
-                <button type="submit" class="btn btn-primary">Bewerbung abspeichern</button>
+                    </div>  
+                    <button type="submit" class="btn btn-primary">Bewerbung abspeichern</button>
+                @endif
             </form>
         </div>
     @elseif($step == 3)
