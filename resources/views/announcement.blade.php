@@ -30,16 +30,16 @@
             <br>
             <br>
             <!-- start -->
-            {{ $announcement->start }}
+            <span class="input" role="textbox" contenteditable>{!! nl2br(e($announcement->start)) !!}</span>
             
             <br>
             <br>
             <!-- body -->
-            {{ $announcement->body }}
+            <span class="input" role="textbox" contenteditable>{!! nl2br(e($announcement->body)) !!}</span>
             <!-- end -->
             <br>
             <br>
-            {{ $announcement->end }}
+            <span class="input" role="textbox" contenteditable>{!! nl2br(e($announcement->end)) !!}</span>
             <br>
             <br>
             Mit freundlichen Grüßen,

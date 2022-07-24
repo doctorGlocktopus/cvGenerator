@@ -55,19 +55,19 @@
             @if(!$start == "")
                 <div class="myModal">
                     <label>Einleitung:</label><br>
-                    {{$start}}
+                    {!! nl2br(e($start)) !!}
                 </div>
             @endif
             @if(!$body == "")
                 <div class="myModal">
                     <label>Hauptteil:</label><br>
-                    {{$body}}
+                    {!! nl2br(e($body)) !!}
                 </div>
             @endif
             @if(!$end == "")
                 <div class="myModal">
                     <label>Schluss:</label><br>
-                    {{$end}}
+                    {!! nl2br(e($end)) !!}
                 </div>
             @endif
         </div>
@@ -275,16 +275,16 @@
                     <br>
                     <br>
                     <!-- start -->
-                    <span class="input" role="textbox" contenteditable>{{ $announcement->start }}</span>
+                    <span class="input" role="textbox" contenteditable>{!! nl2br(e($announcement->start)) !!}</span>
                     
                     <br>
                     <br>
                     <!-- body -->
-                    <span class="input" role="textbox" contenteditable>{{ $announcement->body }}</span>
+                    <span class="input" role="textbox" contenteditable>{!! nl2br(e($announcement->body)) !!}</span>
                     <!-- end -->
                     <br>
                     <br>
-                    <span class="input" role="textbox" contenteditable>{{ $announcement->end }}</span>
+                    <span class="input" role="textbox" contenteditable>{!! nl2br(e($announcement->end)) !!}</span>
                     <br>
                     <br>
                     Mit freundlichen Grüßen,
