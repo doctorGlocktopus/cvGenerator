@@ -4,6 +4,10 @@
         background-color: white; border: none; width:660px;font-family: Arial, Helvetica, sans-serif; font-size:1.0em; resize:none;"
     }
 
+    .cursor {
+        cursor: pointer;
+    }
+
     #modal {
         position: absolute;
         background: bisque;

@@ -14,7 +14,7 @@ use GuzzleHttp\Exception\RequestException;
 
 class Select2AutoSearch extends Component
 {
-
+    
     public $json;
 
     public $code;
@@ -31,7 +31,7 @@ class Select2AutoSearch extends Component
 
     public function Utf8_ansi($valor ='') {
 
-        if(!$valor == "") {
+        if(strlen($this->input) >= 3) {
             $this->step = 1;
 
             $utf8_ansi2 = array(
@@ -109,6 +109,11 @@ class Select2AutoSearch extends Component
             $this->name = $data[0]["name"];
         }
     }
+
+    public function getData($data) {
+        dd($data);
+    }
+
 
     public function mount() {
 
