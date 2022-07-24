@@ -125,6 +125,7 @@
 
                 <div class="inLineFlex">
                     <div class="form-group">
+                        <livewire:select2-auto-search />
                         <label>Postleitzahl</label>
                         <input type="number" class="form-control" placeholder="Postleitzahl" wire:model="postcode">
                         @error('Postleitzahl') <span class="text-danger">{{ $message }}</span> @enderror          
