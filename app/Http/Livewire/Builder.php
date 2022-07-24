@@ -90,7 +90,24 @@ class Builder extends Component
     }
 
     public function update() {
-        dd(1);
+        $data = Announcement::find($this->announcement->id);
+
+        $comboContact = $this->contactGender." ".$this->contact;
+
+        dd($this->announcement->start);
+        $data->update([  
+            // 'company' => $this->company,
+            // 'job' => $this->job,
+            // 'contact' => $comboContact,
+            // 'type' => $this->type,
+
+            'start' => $announcement->start,
+            'body' => $this->body,
+            'end' => $this->end,
+
+            'temp' => "elegant Proffesionel",
+        ]);
+        dd($data);
     }
 
     public function choose($id) {

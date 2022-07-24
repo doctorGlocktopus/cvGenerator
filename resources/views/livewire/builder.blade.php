@@ -36,7 +36,9 @@
                         @endforeach
                     </tbody>
                 </table>
-                <button wire:click="update" class="btn btn-primary">Update</button>
+                @if($step == 3)
+                    <button wire:click="update" class="btn btn-primary">Update</button>
+                @endif
             </div>
         @endif
         <div>
@@ -263,7 +265,39 @@
                 <div class="date">{{ $user->address->city }} den, {{ date('d.m.Y') }}</div>
         {{-- user_id	name	street	postcode	country	job	start	contact	type	body	end	 --}}
                 <div class="letter">
-                    <br>
+                    <form wire:submit.prevent="update">
+                        <button style="position: fixed; top: 1%; right: 1%;" type="submit" class="btn btn-primary">Meine Bewerbung updaten</button>
+                        <br>
+                        <br>
+                        <!-- type + job -->
+                        Bewerbung als {{$announcement->job}} in {{$announcement->type}}
+                        <br>
+                        <br>
+                        <br>
+                        <!-- contact -->
+                        Sehr geehrter {{$announcement->contact}},
+                        <br>
+                        <br>
+                        <!-- start -->
+                        <span class="input" role="textbox" contenteditable>{!! nl2br(e($announcement->start)) !!}</span>          
+                        <br>
+                        <br>
+                        <!-- body -->
+                        <span class="input" role="textbox" contenteditable>{!! nl2br(e($announcement->body)) !!}</span>
+                        <!-- end -->
+                        <br>
+                        <br>
+                        <span class="input" role="textbox" contenteditable>{!! nl2br(e($announcement->end)) !!}</span>
+                        <br>
+                        <br>
+                        Mit freundlichen Grüßen,
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        {{ $user->first_name }} {{ $user->last_name }}
+                    </form>
+                    {{-- <br>
                     <br>
                     <!-- type + job -->
                     Bewerbung als {{$announcement->job}} in {{$announcement->type}}
@@ -275,8 +309,7 @@
                     <br>
                     <br>
                     <!-- start -->
-                    <span class="input" role="textbox" contenteditable>{!! nl2br(e($announcement->start)) !!}</span>
-                    
+                    <span class="input" role="textbox" contenteditable>{!! nl2br(e($announcement->start)) !!}</span>          
                     <br>
                     <br>
                     <!-- body -->
@@ -292,7 +325,7 @@
                     <br>
                     <br>
                     <br>
-                    {{ $user->first_name }} {{ $user->last_name }}
+                    {{ $user->first_name }} {{ $user->last_name }} --}}
                 </div>
             </div>
         </div>
