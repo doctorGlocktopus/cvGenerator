@@ -106,6 +106,7 @@ class Select2AutoSearch extends Component
             array_push($this->search, $data[$x]);
             $x++;
         }
+
         $this->code = $data[0]["code"];
         $this->name = $data[0]["name"];
     }

@@ -7,6 +7,10 @@
         console.log(hit);
     }
 
+    function check(i) {
+        @this.json =  httpGet('http://127.0.0.1:88/api/code/' + i);
+    }
+
     function httpGet(theUrl) {
         let xmlHttpReq = new XMLHttpRequest();
         xmlHttpReq.open("GET", theUrl, false); 
@@ -15,14 +19,11 @@
         return xmlHttpReq.responseText;
         }
 
-        document.addEventListener('livewire:load', function () {
-            
-            @this.json =  httpGet('http://127.0.0.1:88/api/code/666');
-        })
 </script>
     <div>
         @if($step == 0)
-            <input wire:model="input" type="text" oninput="myFunction()" wire:change ='Utf8_ansi({{$json}})'>
+            <input wire:model="input" oninput="check({{$input}})" type="text" wire:change ='Utf8_ansi({{$json}})'>
+
         @else
             <select class="form-control" id="select2">
                 <option value="">{{$code}} {{$name}}</option>
@@ -31,7 +32,7 @@
                 @endforeach
             </select>
         @endif
-{{$buff}}
+
 
         <button class="btn" onclick="buff(1)">Modal öffnen</button>
         @if($buff == 1)
