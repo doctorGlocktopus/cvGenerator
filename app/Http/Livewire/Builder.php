@@ -18,6 +18,7 @@ use Illuminate\Routing\Router;
 
 class Builder extends Component
 {
+    public $code;
 
     public $buff = 1;
 

@@ -27,7 +27,7 @@ class Select2AutoSearch extends Component
 
     public $search = [];
 
-    public $step = 0;
+    public $step;
 
     public function Utf8_ansi($valor ='') {
         if(!$valor == ""){
@@ -111,8 +111,9 @@ class Select2AutoSearch extends Component
         }
     }
 
-    public function getData() {
-        dd(1);
+    public function getData($data) {
+        $this->code = $data["code"];
+        $this->name = $data["name"];
         $this->step = 0;
         // $this->data = $data;
     }
@@ -122,8 +123,10 @@ class Select2AutoSearch extends Component
 
     }
 
+
     public function render()
     {
         return view('livewire.select2-auto-search')->extends('layouts.app');
+        
     }
 }
