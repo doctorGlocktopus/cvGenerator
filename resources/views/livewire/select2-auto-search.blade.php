@@ -16,21 +16,35 @@
         }
 
 </script>
-
-    <div class="list-group">
+<div>
+    <div>
         @if($step == 0)
             <input class="form-control" wire:model="input" oninput="check(1)" type="text" wire:change ='Utf8_ansi({{$json}})'>
 
-        @else
-            {{-- <select class="form-control" id="select2"> --}}
-            <div class="cursor list-group-item list-group-item-action active" value="">{{$code}} {{$name}}</div>
+        @endif
+        @if($step == 1)
+            <select class="form-control" id="select2">
+                <option value="">{{$code}} {{$name}}</option>
                 @foreach($search as $data)
-                    <div class="cursor list-group-item list-group-item-action" wire:click="getData({{$data}})">{{ $data["code"] }} {{ $data["name"] }}</div>
+                    <option wire:click="getData()" value="{{ $data }}">{{ $data["code"] }} {{ $data["name"] }}</option>
                 @endforeach
-            </div>
-            {{-- </select> --}}
+            </select>
         @endif
     </div>
+    {{-- <div class="list-group">
+        @if($step == 0)
+            <input class="form-control" wire:model="input" oninput="check(1)" type="text" wire:change ='Utf8_ansi({{$json}})'>
+
+        @endif
+        @if($step == 1)
+            <div class="cursor list-group-item list-group-item-action active" value="">{{$code}} {{$name}}</div>
+                @foreach($search as $data)
+                    <div class="cursor list-group-item list-group-item-action" wire:click="getData()">{{ $data["code"] }} {{ $data["name"] }}</div>
+                @endforeach
+            </div>
+        @endif
+        
+    </div> --}}
 </div>
 
 
