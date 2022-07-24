@@ -22,7 +22,7 @@
 </script>
     <div>
         @if($step == 0)
-            <input wire:model="input" oninput="check({{$input}})" type="text" wire:change ='Utf8_ansi({{$json}})'>
+            <input class="form-control" wire:model="input" oninput="check({{$input}})" type="text" wire:change ='Utf8_ansi({{$json}})'>
 
         @else
             <select class="form-control" id="select2">
@@ -31,22 +31,6 @@
                     <option value="{{ $data }}">{{ $data["code"] }} {{ $data["name"] }}</option>
                 @endforeach
             </select>
-        @endif
-
-
-        <button class="btn" onclick="buff(1)">Modal öffnen</button>
-        @if($buff == 1)
-            <div id="modal">
-                Versuch doch die select funktion selber zu machen mit der Modal IDee, also anstatt eventmanager machst du ein clickevent, was ein div öffnet, dass wie eine selectbox aussieht.<br>
-<br>
-                <button class="btn" onclick="buff(2)">weiter</button>{{$buff}}
-            </div>
-        @endif
-        @if($buff == 2)
-            <div id="modal">
-
-                <button class="btn" onclick="buff(0)">schließen</button>{{$buff}}
-            </div>
         @endif
     </div>
 </div>
