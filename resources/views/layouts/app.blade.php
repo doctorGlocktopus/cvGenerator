@@ -33,6 +33,7 @@
 
     .cursor {
         cursor: pointer;
+        z-index: 100;
     }
 
     .pTop1pc {
@@ -126,6 +127,16 @@
         width: 21cm;
         height: 29.7cm;
         background-color: white!important;
+    }
+
+    .relativ {
+        position: relative;
+    }
+
+    .close {
+        font-size: 150%;
+        right: 0;
+        position: absolute;
     }
 
     .addressLine {

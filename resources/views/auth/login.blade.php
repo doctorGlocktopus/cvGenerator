@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="contentWrapper minW800 padding10pc">
+<div class="flex padding10pc spaceAround">
+    <div>
+        <div class="flex columnD">
     <h1><label for="login" >{{ __('Login') }}</label></h1>
     <div>
         <form method="POST" action="{{ route('login') }}">
