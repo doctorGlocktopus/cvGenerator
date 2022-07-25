@@ -327,15 +327,17 @@ align-items: flex-start;">
                         <th scope="col">Firma</th>
                         <th scope="col">Addresse</th>
                         <th scope="col">Anstellung</th>
+                        <th scope="col">Löschen</th>
                     </tr>
                     </thead>
                     <tbody>
                         @foreach($user->announcement as $i)
-                        <tr wire:click="choose({{$i->id}})">
-                            <th scope="row">{{$i->id}}</th>
-                            <td>{{$i->company}}</td>
-                            <td>{{$i->address->street}} {{$i->address->postcode}}</td>
-                            <td>{{$i->job}}</td>
+                        <tr class="cursor">
+                            <th wire:click="choose({{$i->id}})" scope="row">{{$i->id}}</th>
+                            <td wire:click="choose({{$i->id}})" >{{$i->company}}</td>
+                            <td wire:click="choose({{$i->id}})" >{{$i->address->street}} {{$i->address->postcode}}</td>
+                            <td wire:click="choose({{$i->id}})" >{{$i->job}}</td>
+                            <td wire:click="delete({{$i->id}})"><i class="fa fa-trash" aria-hidden="true"></i> dauerhaft löschen</td>
                         </tr>
                         @endforeach
                     </tbody>

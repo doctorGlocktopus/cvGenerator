@@ -165,6 +165,12 @@ class Builder extends Component
         
     }
 
+    public function delete($id) {
+        $dataa = Announcement::find($id);
+        $dataa->forceDelete();
+        $this->mount();
+    }
+
     public function receiverAddress() {
         if(        
             $this->validate([
