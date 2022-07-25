@@ -60,13 +60,6 @@ class Builder extends Component
 
     public $step;
 
-    public $blast;
-
-    public $CLIENT_ID = "TPQZJDKV3MDGMCMKK343YIMFVFAEFB25OMVUJG0IWZ2BP2B5";
-
-    public $CLIENT_SECRET = "4UAK2QRK0H54LNE22XD3JH2504TBA5FQJN1LI3CGQTMUAT3J";
-
-    public $venue_id = "fsq34CTYpSiQvowj4PUG9hFJfJf/XqKM4fSrkWniRLaNqx0=";
 
     public $address;
 
@@ -87,9 +80,7 @@ class Builder extends Component
                 $this->templates = Template::all();
                 $this->step = 3;     
             }            
-        }
-       
-        
+        }        
         else {
             $this->user = Auth::user();
             if($this->user->address_id == NULL) {

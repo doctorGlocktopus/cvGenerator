@@ -36,4 +36,6 @@ Route::get('/new', [App\Http\Controllers\HomeController::class, 'new'])->name('n
 
 Route::get('/delete/{id}', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
 
-Route::get('/announcement/{id?}', Builder::class);
+// Route::get('/announcement/{id?}', Builder::class);
+
+Route::get('/announcement/{id?}', [App\Http\Controllers\HomeController::class, 'announcement'])->name('announcement');
