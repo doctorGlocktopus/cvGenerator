@@ -315,7 +315,7 @@
                 @endif
             </div>
         @else
-        <div>
+        <div class="padding1pc wContent">
             <livewire:list-view />
         </div>
         @endif

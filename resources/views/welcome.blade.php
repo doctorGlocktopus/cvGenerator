@@ -6,7 +6,7 @@
         <div class="padding1pc banner">
             <span>richtigGutBewerben</span>
         </div>
-        <div class="padding1pc">
+        <div class="padding1pc wContent">
             @if(Auth::User())
                 <livewire:list-view />
             @endif

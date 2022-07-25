@@ -22,13 +22,13 @@
                     </thead>
                     <tbody>
                         @foreach($user->announcement as $i)
-                        <tr class="cursor">
-                            <th scope="row"><a href="/announcement/{{$i->id}}">{{$i->id}}</a></th>
-                            <td><a href="/announcement/{{$i->id}}">{{$i->company}}</a></td>
-                            <td><a href="/announcement/{{$i->id}}">{{$i->address->street}} {{$i->address->postcode}}</a></td>
-                            <td><a href="/announcement/{{$i->id}}">{{$i->job}}</a></td>
-                            <td wire:click="delete({{$i->id}})"><i class="fa fa-trash" aria-hidden="true"></i> dauerhaft löschen</td>
-                        </tr>
+                            <tr class="cursor">
+                                <th scope="row" onclick="window.location.href='/announcement/{{$i->id}}'">{{$i->id}}</th>
+                                <td scope="row" onclick="window.location.href='/announcement/{{$i->id}}'">{{$i->company}}</td>
+                                <td scope="row" onclick="window.location.href='/announcement/{{$i->id}}'">{{$i->address->street}} {{$i->address->postcode}}</td>
+                                <td scope="row" onclick="window.location.href='/announcement/{{$i->id}}'">{{$i->job}}</td>
+                                <td scope="row" wire:click="delete({{$i->id}})"><i class="fa fa-trash" aria-hidden="true"></i> dauerhaft löschen</td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

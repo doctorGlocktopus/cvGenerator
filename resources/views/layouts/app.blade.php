@@ -3,7 +3,11 @@
 
     a {
         width: 100%;
-        height: fit-content;
+
+    }
+
+    td:hover {
+        background-color: #596f7f73;
     }
 
     a:hover {
@@ -118,6 +122,10 @@
 
     .w88pc {
         width: 88%
+    }
+
+    .wContent {
+        width: -webkit-fill-available;
     }
 
     .banner {

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="flex padding10pc spaceAround">
-    <div>
+    <div class="w33">
         <div class="flex columnD">
             <h1><label for="register" >{{ __('Registerierung') }}</label></h1>    
             <div>

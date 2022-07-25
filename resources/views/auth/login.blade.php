@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="flex padding10pc spaceAround">
-    <div>
+    <div class="wContent">
         <div class="flex columnD">
     <h1><label for="login" >{{ __('Login') }}</label></h1>
     <div>
