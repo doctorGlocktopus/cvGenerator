@@ -142,7 +142,7 @@ class Select2AutoSearch extends Component
                 <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model="city">
                 @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror
             </div>  
-        </div>  
+        </div>
         blade;
         } else
         return view('livewire.select2-auto-search')->extends('layouts.app');
