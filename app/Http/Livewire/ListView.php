@@ -15,6 +15,10 @@ class ListView extends Component
 
         $this->user = Auth::user();
     }
+    public function choose($id) {
+        $this->announcement = Announcement::find($id);
+
+    }
 
     public function render()
     {

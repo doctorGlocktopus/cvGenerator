@@ -68,9 +68,21 @@ align-items: flex-start;">
                     </div>
                 </div>
                 <div class="inLineFlex">
-                    <div>
+                    {{-- <div>
                         <livewire:select2-auto-search/>  
-                    </div>
+                    </div> --}}
+                    <div class="flex">
+                        <div>
+                            <label>Postleitzahl</label>
+                            <input type="number" class="form-control" placeholder="Postleitzahl" wire:model="postcode">
+                            @error('Postleitzahl') <span class="text-danger">{{ $message }}</span> @enderror          
+                        </div>
+                        <div>
+                            <label>Stadt</label>
+                            <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model="city">
+                            @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror
+                        </div>  
+                    </div> 
                 </div>
                 <div class="pTop1pc">
                     <button type="submit" class="btn btn-primary">Empfänger speichern</button>
@@ -85,7 +97,7 @@ align-items: flex-start;">
                     @if($buff == 1)
                         <div class="form-group">
                             <label>Firmenname</label>
-                            <input type="text" class="form-control" placeholder="Firma" wire:model.lazy="company">
+                            <input type="text" class="form-control" placeholder="Firma" wire:model="company">
                             @error('Firma') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="pTop1pc">
@@ -95,19 +107,19 @@ align-items: flex-start;">
                 @if($buff == 2)
                     <div class="form-group">
                         <label>gewünschter Arbeitplatz</label>
-                        <input type="text" class="form-control" placeholder="Arbeitsplatz" wire:model.lazy="job">
+                        <input type="text" class="form-control" placeholder="Arbeitsplatz" wire:model="job">
                         @error('Arbeitsplatz') <span class="text-danger">{{ $message }}</span> @enderror
                         <label>Beschäftigungsart</label>
                         @if(!$type == "eigene")
-                        <select class="form-control form-select" wire:model.lazy="type" aria-label="Beschäftigungsart">
-                            <option disabled> Beschäftigungsart wählen</option>
+                        <select class="form-control form-select" wire:model="type" aria-label="Beschäftigungsart">
+                            <option selected> Beschäftigungsart wählen</option>
                             <option value="Vollzeit">Vollzeit</option>
                             <option value="Teilzeit">Teilzeit</option>
                             <option value="450€ Basis">450€ Basis</option>
                             <option value="eigene">eigene Angabe wählen</option>
                         </select>
                         @else
-                            <input class="form-control form-select" wire:model.lazy="type" aria-label="Beschäftigungsart">
+                            <input class="form-control form-select" wire:model="type" aria-label="Beschäftigungsart">
                         @endif
                         @error('Beruf') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
@@ -122,19 +134,19 @@ align-items: flex-start;">
                                 <div>
                                     <label>Anrede</label>
                                     @if(!$contactGender == "eigene")
-                                    <select class="form-control form-select w33" wire:model.lazy="contactGender" aria-label="Geschlecht">
-                                        <option disabled>Geschlecht wählen</option>
-                                        <option selected value="Herr">Herr</option>
+                                    <select class="form-control form-select w33" wire:model="contactGender" aria-label="Geschlecht">
+                                        <option> Geschlecht wählen</option>
+                                        <option value="Herr">Herr</option>
                                         <option value="Frau">Frau</option>
                                         <option value="eigene">eigene Definition</option>
                                     </select>
                                     @else
-                                        <input class="form-control form-select" wire:model.lazy="contactGender" aria-label="Beschäftigungsart">
+                                        <input class="form-control form-select" wire:model="contactGender" aria-label="Beschäftigungsart">
                                     @endif
                                 </div>
                                 <div>
                                     <label>Nachname</label>
-                                    <input type="text" class="form-control" placeholder="Kontaktperson" wire:model.lazy="contact">
+                                    <input type="text" class="form-control" placeholder="Kontaktperson" wire:model="contact">
                                 </div>
                             </div>
                         @error('Kontaktperson') <span class="text-danger">{{ $message }}</span> @enderror
@@ -147,13 +159,13 @@ align-items: flex-start;">
                 @if($buff == 4)
                     <div class="form-group">
                         <label>Einleitung</label>
-                        <select class="form-control form-select w33" wire:model.lazy="start" aria-label="Einleitung">
+                        <select class="form-control form-select" wire:model.lazy="start" aria-label="Einleitung">
                             <option disabled>Einleitung wählen</option>
                             @foreach($templates as $temp)
                                 <option value="{{$temp->start}}">{{$temp->name}}</option>
                             @endforeach
                         </select>
-                        <textarea onchange="blend()" name="text" cols="75" rows="15" class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
+                        <textarea onchange="blend()" cols="75" rows="15" class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
                         @error('Einleitung') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="pTop1pc">
@@ -164,13 +176,13 @@ align-items: flex-start;">
                 @if($buff == 5)
                     <div class="form-group">
                         <label>Hauptteil</label>
-                        <select class="form-control form-select w33" wire:model.lazy="body" aria-label="Hauptteil">
+                        <select class="form-control form-select" wire:model.lazy="body" aria-label="Hauptteil">
                             <option disabled>Hauptteil wählen</option>
                             @foreach($templates as $temp)
                                 <option value="{{$temp->body}}">{{$temp->name}}</option>
                             @endforeach
                         </select>
-                        <textarea rows="10" class="form-control" placeholder="Hauptteil" wire:model="body"></textarea>
+                        <textarea onchange="blend()" cols="75" rows="15" class="form-control" placeholder="Hauptteil" wire:model="body"></textarea>
                         @error('Hauptteil') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="pTop1pc">
@@ -181,13 +193,13 @@ align-items: flex-start;">
                 @if($buff == 6)
                     <div class="form-group">
                         <label>Schluss</label>
-                        <select class="form-control form-select w33" wire:model.lazy="end" aria-label="Schluss">
+                        <select class="form-control form-select" wire:model.lazy="end" aria-label="Schluss">
                             <option disabled>Schluss wählen</option>
                             @foreach($templates as $temp)
                                 <option value="{{$temp->end}}">{{$temp->name}}</option>
                             @endforeach
                         </select>
-                        <textarea rows="10" class="form-control" placeholder="Schluss" wire:model="end"></textarea>
+                        <textarea onchange="blend()" cols="75" rows="15" class="form-control" placeholder="Schluss" wire:model="end"></textarea>
                         @error('Schluss') <span class="text-danger">{{ $message }}</span> @enderror
 
                     </div>
@@ -282,40 +294,48 @@ align-items: flex-start;">
             </div>
         </div>
     @endif
-
-        <div class="docContainer">
-            @if(!$company == "")
-                <div class="myModal fade">
-                    <label>Firma und Stelle</label><br>
-                    {{$company}} als {{$job}} in {{$type}}
+        @if($step == 2)
+            <div class="docContainer">
+                <div class="myAddress">
+                    {{ $user->first_name }} {{ $user->last_name }}<br>
+                    {{ $user->address->street }} {{ $user->address->number }}<br>
+                    {{ $user->address->postcode }} {{ $user->address->city }}<br>
                 </div>
-            @endif      
-            @if(!$contact == "")
-                <div class="myModal fade">
-                    <label>Kontaktperson</label><br>
-                    {{$contactGender}} {{$contact}}
-                </div>
-            @endif           
-            @if(!$start == "")
-                <div class="myModal fade">
-                    <label>Einleitung:</label><br>
-                    {!! nl2br(e($start)) !!}
-                </div>
-            @endif
-            @if(!$body == "")
-                <div class="myModal fade">
-                    <label>Hauptteil:</label><br>
-                    {!! nl2br(e($body)) !!}
-                </div>
-            @endif
-            @if(!$end == "")
-                <div class="myModal fade">
-                    <label>Schluss:</label><br>
-                    {!! nl2br(e($end)) !!}
-                </div>
-            @endif
-        </div>
+                @if(!$company == "")
+                    <div class="myModal fade">
+                        <label>Firma und Stelle</label><br>
+                        {{$company}} als {{$job}} in {{$type}}
+                    </div>
+                @endif      
+                @if(!$contact == "")
+                    <div class="myModal fade">
+                        <label>Kontaktperson</label><br>
+                        {{$contactGender}} {{$contact}}
+                    </div>
+                @endif           
+                @if(!$start == "")
+                    <div class="myModal fade">
+                        <label>Einleitung:</label><br>
+                        {!! nl2br(e($start)) !!}
+                    </div>
+                @endif
+                @if(!$body == "")
+                    <div class="myModal fade">
+                        <label>Hauptteil:</label><br>
+                        {!! nl2br(e($body)) !!}
+                    </div>
+                @endif
+                @if(!$end == "")
+                    <div class="myModal fade">
+                        <label>Schluss:</label><br>
+                        {!! nl2br(e($end)) !!}
+                    </div>
+                @endif
+            </div>
+        @else
+            <livewire:list-view />
+        @endif
     </div>
-    <livewire:list-view />
+    
 </div>
 

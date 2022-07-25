@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="doc">
+<div class="doc flex">
     <div class="docContainer">
         <div class="flex spaceBetweeen addressLine">
             <div class="address">
@@ -49,6 +49,9 @@
             <br>
             {{ $user->first_name }} {{ $user->last_name }}
         </div>
+    </div>
+    <div class="padding1pc">
+        <livewire:list-view />
     </div>
 </div>
 @endsection

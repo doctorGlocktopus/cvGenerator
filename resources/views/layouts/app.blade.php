@@ -152,6 +152,10 @@
         flex-direction: row !important;
     }
 
+    .padding1pc {
+        padding: 1%;
+    }
+
     .padding10pc {
         padding: 10%;
     }
