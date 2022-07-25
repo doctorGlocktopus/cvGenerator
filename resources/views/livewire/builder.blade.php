@@ -12,9 +12,9 @@
 
 
     </script>
-    <div class="modalContainer">
+    <div class="modalContainer shdw fade white">
         @if($user->announcement)
-            <div class="myModal">
+            <div class="myModal fade">
                 <h4>Deine Bewerbungen</h4>
                 <table class="table table-hover">
                     <thead>
@@ -43,31 +43,31 @@
         @endif
         <div>
             @if(!$company == "")
-                <div class="myModal">
+                <div class="myModal fade">
                     <label>Firma und Stelle</label><br>
                     {{$company}} als {{$job}} in {{$type}}
                 </div>
             @endif      
             @if(!$contact == "")
-                <div class="myModal">
+                <div class="myModal fade">
                     <label>Kontaktperson</label><br>
                     {{$contactGender}} {{$contact}}
                 </div>
             @endif           
             @if(!$start == "")
-                <div class="myModal">
+                <div class="myModal fade">
                     <label>Einleitung:</label><br>
                     {!! nl2br(e($start)) !!}
                 </div>
             @endif
             @if(!$body == "")
-                <div class="myModal">
+                <div class="myModal fade">
                     <label>Hauptteil:</label><br>
                     {!! nl2br(e($body)) !!}
                 </div>
             @endif
             @if(!$end == "")
-                <div class="myModal">
+                <div class="myModal fade">
                     <label>Schluss:</label><br>
                     {!! nl2br(e($end)) !!}
                 </div>
@@ -127,7 +127,7 @@
                 </div>
                 <div class="inLineFlex">
                     <div>
-                        <livewire:select2-auto-search :postcode="$postcode" :postcode="$postcode" />  
+                        <livewire:select2-auto-search/>  
                     </div>
                 </div>
                 <div class="pTop1pc">

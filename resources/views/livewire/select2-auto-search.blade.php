@@ -40,7 +40,7 @@
         </div>
         @endif
         @if($step == 1)
-        <div class="searchBar">
+        <div class="searchBar flex">
             <div class="cursor list-group-item list-group-item-action active">{{$postcode}} {{$city}}</div>
                 @foreach($search as $data)
                     <div class="cursor list-group-item list-group-item-action" wire:click.lazy="getData({{ $data }})">{{ $data["postcode"] }} {{ $data["city"] }}</div>

@@ -1,14 +1,30 @@
 <head>
 <style>
 
-    .searchBar {
-        position: fixed;
-        top: 4%;
-        right: 20%;
+    .grey {
         background-color: #cfdce6;
+    }
+
+    .white {
+        background-color: #ffffff;
+    }
+
+    .fade {
+        animation: fadeInAnimation ease 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+    }
+
+    .shdw {
         outline: auto;
         outline-style: auto;
         box-shadow: 5px 5px 10px 0px;
+    }
+
+    .searchBar {
+        position: fixed;
+        top: 70%;
+        left: 29.2%;
     }
 
     textarea {
@@ -34,9 +50,6 @@
         align-items: center;
         justify-content: center;
         align-content: center;
-        animation: fadeInAnimation ease 1s;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
     }
 
 
@@ -80,15 +93,7 @@
     }
 
     main {
-        background-color: #cfdce6;
-        outline: auto;
-        outline-style: auto;
-        box-shadow: 5px 5px 10px 0px;
         height: fit-content;
-
-        animation: fadeInAnimation ease 1s;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
     }
 
     .contentWrapper {
@@ -172,12 +177,8 @@
 
     nav {
         position: fixed;
-        background: white;
         left: 10;
         padding: 10;
-        outline: auto;
-        outline-style: auto;
-        box-shadow: 5px 5px 10px 0px;
         line-height: 2;
         z-index: 10;
         width: 28%;
@@ -186,20 +187,10 @@
 
     .myModal {
         position: relative;
-        background: white;
         padding: 10;
-        outline: auto;
-        outline-style: auto;
-        box-shadow: 5px 5px 10px 0px;
         line-height: 2;
         margin-bottom: 3%;
         font-style: initial;
-
-
-
-            animation: fadeInAnimation ease 1s;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
     }
 
         @keyframes fadeInAnimation {
@@ -245,7 +236,7 @@
 
 
 <body>
-    <nav class="flex columnD">
+    <nav class="flex columnD shdw fade white">
         @guest
             @if (Route::has('login'))
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -280,7 +271,7 @@
         @endguest
     </nav>
 
-    <main>
+    <main class="shdw fade grey">
         @yield('content')
     </main>
 </body>
