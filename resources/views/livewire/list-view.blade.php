@@ -1,10 +1,9 @@
 <div class="fade relativ">
     @if($close == 1)
-        <div wire:click="close(0)" class="close cursor">
-            <i class="fa fa-refresh" aria-hidden="true"></i>
+        <div wire:click="close(0)" class="close cursor btn">
+            open
         </div>
-    @endif
-    @if($close == 0)
+    @else
     <div wire:click="close(1)" class="close cursor">
         x
     </div>

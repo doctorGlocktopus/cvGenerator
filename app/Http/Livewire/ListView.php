@@ -10,6 +10,8 @@ use App\Models\Announcement;
 
 class ListView extends Component
 {
+    public $close;
+
     public function mount() {
 
 
@@ -18,6 +20,10 @@ class ListView extends Component
     public function choose($id) {
         $this->announcement = Announcement::find($id);
 
+    }
+
+    public function close($i) {
+        $this->close = $i;
     }
 
     public function render()
