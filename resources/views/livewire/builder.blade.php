@@ -66,11 +66,10 @@ align-items: flex-start;">
                             @error('Hausnummer') <span class="text-danger">{{ $message }}</span> @enderror          
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div>
+
+
                         <livewire:select2-auto-search/>  
-                    </div>
+
                     {{-- <div class="flex">
                         <div>
                             <label>Postleitzahl</label>
@@ -83,9 +82,9 @@ align-items: flex-start;">
                             @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>  
                     </div>  --}}
-                </div>
-                <div class="pTop1pc">
-                    <button type="submit" class="btn btn-primary">Empfänger speichern</button>
+                    <div class="pTop1pc">
+                        <button  type="submit" class="pTop1pc btn btn-primary">Empfänger speichern</button>
+                    </div>
                 </div>
             </form>
         </div>
