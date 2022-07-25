@@ -103,6 +103,8 @@ class Select2AutoSearch extends Component
                     $data[$x]->name = strtr($i[1], $utf8_ansi2);
                     array_push($this->search, $data[$x]);
                     $x++;
+                    if($x == 10 || array_key_last($data)) 
+                        break;
                 }
         
                 $this->code = $data[0]["code"];
