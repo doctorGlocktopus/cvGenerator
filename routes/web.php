@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Select2AutoSearch;
+use App\Http\Livewire\Builder;
 
 
 /*
@@ -34,6 +35,8 @@ Auth::routes();
 Route::get('/new', [App\Http\Controllers\HomeController::class, 'new'])->name('new');
 Route::get('/list', [App\Http\Controllers\HomeController::class, 'list'])->name('list');
 
-Route::get('/announcement/{id}', [App\Http\Controllers\HomeController::class, 'announcement'])->name('announcement');
+// Route::get('/announcement/{id}', [App\Http\Controllers\HomeController::class, 'announcement'])->name('announcement');
 
 Route::get('/delete/{id}', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
+
+Route::get('/announcement/{id}', Builder::class);
