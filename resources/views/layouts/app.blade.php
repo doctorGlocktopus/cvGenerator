@@ -22,9 +22,9 @@
     }
 
     .searchBar {
-        position: fixed;
+        /* position: fixed;
         top: 70%;
-        left: 29.2%;
+        left: 29.2%; */
     }
 
     textarea {
@@ -40,12 +40,13 @@
     }
 
     #modal {
-        position: absolute;
+        /* position: absolute;
         background: bisque;
+
+        top: 0;
+        left: 0; */
         height: -webkit-fill-available;
         width: -webkit-fill-available;
-        top: 0;
-        left: 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -60,7 +61,7 @@
         padding: 1%;
         display: flex;
         justify-content: center;
-
+        flex-direction: column;
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -175,13 +176,13 @@
         text-align: justify;
     }
 
+    .spaceEven {
+        justify-content: space-evenly;
+    }
+
     nav {
-        position: fixed;
-        left: 10;
         padding: 10;
         line-height: 2;
-        z-index: 10;
-        width: 28%;
         margin-bottom: 1%;
     }
 
@@ -207,10 +208,10 @@
     }
 
     .modalContainer {
-        position: fixed;
+        /* position: fixed;
         left: 10;
         top: 22%;
-        width: 28%;
+        width: 28%; */
     }
 
 </style>
@@ -236,7 +237,7 @@
 
 
 <body>
-    <nav class="flex columnD shdw fade white">
+    <nav class="shdw fade white flex spaceEven">
         @guest
             @if (Route::has('login'))
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -260,8 +261,6 @@
             </form>
 
             <a href="/new">New File</a>
-
-            <br>
 
             <a href="/print"><i class='fa fa-print'></i> Drucken</a>
 

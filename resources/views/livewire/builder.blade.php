@@ -1,4 +1,7 @@
 <div>
+<div  style="    display: flex;
+justify-content: space-around;
+align-items: flex-start;">
     <script>
         // Buff manage the Modals
         function buff(hit) {
@@ -12,68 +15,7 @@
 
 
     </script>
-    <div class="modalContainer shdw fade white">
-        @if($user->announcement)
-            <div class="myModal fade">
-                <h4>Deine Bewerbungen</h4>
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Firma</th>
-                        <th scope="col">Addresse</th>
-                        <th scope="col">Anstellung</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($user->announcement as $i)
-                        <tr wire:click="choose({{$i->id}})">
-                            <th scope="row">{{$i->id}}</th>
-                            <td>{{$i->company}}</td>
-                            <td>{{$i->address->street}} {{$i->address->postcode}}</td>
-                            <td>{{$i->job}}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                @if($step == 3)
-                    <button wire:click="update" class="btn btn-primary">Update</button>
-                @endif
-            </div>
-        @endif
-        <div>
-            @if(!$company == "")
-                <div class="myModal fade">
-                    <label>Firma und Stelle</label><br>
-                    {{$company}} als {{$job}} in {{$type}}
-                </div>
-            @endif      
-            @if(!$contact == "")
-                <div class="myModal fade">
-                    <label>Kontaktperson</label><br>
-                    {{$contactGender}} {{$contact}}
-                </div>
-            @endif           
-            @if(!$start == "")
-                <div class="myModal fade">
-                    <label>Einleitung:</label><br>
-                    {!! nl2br(e($start)) !!}
-                </div>
-            @endif
-            @if(!$body == "")
-                <div class="myModal fade">
-                    <label>Hauptteil:</label><br>
-                    {!! nl2br(e($body)) !!}
-                </div>
-            @endif
-            @if(!$end == "")
-                <div class="myModal fade">
-                    <label>Schluss:</label><br>
-                    {!! nl2br(e($end)) !!}
-                </div>
-            @endif
-        </div>
-    </div>
+    
     @if($step == 0)
         <div class="flex columnD padding10pc minW800">
             <h3>Wir brauchen zu erst deine eigene Adresse</h3>
@@ -108,7 +50,7 @@
             </form>
         </div>
     @elseif($step == 1)
-        <div class="flex columnD padding10pc minW800">
+        <div class="flex columnD padding10pc">
             <h3>Wir brauchen die Adresse des Empfängers</h3>
             <form wire:submit.prevent="receiverAddress">
                 <div class="inLineFlex">
@@ -135,8 +77,9 @@
                 </div>
             </form>
         </div>
-    @elseif($step == 2)
-        <div class="flex columnD padding10pc minW800">
+    @endif
+    @if($step == 2)
+        <div class="flex columnD padding10pc">
             <h3>Daten des Empfängers</h3>
             <form wire:submit.prevent="submit">
                     @if($buff == 1)
@@ -256,6 +199,7 @@
             </form>
         </div>
     @elseif($step == 3)
+    <div>
         <div class="doc">
             <div class="docContainer">
                 <div class="flex spaceBetweeen addressLine">
@@ -275,7 +219,6 @@
         {{-- user_id	name	street	postcode	country	job	start	contact	type	body	end	 --}}
                 <div class="letter">
                     <form wire:submit.prevent="update">
-                        <button style="position: fixed; top: 1%; right: 1%;" type="submit" class="btn btn-primary">Meine Bewerbung updaten</button>
                         <br>
                         <br>
                         <!-- type + job -->
@@ -339,4 +282,69 @@
             </div>
         </div>
     @endif
+
+        <div class="docContainer">
+            @if(!$company == "")
+                <div class="myModal fade">
+                    <label>Firma und Stelle</label><br>
+                    {{$company}} als {{$job}} in {{$type}}
+                </div>
+            @endif      
+            @if(!$contact == "")
+                <div class="myModal fade">
+                    <label>Kontaktperson</label><br>
+                    {{$contactGender}} {{$contact}}
+                </div>
+            @endif           
+            @if(!$start == "")
+                <div class="myModal fade">
+                    <label>Einleitung:</label><br>
+                    {!! nl2br(e($start)) !!}
+                </div>
+            @endif
+            @if(!$body == "")
+                <div class="myModal fade">
+                    <label>Hauptteil:</label><br>
+                    {!! nl2br(e($body)) !!}
+                </div>
+            @endif
+            @if(!$end == "")
+                <div class="myModal fade">
+                    <label>Schluss:</label><br>
+                    {!! nl2br(e($end)) !!}
+                </div>
+            @endif
+        </div>
+    </div>
+    <div class="fade">
+        @if($user->announcement)
+            <div class="myModal fade">
+                <h4>Deine Bewerbungen</h4>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Firma</th>
+                        <th scope="col">Addresse</th>
+                        <th scope="col">Anstellung</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($user->announcement as $i)
+                        <tr wire:click="choose({{$i->id}})">
+                            <th scope="row">{{$i->id}}</th>
+                            <td>{{$i->company}}</td>
+                            <td>{{$i->address->street}} {{$i->address->postcode}}</td>
+                            <td>{{$i->job}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                @if($step == 3)
+                    <button wire:click="update" class="btn btn-primary">Update</button>
+                @endif
+            </div>
+        @endif
+    </div>
 </div>
+
