@@ -10,7 +10,7 @@ class Postcode extends Model
     use HasFactory;
 
     protected $fillable = [
-        'code',
-        'name',
+        'postcode',
+        'city',
     ];
 }

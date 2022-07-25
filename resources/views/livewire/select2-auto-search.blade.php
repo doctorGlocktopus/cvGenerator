@@ -31,15 +31,17 @@
             </select>
         @endif
     </div> --}}
-    {{$code}} {{$name}}
+    {{$postcode}} {{$city}}
+    <input hidden wire:model.lazy="postcode">
+    <input hidden wire:model.lazy="city">
+
     <div class="list-group">
         @if($step == 0)
-            <input class="form-control" wire:model="input" oninput="check()" type="text" wire:change ='Utf8_ansi({{$json}})'>
-
+            <input class="form-control" wire:model="input" oninput="check()" type="text" wire:change.lazy ='Utf8_ansi({{$json}})'>
         @else
-            <div class="cursor list-group-item list-group-item-action active">{{$code}} {{$name}}</div>
+            <div class="cursor list-group-item list-group-item-action active">{{$postcode}} {{$city}}</div>
                 @foreach($search as $data)
-                    <div class="cursor list-group-item list-group-item-action" wire:click="getData({{ $data }})">{{ $data["code"] }} {{ $data["name"] }}</div>
+                    <div class="cursor list-group-item list-group-item-action" wire:click.lazy="getData({{ $data }})">{{ $data["postcode"] }} {{ $data["city"] }}</div>
                 @endforeach
             </div>
         @endif

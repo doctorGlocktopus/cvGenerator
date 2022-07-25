@@ -17,9 +17,9 @@ class Select2AutoSearch extends Component
     
     public $json;
 
-    public $code;
+    public $postcode;
 
-    public $name;
+    public $city;
 
     public $data;
 
@@ -99,23 +99,23 @@ class Select2AutoSearch extends Component
         
                 foreach($valor as $i) {
                     $data[$x] = new Postcode();
-                    $data[$x]->code = $i[0];
-                    $data[$x]->name = strtr($i[1], $utf8_ansi2);
+                    $data[$x]->postcode = $i[0];
+                    $data[$x]->city = strtr($i[1], $utf8_ansi2);
                     array_push($this->search, $data[$x]);
                     $x++;
-                    if($x == 10 || array_key_last($data)) 
+                    if($x==10)
                         break;
                 }
         
-                $this->code = $data[0]["code"];
-                $this->name = $data[0]["name"];
+                $this->postcode = $data[0]["postcode"];
+                $this->city = $data[0]["city"];
             }
         }
     }
 
     public function getData($data) {
-        $this->code = $data["code"];
-        $this->name = $data["name"];
+        $this->postcode = $data["postcode"];
+        $this->city = $data["city"];
         $this->step = 0;
         // $this->data = $data;
     }
