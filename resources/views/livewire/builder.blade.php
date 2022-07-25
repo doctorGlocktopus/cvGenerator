@@ -10,40 +10,32 @@
             console.log(@this.start);
             @this.start.replace("<br>", /\n/g );
         }
-
+        
+        function fillValue() {
+            @this.postcode = document.getElementById("autoCode").value;
+            @this.city = document.getElementById("autoCity").value;
+        }
 
     </script>
     
     @if($step == 0)
-        <div class="flex columnD padding1pc minW800">
+        <div class="flex columnD padding1pc">
             <h3>Wir brauchen zu erst deine eigene Adresse</h3>
             <form wire:submit.prevent="address">
-                <div class="inLineFlex">
-                    <div>
-                        <label>Straße</label>
-                        <input type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
-                        @error('Straße') <span class="text-danger">{{ $message }}</span> @enderror          
-
-                        <label>Hausnummer</label>
-                        <input type="number" class="form-control" placeholder="Hausnummer" wire:model.lazy="number">
-                        @error('Hausnummer') <span class="text-danger">{{ $message }}</span> @enderror          
+                <div>
+                    <div class="flex">
+                        <div>
+                            <label>Straße</label>
+                            <input type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
+                            @error('Straße') <span class="text-danger">{{ $message }}</span> @enderror          
+                        </div>
+                        <div>
+                            <label>Hausnummer</label>
+                            <input type="number" class="form-control" placeholder="Hausnummer" wire:model.lazy="number">
+                            @error('Hausnummer') <span class="text-danger">{{ $message }}</span> @enderror          
+                        </div>
                     </div>
-                </div>
-
-                <div class="inLineFlex">
-                    <div class="form-group">
-                        <label>Postleitzahl</label>
-                        <input type="number" class="form-control" placeholder="Postleitzahl" wire:model.lazy="postcode">
-                        @error('Postleitzahl') <span class="text-danger">{{ $message }}</span> @enderror          
-
-                        <label>Stadt</label>
-                        <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model.lazy="city">
-                        @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror          
-                    </div>
-                </div>
-
-                <div class="pTop1pc">
-                    <button type="submit" class="btn btn-primary">Meine Adresse speichern</button>
+                        <livewire:select2-auto-search/>  
                 </div>
             </form>
         </div>
@@ -64,25 +56,7 @@
                             @error('Hausnummer') <span class="text-danger">{{ $message }}</span> @enderror          
                         </div>
                     </div>
-
-
                         <livewire:select2-auto-search/>  
-
-                    {{-- <div class="flex">
-                        <div>
-                            <label>Postleitzahl</label>
-                            <input type="number" class="form-control" placeholder="Postleitzahl" wire:model="postcode">
-                            @error('Postleitzahl') <span class="text-danger">{{ $message }}</span> @enderror          
-                        </div>
-                        <div>
-                            <label>Stadt</label>
-                            <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model="city">
-                            @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror
-                        </div>  
-                    </div>  --}}
-                    <div class="pTop1pc">
-                        <button  type="submit" class="pTop1pc btn btn-primary">Empfänger speichern</button>
-                    </div>
                 </div>
             </form>
         </div>
@@ -293,10 +267,21 @@
     @endif
         @if($step == 2)
             <div class="docContainer">
-                <div class="myAddress">
-                    {{ $user->first_name }} {{ $user->last_name }}<br>
-                    {{ $user->address->street }} {{ $user->address->number }}<br>
-                    {{ $user->address->postcode }} {{ $user->address->city }}<br>
+                <div class="flex spaceBetweeen addressLine">
+                    <div class="address">
+                        @if(!$company == "")
+                            <div class="fade">
+                                {{$company}}
+                            </div>
+                        @endif   
+                        {{ $street }} {{ $number }}<br>
+                        {{ $postcode }} {{ $city }}<br>
+                    </div>
+                    <div class="myAddress">
+                        {{ $user->first_name }} {{ $user->last_name }}<br>
+                        {{ $user->address->street }} {{ $user->address->number }}<br>
+                        {{ $user->address->postcode }} {{ $user->address->city }}<br>
+                    </div>
                 </div>
                 @if(!$company == "")
                     <div class="myModal fade">

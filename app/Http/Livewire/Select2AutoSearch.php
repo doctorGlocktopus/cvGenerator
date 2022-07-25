@@ -9,7 +9,7 @@ use App\Models\Postcode;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
-
+use App\Http\Livewire\Builder;
 
 
 class Select2AutoSearch extends Component
@@ -131,17 +131,22 @@ class Select2AutoSearch extends Component
     {
         if($this->step == 2){
         return <<<'blade'
-        <div class="flex">
-            <div>
-                <label>Postleitzahl</label>
-                <input type="number" class="form-control" placeholder="Postleitzahl" wire:model="postcode">
-                @error('Postleitzahl') <span class="text-danger">{{ $message }}</span> @enderror          
+        <div>
+            <div class="flex">
+                <div>
+                    <label>Postleitzahl</label>
+                    <input id="autoCode" type="number" class="form-control" wire:model="postcode">
+                    @error('Postleitzahl') <span class="text-danger">{{ $message }}</span> @enderror          
+                </div>
+                <div>
+                    <label>Stadt</label>
+                    <input id="autoCity" type="text" class="form-control" wire:model="city">
+                    @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror
+                </div>  
             </div>
-            <div>
-                <label>Stadt</label>
-                <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model="city">
-                @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror
-            </div>  
+            <div onclick="fillValue()"class="pTop1pc">
+                <button type="submit" class="btn btn-primary">Meine Adresse speichern</button>
+            </div>
         </div>
         blade;
         } else
