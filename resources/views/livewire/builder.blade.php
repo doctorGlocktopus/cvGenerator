@@ -112,27 +112,22 @@
             <h3>Wir brauchen die Adresse des Empfängers</h3>
             <form wire:submit.prevent="receiverAddress">
                 <div class="inLineFlex">
-                    <div class="form-group">
-                        <label>Straße</label>
-                        <input type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
-                        @error('Straße') <span class="text-danger">{{ $message }}</span> @enderror          
-
-                        <label>Hausnummer</label>
-                        <input type="number" class="form-control" placeholder="Hausnummer" wire:model.lazy="number">
-                        @error('Hausnummer') <span class="text-danger">{{ $message }}</span> @enderror          
+                    <div class="flex">
+                        <div>
+                            <label>Straße</label>
+                            <input type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
+                            @error('Straße') <span class="text-danger">{{ $message }}</span> @enderror          
+                        </div>
+                        <div>
+                            <label>Hausnummer</label>
+                            <input type="number" class="form-control" placeholder="Hausnummer" wire:model.lazy="number">
+                            @error('Hausnummer') <span class="text-danger">{{ $message }}</span> @enderror          
+                        </div>
                     </div>
                 </div>
-
                 <div class="inLineFlex">
-                    <div class="form-group">
-                        {{-- <livewire:select2-auto-search /> --}}
-                        <label>Postleitzahl</label>
-                        <input type="number" class="form-control" placeholder="Postleitzahl" wire:model.lazy="postcode">
-                        @error('Postleitzahl') <span class="text-danger">{{ $message }}</span> @enderror          
-
-                        <label>Stadt</label>
-                        <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model.lazy="city">
-                        @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror          
+                    <div class="flex">
+                        <livewire:select2-auto-search />  
                     </div>
                 </div>
                 <div class="pTop1pc">

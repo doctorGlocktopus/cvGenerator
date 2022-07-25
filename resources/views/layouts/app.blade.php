@@ -1,5 +1,11 @@
 <head>
 <style>
+
+    .searchBar {
+        position: fixed;
+        top: 1%;
+    }
+
     textarea {
         background-color: white; border: none; width:660px;font-family: Arial, Helvetica, sans-serif; font-size:1.0em; resize:none;"
     }
@@ -131,6 +137,10 @@
 
     .columnD {
         flex-direction: column;
+    }
+
+    .rowD {
+        flex-direction: row !important;
     }
 
     .padding10pc {

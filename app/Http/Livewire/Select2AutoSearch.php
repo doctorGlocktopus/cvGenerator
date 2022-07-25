@@ -116,7 +116,7 @@ class Select2AutoSearch extends Component
     public function getData($data) {
         $this->postcode = $data["postcode"];
         $this->city = $data["city"];
-        $this->step = 0;
+        $this->step = 2;
         // $this->data = $data;
     }
 

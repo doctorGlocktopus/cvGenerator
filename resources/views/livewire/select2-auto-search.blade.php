@@ -31,19 +31,34 @@
             </select>
         @endif
     </div> --}}
-    {{$postcode}} {{$city}}
-    <input hidden wire:model.lazy="postcode">
-    <input hidden wire:model.lazy="city">
 
-    <div class="list-group">
+    <div class="list-group pTop1pc flex rowD">
         @if($step == 0)
+        <div class="flex columnD">
+            <label>Postleitzahl oder Stadt eingeben</label>
             <input class="form-control" wire:model="input" oninput="check()" type="text" wire:change.lazy ='Utf8_ansi({{$json}})'>
-        @else
+        </div>
+        @endif
+        @if($step == 1)
+        <div class="searchBar">
             <div class="cursor list-group-item list-group-item-action active">{{$postcode}} {{$city}}</div>
                 @foreach($search as $data)
                     <div class="cursor list-group-item list-group-item-action" wire:click.lazy="getData({{ $data }})">{{ $data["postcode"] }} {{ $data["city"] }}</div>
                 @endforeach
             </div>
+        </div>
+        @endif
+        @if($step == 2)
+            <div>
+                <label>Postleitzahl</label>
+                <input type="number" class="form-control" placeholder="Postleitzahl" wire:model="postcode">
+                @error('Postleitzahl') <span class="text-danger">{{ $message }}</span> @enderror          
+            </div>
+            <div>
+                <label>Stadt</label>
+                <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model="city">
+                @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>     
         @endif
         
     </div>
