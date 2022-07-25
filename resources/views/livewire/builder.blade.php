@@ -26,7 +26,7 @@
                         <div class="flex">
                             <div>
                                 <label>Straße</label>
-                                <input type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
+                                <input pattern="[a-zA-Z]+" type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
                                 @error('Straße') <span class="text-danger">{{ $message }}</span> @enderror          
                             </div>
                             <div>
@@ -47,7 +47,7 @@
                         <div class="flex">
                             <div>
                                 <label>Straße</label>
-                                <input type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
+                                <input pattern="[a-zA-Z]+" type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
                                 @error('Straße') <span class="text-danger">{{ $message }}</span> @enderror          
                             </div>
                             <div>

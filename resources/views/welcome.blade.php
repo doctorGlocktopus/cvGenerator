@@ -32,6 +32,7 @@
     @endif
     </div>
 @endsection
+<div class="blubb sdhw"></div>
 <script>
     function gate(key) {
         if(key == "faq")
