@@ -78,7 +78,7 @@ class Builder extends Component
 
     public $message;
 
-    public function mount($id) {
+    public function mount($id = NULL) {
         if($id) {
             if(Announcement::find($id))
             {
@@ -89,7 +89,7 @@ class Builder extends Component
             }            
         }
         else {
-   
+            $this->user = Auth::user();
             if($this->user->address_id == NULL) {
                 $this->step = 0;
             } else {
