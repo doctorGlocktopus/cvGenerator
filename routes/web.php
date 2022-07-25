@@ -32,10 +32,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/new', Builder::class);
-// Route::get('/list', [App\Http\Controllers\HomeController::class, 'list'])->name('list');
-
-// Route::get('/announcement/{id}', [App\Http\Controllers\HomeController::class, 'announcement'])->name('announcement');
+Route::get('/new', [App\Http\Controllers\HomeController::class, 'new'])->name('new');
 
 Route::get('/delete/{id}', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
 

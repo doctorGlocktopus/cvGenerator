@@ -79,7 +79,7 @@ class Builder extends Component
     public $message;
 
     public function mount($id = NULL) {
-        if($id) {
+        if($id){
             if(Announcement::find($id))
             {
                 $this->announcement = Announcement::find($id);
@@ -88,6 +88,8 @@ class Builder extends Component
                 $this->step = 3;     
             }            
         }
+       
+        
         else {
             $this->user = Auth::user();
             if($this->user->address_id == NULL) {
