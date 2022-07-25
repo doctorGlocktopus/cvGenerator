@@ -71,11 +71,6 @@
                             <input type="text" class="form-control" placeholder="Firma" wire:model="company">
                             @error('Firma') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <div class="pTop1pc flex">
-                            <a class="btn btn-primary" onclick="buff(2)">nächster Schritt</a>
-                        </div>
-                    @endif
-                @if($buff == 2)
                     <div class="form-group">
                         <label>gewünschter Arbeitplatz</label>
                         <input type="text" class="form-control" placeholder="Arbeitsplatz" wire:model="job">

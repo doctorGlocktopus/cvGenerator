@@ -83,8 +83,7 @@
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
-
-        background-image: repeating-linear-gradient(45deg, #596f80 0%, #596f80 4%, #cfdce6 2%, #cfdce6 8%, white 2%);
+        background-image: repeating-linear-gradient(45deg, #596f80 0%, #596f80 32%, #cfdce6 16%, #cfdce6 64%, white 16%);
     }
 
     .link {
@@ -144,7 +143,6 @@
     }
 
     .doc {
-        background-color: lightblue;
         line-height: 1.5;
     }
 
