@@ -1,5 +1,3 @@
-
-
 @extends('layouts.app')
 @section('content')
     <div>
@@ -36,6 +34,14 @@
 @endsection
 <script>
     function gate(key) {
+        if(key == "faq")
+        {
+            document.getElementById('imprint').style.display = "none";
+        }
+        if(key == 'imprint')
+        {
+            document.getElementById("faq").style.display = "none";
+        }
         if(document.getElementById(key).style.display == "none")
         document.getElementById(key).style.display = "flex";
         else
