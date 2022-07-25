@@ -8,6 +8,10 @@
         cursor: pointer;
     }
 
+    .pTop1pc {
+        padding-top: 1%;
+    }
+
     #modal {
         position: absolute;
         background: bisque;

@@ -102,8 +102,9 @@
                     </div>
                 </div>
 
-            
-                <button type="submit" class="btn btn-primary">Meine Adresse speichern</button>
+                <div class="pTop1pc">
+                    <button type="submit" class="btn btn-primary">Meine Adresse speichern</button>
+                </div>
             </form>
         </div>
     @elseif($step == 1)
@@ -134,9 +135,9 @@
                         @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror          
                     </div>
                 </div>
-
-            
-                <button type="submit" class="btn btn-primary">Empfänger speichern</button>
+                <div class="pTop1pc">
+                    <button type="submit" class="btn btn-primary">Empfänger speichern</button>
+                </div>
             </form>
         </div>
     @elseif($step == 2)
@@ -149,7 +150,9 @@
                             <input type="text" class="form-control" placeholder="Firma" wire:model.lazy="company">
                             @error('Firma') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <a class="btn btn-primary" onclick="buff(2)">nächster Schritt</a>
+                        <div class="pTop1pc">
+                            <a class="btn btn-primary" onclick="buff(2)">nächster Schritt</a>
+                        </div>
                     @endif
                 @if($buff == 2)
                     <div class="form-group">
@@ -170,9 +173,10 @@
                         @endif
                         @error('Beruf') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <a class="btn btn-secondary" onclick="buff(1)">zurück</a>
-                    <a class="btn btn-primary" onclick="buff(3)">nächster Schritt</a>
-
+                    <div class="pTop1pc">
+                        <a class="btn btn-secondary" onclick="buff(1)">zurück</a>
+                        <a class="btn btn-primary" onclick="buff(3)">nächster Schritt</a>
+                    </div>
                 @endif
                 @if($buff == 3)
                     <div class="form-group">
@@ -197,9 +201,10 @@
                             </div>
                         @error('Kontaktperson') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <a class="btn btn-secondary" onclick="buff(2)">zurück</a>
-                    <a class="btn btn-primary" onclick="buff(4)">nächster Schritt</a>
-
+                    <div class="pTop1pc">
+                        <a class="btn btn-secondary" onclick="buff(2)">zurück</a>
+                        <a class="btn btn-primary" onclick="buff(4)">nächster Schritt</a>
+                    </div>
                 @endif
                 @if($buff == 4)
                     <div class="form-group">
@@ -213,9 +218,10 @@
                         <textarea onchange="blend()" name="text" cols="75" rows="15" class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
                         @error('Einleitung') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <a class="btn btn-secondary" onclick="buff(3)">zurück</a>
-                    <a class="btn btn-primary" onclick="buff(5)">nächster Schritt</a>
-
+                    <div class="pTop1pc">
+                        <a class="btn btn-secondary" onclick="buff(3)">zurück</a>
+                        <a class="btn btn-primary" onclick="buff(5)">nächster Schritt</a>
+                    </div>
                 @endif
                 @if($buff == 5)
                     <div class="form-group">
@@ -229,9 +235,10 @@
                         <textarea rows="10" class="form-control" placeholder="Hauptteil" wire:model="body"></textarea>
                         @error('Hauptteil') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <a class="btn btn-secondary" onclick="buff(4)">zurück</a>
-                    <a class="btn btn-primary" onclick="buff(6)">nächster Schritt</a>
-
+                    <div class="pTop1pc">
+                        <a class="btn btn-secondary" onclick="buff(4)">zurück</a>
+                        <a class="btn btn-primary" onclick="buff(6)">nächster Schritt</a>
+                    </div>
                 @endif
                 @if($buff == 6)
                     <div class="form-group">
@@ -246,8 +253,10 @@
                         @error('Schluss') <span class="text-danger">{{ $message }}</span> @enderror
 
                     </div>
-                    <a class="btn btn-secondary" onclick="buff(5)">zurück</a>  
-                    <button type="submit" class="btn btn-primary">Bewerbung abspeichern</button>
+                    <div class="pTop1pc">
+                        <a class="btn btn-secondary" onclick="buff(5)">zurück</a>  
+                        <button type="submit" class="btn btn-primary">Bewerbung abspeichern</button>
+                    </div>
                 @endif
             </form>
         </div>
