@@ -17,7 +17,7 @@ align-items: flex-start;">
     </script>
     
     @if($step == 0)
-        <div class="flex columnD padding10pc minW800">
+        <div class="flex columnD padding1pc minW800">
             <h3>Wir brauchen zu erst deine eigene Adresse</h3>
             <form wire:submit.prevent="address">
                 <div class="inLineFlex">
@@ -50,7 +50,7 @@ align-items: flex-start;">
             </form>
         </div>
     @elseif($step == 1)
-        <div class="flex columnD padding10pc">
+        <div class="flex columnD padding1pc">
             <h3>Wir brauchen die Adresse des Empfängers</h3>
             <form wire:submit.prevent="receiverAddress">
                 <div class="inLineFlex">
@@ -91,7 +91,7 @@ align-items: flex-start;">
         </div>
     @endif
     @if($step == 2)
-        <div class="flex columnD padding10pc">
+        <div class="flex columnD padding1pc">
             <h3>Daten des Empfängers</h3>
             <form wire:submit.prevent="submit">
                     @if($buff == 1)
@@ -333,7 +333,9 @@ align-items: flex-start;">
                 @endif
             </div>
         @else
+        <div>
             <livewire:list-view />
+        </div>
         @endif
     </div>
     
