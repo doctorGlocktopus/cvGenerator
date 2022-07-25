@@ -6,31 +6,38 @@
         <div class="padding1pc banner flex spaceEven flexEnd">
             <span>richtigGutBewerben</span>
 
-                <span onclick="gate('contact')" class="cursor  fontSize50pc">Kontakt</span>
-                <span onclick="gate('faq')" class="cursor fontSize50pc">FAQ</span>
+                <span onclick="gate('faq')" class="cursor  fontSize50pc">F.A.Q</span>
                 <span onclick="gate('imprint')" class="cursor fontSize50pc">Impressum</span>
 
         </div>
-        <div class="padding1pc wContent">
-            <div id="contact">
-                contactInfo
+        <div class="flex collumD fade padding1pc wContent">
+            <div onclick="
+                window.open('https://www.github.com/doctorGlocktopus', '_blank')"
+                 style="display: none" id="imprint">
+                <img class="fade cursor" src="http://localhost/bewerbung/resources/gitHub.png">
             </div>
-            <div id="faq">
-                frage Antwort Kacka
+            <div class="fade padding1pc wContent" style="display: none; font-size: 180%; justify-content: space-around; align-items: center;" id="faq">
+                <div class="flex columnD">
+                    <span>Freeware</span>
+                    <span>Clever4You</span>
+                    <span>SaveTimeAndMoney</span>
+                </div>
+                <div class="flex columnD">
+                    <span>Freeware</span>
+                    <span>Clever4You</span>
+                    <span>SaveTimeAndMoney</span>
+                </div>
             </div>
-            <div id="imprint">
-                mein Impressum
-            </div>
-            @if(Auth::User())
-                <livewire:list-view />
-            @endif
         </div>
+        @if(Auth::User())
+        <livewire:list-view />
+    @endif
     </div>
 @endsection
 <script>
     function gate(key) {
         if(document.getElementById(key).style.display == "none")
-        document.getElementById(key).style.display = "block";
+        document.getElementById(key).style.display = "flex";
         else
         document.getElementById(key).style.display = "none";
     }
