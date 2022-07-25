@@ -167,6 +167,10 @@
         justify-content: space-between;
     }
 
+    .spaceAround {
+        justify-content: space-around;
+    }
+
     .date {
         width: 100%;
         text-align: end;
@@ -213,6 +217,8 @@
         top: 22%;
         width: 28%; */
     }
+    
+    #more {display: none;}
 
 </style>
 
@@ -265,7 +271,7 @@
             <a href="/print"><i class='fa fa-print'></i> Drucken</a>
 
             @if(Auth::user())
-                <a onclick="alert('wir löschen deine Daten unwiederuflich!')"style="position: absolute; right: 1%;" href="/delete/{{Auth::user()->id}}" class="btn btn-primary">Account löschen?</a>
+                <a onclick="alert('wir löschen deine Daten unwiederuflich!')" href="/delete/{{Auth::user()->id}}" class="btn btn-primary">Account löschen?</a>
             @endif
         @endguest
     </nav>
