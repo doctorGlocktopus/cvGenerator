@@ -3,10 +3,10 @@
 @extends('layouts.app')
 @section('content')
     <div>
-        <div class="pTop1pc banner">
+        <div class="padding1pc banner">
             <span>richtigGutBewerben</span>
         </div>
-        <div class="pTop1pc">
+        <div class="padding1pc">
             @if(Auth::User())
                 <livewire:list-view />
             @endif

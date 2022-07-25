@@ -19,7 +19,7 @@
     </script>
     
     @if($step == 0)
-        <div class="flex columnD padding1pc">
+        <div class="flex columnD padding1pc w88pc">
             <h3>Wir brauchen zu erst deine eigene Adresse</h3>
             <form wire:submit.prevent="address">
                 <div>
@@ -40,7 +40,7 @@
             </form>
         </div>
     @elseif($step == 1)
-        <div class="flex columnD padding1pc">
+        <div class="flex columnD padding1pc w88pc">
             <h3>Wir brauchen die Adresse des Empfängers</h3>
             <form class="flex columnD" wire:submit.prevent="receiverAddress">
                 <div>
@@ -62,7 +62,7 @@
         </div>
     @endif
     @if($step == 2)
-        <div class="flex columnD padding1pc">
+        <div class="flex columnD padding1pc w88pc">
             <h3>Daten des Empfängers</h3>
             <form wire:submit.prevent="submit">
                     @if($buff == 1)
@@ -71,7 +71,7 @@
                             <input type="text" class="form-control" placeholder="Firma" wire:model="company">
                             @error('Firma') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <div class="pTop1pc">
+                        <div class="pTop1pc flex">
                             <a class="btn btn-primary" onclick="buff(2)">nächster Schritt</a>
                         </div>
                     @endif
@@ -94,7 +94,7 @@
                         @endif
                         @error('Beruf') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <div class="pTop1pc">
+                    <div class="pTop1pc flex">
                         <a class="btn btn-secondary" onclick="buff(1)">zurück</a>
                         <a class="btn btn-primary" onclick="buff(3)">nächster Schritt</a>
                     </div>
@@ -122,7 +122,7 @@
                             </div>
                         @error('Kontaktperson') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <div class="pTop1pc">
+                    <div class="pTop1pc flex">
                         <a class="btn btn-secondary" onclick="buff(2)">zurück</a>
                         <a class="btn btn-primary" onclick="buff(4)">nächster Schritt</a>
                     </div>
@@ -139,7 +139,7 @@
                         <textarea onchange="blend()" cols="75" rows="15" class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
                         @error('Einleitung') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <div class="pTop1pc">
+                    <div class="pTop1pc flex">
                         <a class="btn btn-secondary" onclick="buff(3)">zurück</a>
                         <a class="btn btn-primary" onclick="buff(5)">nächster Schritt</a>
                     </div>
@@ -156,7 +156,7 @@
                         <textarea onchange="blend()" cols="75" rows="15" class="form-control" placeholder="Hauptteil" wire:model="body"></textarea>
                         @error('Hauptteil') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <div class="pTop1pc">
+                    <div class="pTop1pc flex">
                         <a class="btn btn-secondary" onclick="buff(4)">zurück</a>
                         <a class="btn btn-primary" onclick="buff(6)">nächster Schritt</a>
                     </div>
@@ -174,7 +174,7 @@
                         @error('Schluss') <span class="text-danger">{{ $message }}</span> @enderror
 
                     </div>
-                    <div class="pTop1pc">
+                    <div class="pTop1pc flex">
                         <a class="btn btn-secondary" onclick="buff(5)">zurück</a>  
                         <button type="submit" class="btn btn-primary">Bewerbung abspeichern</button>
                     </div>

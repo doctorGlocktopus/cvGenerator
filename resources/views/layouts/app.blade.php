@@ -1,6 +1,15 @@
 <head>
 <style>
 
+    a {
+        width: 100%;
+        height: fit-content;
+    }
+
+    a:hover {
+        background-color: #596f7f73;
+    }
+
     .grey {
         background-color: #cfdce6;
     }
@@ -107,9 +116,13 @@
         padding: 5%;
     }
 
+    .w88pc {
+        width: 88%
+    }
+
     .banner {
         font-family: papyrus;
-        font-size: 600%!important;
+        font-size: 500%!important;
         background: #6096bf;
         text-shadow: #cfdce6 2px 1px 2px;
         line-height: 1.2;
@@ -139,7 +152,7 @@
 
     .close {
         font-size: 150%;
-        right: 0;
+        right: 1%;
         position: absolute;
     }
 
@@ -175,11 +188,6 @@
         padding: 10%;
     }
 
-    .minW800 {
-        min-width: 800px;
-        width: 0;
-    }
-
     .spaceBetweeen {
         justify-content: space-between;
     }
@@ -202,9 +210,10 @@
     }
 
     nav {
-        padding: 10;
+        height: 5%;
         line-height: 2;
         margin-bottom: 1%;
+        align-items: center;
     }
 
     .myModal {
@@ -263,17 +272,17 @@
     <nav class="shdw fade white flex spaceEven">
         @guest
             @if (Route::has('login'))
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    <a class="btn" href="{{ route('login') }}">{{ __('Login') }}</a>
             @endif
 
             @if (Route::has('register'))
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class="btn" href="{{ route('register') }}">{{ __('Register') }}</a>
             @endif
         @else
-            <a href="/">
+            <a class="btn" href="/">
                 Home
             </a>
-            <a href="{{ route('logout') }}"
+            <a class="btn" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
@@ -283,9 +292,9 @@
                 @csrf
             </form>
 
-            <a href="/new">Neues Anschreiben</a>
+            <a class="btn" href="/new">Neues Anschreiben</a>
 
-            <a href="/print"><i class='fa fa-print'></i> Drucken</a>
+            <a class="btn" href="/print"><i class='fa fa-print'></i> Drucken</a>
 
             @if(Auth::user())
                 <a onclick="alert('wir löschen deine Daten unwiederuflich!')" href="/delete/{{Auth::user()->id}}" class="btn">Account löschen?</a>
