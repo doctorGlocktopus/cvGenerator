@@ -231,6 +231,10 @@
         align-items: center;
     }
 
+    .flexEnd {
+        align-items: flex-end;
+    }
+
     .myModal {
         position: relative;
         padding: 10;
@@ -257,6 +261,10 @@
         left: 10;
         top: 22%;
         width: 28%; */
+    }
+
+    .fontSize50pc {
+        font-size: 50%
     }
     
     #more {display: none;}
@@ -294,13 +302,14 @@
                     <a class="btn" href="{{ route('register') }}">{{ __('Register') }}</a>
             @endif
         @else
-            <a class="btn" href="/">
-                Home
-            </a>
             <a class="btn" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
+            </a>
+
+            <a class="btn" href="/">
+                Home
             </a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
