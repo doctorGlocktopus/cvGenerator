@@ -260,6 +260,18 @@
         width: 28%; */
     }
 
+    .modalBody {
+        position: fixed;
+        display: flex;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #ffffffc2;
+        justify-content: center;
+        align-items: center;
+    }
+
     .fontSize50pc {
         font-size: 50%
     }

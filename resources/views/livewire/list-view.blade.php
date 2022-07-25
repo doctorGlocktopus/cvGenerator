@@ -1,3 +1,4 @@
+
 <div class="fade relativ">
     @if($close == 1)
         <div wire:click="close(0)" class="close cursor btn">
@@ -30,6 +31,12 @@
                                 <td scope="row" wire:click="delete({{$i->id}})"><i class="fa fa-trash" aria-hidden="true"></i> dauerhaft löschen</td>
                             </tr>
                         @endforeach
+                        @if($jump ==1)
+                        <div wire:click="jumper()" class="fade modalBody">
+                            willst du den Datensatz unwiederuflich 
+                            <button wire:click="delete({{$i->id}})" class="btn btn-danger">löschen?</button>
+                        </div>
+                        @endif
                     </tbody>
                 </table>
             </div>

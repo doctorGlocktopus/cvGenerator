@@ -11,6 +11,7 @@ use App\Models\Announcement;
 class ListView extends Component
 {
     public $close;
+    public $jump = 0;
 
     public function mount() {
 
@@ -20,6 +21,10 @@ class ListView extends Component
     public function choose($id) {
         $this->announcement = Announcement::find($id);
 
+    }
+
+    public function jumper() {
+        $this->jump = 0;
     }
 
     public function close($i) {
@@ -32,9 +37,15 @@ class ListView extends Component
     }
 
     public function delete($id) {
-        $data = Announcement::find($id);
-        $data->forceDelete();
-        $this->mount();
+        if($this->jump == 0)
+            $this->jump = 1;
+        else {
+            $data = Announcement::find($id);
+            $data->forceDelete();
+            $this->jump = 0;
+            $this->mount();
+        }
+
     }
 
 }
