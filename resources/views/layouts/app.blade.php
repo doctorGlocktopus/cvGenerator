@@ -136,7 +136,6 @@
     }
 
     .banner {
-        font-family: papyrus;
         font-size: 500%!important;
         background: #6096bf;
         text-shadow: #cfdce6 2px 1px 2px;
