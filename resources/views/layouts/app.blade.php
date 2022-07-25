@@ -105,12 +105,10 @@
     .banner {
         font-family: papyrus;
         font-size: 600%!important;
-        padding: 20px;
         background: #6096bf;
         text-shadow: #cfdce6 2px 1px 2px;
         line-height: 1.2;
-        width: 100%;
-        height: 100%;
+
     }
 
     .doc {
@@ -254,7 +252,7 @@
             @endif
         @else
             <a href="/">
-                {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
+                Home
             </a>
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
@@ -266,12 +264,12 @@
                 @csrf
             </form>
 
-            <a href="/new">New File</a>
+            <a href="/new">Neues Anschreiben</a>
 
             <a href="/print"><i class='fa fa-print'></i> Drucken</a>
 
             @if(Auth::user())
-                <a onclick="alert('wir löschen deine Daten unwiederuflich!')" href="/delete/{{Auth::user()->id}}" class="btn btn-primary">Account löschen?</a>
+                <a onclick="alert('wir löschen deine Daten unwiederuflich!')" href="/delete/{{Auth::user()->id}}" class="btn">Account löschen?</a>
             @endif
         @endguest
     </nav>
