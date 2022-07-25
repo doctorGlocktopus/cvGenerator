@@ -110,7 +110,6 @@
         <div class="flex columnD padding10pc minW800">
             <h3>Wir brauchen die Adresse des Empfängers</h3>
             <form wire:submit.prevent="receiverAddress">
-
                 <div class="inLineFlex">
                     <div class="form-group">
                         <label>Straße</label>
@@ -211,7 +210,7 @@
                                 <option value="{{$temp->start}}">{{$temp->name}}</option>
                             @endforeach
                         </select>
-                        <textarea onchange="blend()" name="text" cols="75" rows="15" class="form-control" placeholder="Einleitung" wire:model.lazy="start"></textarea>
+                        <textarea onchange="blend()" name="text" cols="75" rows="15" class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
                         @error('Einleitung') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <a class="btn btn-secondary" onclick="buff(3)">zurück</a>
@@ -227,7 +226,7 @@
                                 <option value="{{$temp->body}}">{{$temp->name}}</option>
                             @endforeach
                         </select>
-                        <textarea rows="10" class="form-control" placeholder="Hauptteil" wire:model.lazy="body"></textarea>
+                        <textarea rows="10" class="form-control" placeholder="Hauptteil" wire:model="body"></textarea>
                         @error('Hauptteil') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <a class="btn btn-secondary" onclick="buff(4)">zurück</a>
@@ -243,7 +242,7 @@
                                 <option value="{{$temp->end}}">{{$temp->name}}</option>
                             @endforeach
                         </select>
-                        <textarea rows="10" class="form-control" placeholder="Schluss" wire:model.lazy="end"></textarea>
+                        <textarea rows="10" class="form-control" placeholder="Schluss" wire:model="end"></textarea>
                         @error('Schluss') <span class="text-danger">{{ $message }}</span> @enderror
 
                     </div>

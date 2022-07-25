@@ -76,6 +76,7 @@ class Builder extends Component
 
     public $json;
 
+    public $message;
 
     public function mount() {
 
@@ -121,8 +122,6 @@ class Builder extends Component
 
 
         $this->validate([
-            'user_id' => 'required',
-            'address_id' => 'required',
             'company' => 'required',
             'job' => 'required',
             'contact' => 'required',
@@ -173,7 +172,7 @@ class Builder extends Component
             'number' => 'required|Integer',
             'postcode' => 'required|Integer|Min:5',
             'city' => 'required|String',
-            ],  ['required' => 'The :attribute field is required'],)
+            ])
         ) {
             $this->step = 2;
         }
