@@ -120,19 +120,16 @@ class Builder extends Component
         ##$this->validate();
 
 
-
-
-        // validation nach create mal anschauen komplexes thema
-        // $data = $this->validate([
-        //     'user_id' => 'required',
-        //     'address_id' => 'required',
-        //     'company' => 'required',
-        //     'job' => 'required',
-        //     'contact' => 'required',
-        //     'type' => 'required',
-        //     'start' => 'required',
-        //     'body' => 'required',
-        // ]);
+        $this->validate([
+            'user_id' => 'required',
+            'address_id' => 'required',
+            'company' => 'required',
+            'job' => 'required',
+            'contact' => 'required',
+            'type' => 'required',
+            'start' => 'required',
+            'body' => 'required',
+        ]);
 
 
         $user = Auth::User();
@@ -170,13 +167,28 @@ class Builder extends Component
     }
 
     public function receiverAddress() {
-        $this->step = 2;
+        if(        
+            $this->validate([
+            'street' => 'required|String|Min:5',
+            'number' => 'required|Integer',
+            'postcode' => 'required|Integer|Min:5',
+            'city' => 'required|String',
+            ],  ['required' => 'The :attribute field is required'],)
+        ) {
+            $this->step = 2;
+        }
     }
 
     
     public function address() {
         $street = $this->street;
         $street .=  " $this->number";
+
+        $this->validate([
+            'street' => 'required|Min:5',
+            'postcode' => 'required|Integer|Min:5',
+            'city' => 'required|String',
+        ]);
 
         $address = Address::create([
             'street' => $this->street,

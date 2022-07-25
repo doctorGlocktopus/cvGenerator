@@ -81,11 +81,11 @@
                 <div class="inLineFlex">
                     <div>
                         <label>Straße</label>
-                        <input type="text" class="form-control" placeholder="Straße" wire:model="street">
+                        <input type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
                         @error('Straße') <span class="text-danger">{{ $message }}</span> @enderror          
 
                         <label>Hausnummer</label>
-                        <input type="number" class="form-control" placeholder="Hausnummer" wire:model="number">
+                        <input type="number" class="form-control" placeholder="Hausnummer" wire:model.lazy="number">
                         @error('Hausnummer') <span class="text-danger">{{ $message }}</span> @enderror          
                     </div>
                 </div>
@@ -93,11 +93,11 @@
                 <div class="inLineFlex">
                     <div class="form-group">
                         <label>Postleitzahl</label>
-                        <input type="number" class="form-control" placeholder="Postleitzahl" wire:model="postcode">
+                        <input type="number" class="form-control" placeholder="Postleitzahl" wire:model.lazy="postcode">
                         @error('Postleitzahl') <span class="text-danger">{{ $message }}</span> @enderror          
 
                         <label>Stadt</label>
-                        <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model="city">
+                        <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model.lazy="city">
                         @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror          
                     </div>
                 </div>
@@ -114,24 +114,24 @@
                 <div class="inLineFlex">
                     <div class="form-group">
                         <label>Straße</label>
-                        <input type="text" class="form-control" placeholder="Straße" wire:model="street">
+                        <input type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
                         @error('Straße') <span class="text-danger">{{ $message }}</span> @enderror          
 
                         <label>Hausnummer</label>
-                        <input type="number" class="form-control" placeholder="Hausnummer" wire:model="number">
+                        <input type="number" class="form-control" placeholder="Hausnummer" wire:model.lazy="number">
                         @error('Hausnummer') <span class="text-danger">{{ $message }}</span> @enderror          
                     </div>
                 </div>
 
                 <div class="inLineFlex">
                     <div class="form-group">
-                        <livewire:select2-auto-search />
+                        {{-- <livewire:select2-auto-search /> --}}
                         <label>Postleitzahl</label>
-                        <input type="number" class="form-control" placeholder="Postleitzahl" wire:model="postcode">
+                        <input type="number" class="form-control" placeholder="Postleitzahl" wire:model.lazy="postcode">
                         @error('Postleitzahl') <span class="text-danger">{{ $message }}</span> @enderror          
 
                         <label>Stadt</label>
-                        <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model="city">
+                        <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model.lazy="city">
                         @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror          
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                     @if($buff == 1)
                         <div class="form-group">
                             <label>Firmenname</label>
-                            <input type="text" class="form-control" placeholder="Firma" wire:model="company">
+                            <input type="text" class="form-control" placeholder="Firma" wire:model.lazy="company">
                             @error('Firma') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <a class="btn btn-primary" onclick="buff(2)">nächster Schritt</a>
@@ -155,11 +155,11 @@
                 @if($buff == 2)
                     <div class="form-group">
                         <label>gewünschter Arbeitplatz</label>
-                        <input type="text" class="form-control" placeholder="Arbeitsplatz" wire:model="job">
+                        <input type="text" class="form-control" placeholder="Arbeitsplatz" wire:model.lazy="job">
                         @error('Arbeitsplatz') <span class="text-danger">{{ $message }}</span> @enderror
                         <label>Beschäftigungsart</label>
                         @if(!$type == "eigene")
-                        <select class="form-control form-select" wire:model="type" aria-label="Beschäftigungsart">
+                        <select class="form-control form-select" wire:model.lazy="type" aria-label="Beschäftigungsart">
                             <option disabled> Beschäftigungsart wählen</option>
                             <option value="Vollzeit">Vollzeit</option>
                             <option value="Teilzeit">Teilzeit</option>
@@ -167,10 +167,11 @@
                             <option value="eigene">eigene Angabe wählen</option>
                         </select>
                         @else
-                            <input class="form-control form-select" wire:model="type" aria-label="Beschäftigungsart">
+                            <input class="form-control form-select" wire:model.lazy="type" aria-label="Beschäftigungsart">
                         @endif
                         @error('Beruf') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
+                    <a class="btn btn-secondary" onclick="buff(1)">zurück</a>
                     <a class="btn btn-primary" onclick="buff(3)">nächster Schritt</a>
 
                 @endif
@@ -180,69 +181,73 @@
                                 <div>
                                     <label>Anrede</label>
                                     @if(!$contactGender == "eigene")
-                                    <select class="form-control form-select w33" wire:model="contactGender" aria-label="Geschlecht">
+                                    <select class="form-control form-select w33" wire:model.lazy="contactGender" aria-label="Geschlecht">
                                         <option disabled>Geschlecht wählen</option>
                                         <option selected value="Herr">Herr</option>
                                         <option value="Frau">Frau</option>
                                         <option value="eigene">eigene Definition</option>
                                     </select>
                                     @else
-                                        <input class="form-control form-select" wire:model="contactGender" aria-label="Beschäftigungsart">
+                                        <input class="form-control form-select" wire:model.lazy="contactGender" aria-label="Beschäftigungsart">
                                     @endif
                                 </div>
                                 <div>
                                     <label>Nachname</label>
-                                    <input type="text" class="form-control" placeholder="Kontaktperson" wire:model="contact">
+                                    <input type="text" class="form-control" placeholder="Kontaktperson" wire:model.lazy="contact">
                                 </div>
                             </div>
                         @error('Kontaktperson') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
+                    <a class="btn btn-secondary" onclick="buff(2)">zurück</a>
                     <a class="btn btn-primary" onclick="buff(4)">nächster Schritt</a>
 
                 @endif
                 @if($buff == 4)
                     <div class="form-group">
                         <label>Einleitung</label>
-                        <select class="form-control form-select w33" wire:model="start" aria-label="Einleitung">
+                        <select class="form-control form-select w33" wire:model.lazy="start" aria-label="Einleitung">
                             <option disabled>Einleitung wählen</option>
                             @foreach($templates as $temp)
                                 <option value="{{$temp->start}}">{{$temp->name}}</option>
                             @endforeach
                         </select>
-                        <textarea onchange="blend()" name="text" cols="75" rows="15" class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
+                        <textarea onchange="blend()" name="text" cols="75" rows="15" class="form-control" placeholder="Einleitung" wire:model.lazy="start"></textarea>
                         @error('Einleitung') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
+                    <a class="btn btn-secondary" onclick="buff(3)">zurück</a>
                     <a class="btn btn-primary" onclick="buff(5)">nächster Schritt</a>
 
                 @endif
                 @if($buff == 5)
                     <div class="form-group">
                         <label>Hauptteil</label>
-                        <select class="form-control form-select w33" wire:model="body" aria-label="Hauptteil">
+                        <select class="form-control form-select w33" wire:model.lazy="body" aria-label="Hauptteil">
                             <option disabled>Hauptteil wählen</option>
                             @foreach($templates as $temp)
                                 <option value="{{$temp->body}}">{{$temp->name}}</option>
                             @endforeach
                         </select>
-                        <textarea rows="10" class="form-control" placeholder="Hauptteil" wire:model="body"></textarea>
+                        <textarea rows="10" class="form-control" placeholder="Hauptteil" wire:model.lazy="body"></textarea>
                         @error('Hauptteil') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
+                    <a class="btn btn-secondary" onclick="buff(4)">zurück</a>
                     <a class="btn btn-primary" onclick="buff(6)">nächster Schritt</a>
 
                 @endif
                 @if($buff == 6)
                     <div class="form-group">
                         <label>Schluss</label>
-                        <select class="form-control form-select w33" wire:model="end" aria-label="Schluss">
+                        <select class="form-control form-select w33" wire:model.lazy="end" aria-label="Schluss">
                             <option disabled>Schluss wählen</option>
                             @foreach($templates as $temp)
                                 <option value="{{$temp->end}}">{{$temp->name}}</option>
                             @endforeach
                         </select>
-                        <textarea rows="10" class="form-control" placeholder="Schluss" wire:model="end"></textarea>
+                        <textarea rows="10" class="form-control" placeholder="Schluss" wire:model.lazy="end"></textarea>
                         @error('Schluss') <span class="text-danger">{{ $message }}</span> @enderror
 
-                    </div>  
+                    </div>
+                    <a class="btn btn-secondary" onclick="buff(5)">zurück</a>  
                     <button type="submit" class="btn btn-primary">Bewerbung abspeichern</button>
                 @endif
             </form>
