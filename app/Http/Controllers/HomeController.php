@@ -34,13 +34,18 @@ class HomeController extends Controller
 
     public function announcement($id)
     {
-        if(!Auth::User()->address) {
+        if(Announcement::find($id)) {
+            if(!Auth::User()->address) {
+                return view('new');
+            }
+            $user = Auth::User();
+            $announcement = Announcement::find($id);
+            
+            return view('announcement', ['id' => $id, 'error' => "", 'announcement' => $announcement, 'user' => $user]);
+        }
+        else {
             return view('new');
         }
-        $user = Auth::User();
-        $announcement = Announcement::find($id);
-        
-        return view('announcement', ['id' => $id, 'error' => "", 'announcement' => $announcement, 'user' => $user]);
     }
 
 
