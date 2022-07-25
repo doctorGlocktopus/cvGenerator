@@ -1,7 +1,5 @@
 <div>
-<div  style="    display: flex;
-justify-content: space-around;
-align-items: flex-start;">
+<div class="flex spaceAround flexStart">
     <script>
         // Buff manage the Modals
         function buff(hit) {

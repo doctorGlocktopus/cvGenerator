@@ -54,6 +54,10 @@
         align-content: center;
     }
 
+    .flexStart {
+        align-items: flex-start;
+    }
+
 
     body {
 
