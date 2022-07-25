@@ -127,7 +127,7 @@
                 </div>
                 <div class="inLineFlex">
                     <div>
-                        <livewire:select2-auto-search />  
+                        <livewire:select2-auto-search :postcode="$postcode" :postcode="$postcode" />  
                     </div>
                 </div>
                 <div class="pTop1pc">

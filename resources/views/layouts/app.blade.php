@@ -3,7 +3,12 @@
 
     .searchBar {
         position: fixed;
-        top: 1%;
+        top: 4%;
+        right: 20%;
+        background-color: #cfdce6;
+        outline: auto;
+        outline-style: auto;
+        box-shadow: 5px 5px 10px 0px;
     }
 
     textarea {
