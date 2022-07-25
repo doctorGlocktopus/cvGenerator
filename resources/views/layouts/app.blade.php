@@ -99,10 +99,17 @@
         width: 33%;
     }
 
+    .w55 {
+        width: 55%;
+    }
+
+    .w88 {
+        width: 88%
+    }
+
     .w100 {
         width: 100%;
     }
-
     .templateHeader {
         color: wheat;
         background: #596f80;

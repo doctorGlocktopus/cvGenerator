@@ -50,7 +50,7 @@
             {{ $user->first_name }} {{ $user->last_name }}
         </div>
     </div>
-    <div class="padding1pc wContent">
+    <div class="padding1pc w55">
         <livewire:list-view />
     </div>
 </div>

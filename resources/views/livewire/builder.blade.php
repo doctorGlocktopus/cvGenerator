@@ -19,7 +19,7 @@
     </script>
     
     @if($step == 0)
-        <div class="flex columnD padding1pc w88pc">
+        <div class="flex columnD padding1pc w88">
             <h3>Wir brauchen zu erst deine eigene Adresse</h3>
             <form wire:submit.prevent="address">
                 <div>
@@ -40,7 +40,7 @@
             </form>
         </div>
     @elseif($step == 1)
-        <div class="flex columnD padding1pc w88pc">
+        <div class="flex columnD padding1pc w88">
             <h3>Wir brauchen die Adresse des Empfängers</h3>
             <form class="flex columnD" wire:submit.prevent="receiverAddress">
                 <div>
@@ -62,7 +62,7 @@
         </div>
     @endif
     @if($step == 2)
-        <div class="flex columnD padding1pc w88pc">
+        <div class="flex columnD padding1pc w33">
             <h3>Daten des Empfängers</h3>
             <form wire:submit.prevent="submit">
                     @if($buff == 1)

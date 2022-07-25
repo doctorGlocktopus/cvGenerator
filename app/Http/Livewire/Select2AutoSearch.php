@@ -31,7 +31,7 @@ class Select2AutoSearch extends Component
 
     public function Utf8_ansi($valor ='') {
         if(!$valor == ""){
-            if(strlen($this->input) >= 3) {
+            if(strlen($this->input) >= 2) {
                 $this->step = 1;
 
                 $utf8_ansi2 = array(
