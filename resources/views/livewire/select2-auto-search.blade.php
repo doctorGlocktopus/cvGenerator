@@ -48,7 +48,7 @@
             </div>
         </div>
         @endif
-        @if($step == 2)
+        {{-- @if($step == 2)
             <div>
                 <label>Postleitzahl</label>
                 <input type="number" class="form-control" placeholder="Postleitzahl" wire:model="postcode">
@@ -59,7 +59,7 @@
                 <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model="city">
                 @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror
             </div>     
-        @endif
+        @endif --}}
         
     </div>
 </div>

@@ -118,6 +118,7 @@ class Select2AutoSearch extends Component
         $this->city = $data["city"];
         $this->step = 2;
         // $this->data = $data;
+        $this->render();
     }
 
 
@@ -128,6 +129,22 @@ class Select2AutoSearch extends Component
 
     public function render()
     {
+        if($this->step == 2){
+        return <<<'blade'
+        <div class="flex">
+            <div>
+                <label>Postleitzahl</label>
+                <input type="number" class="form-control" placeholder="Postleitzahl" wire:model="postcode">
+                @error('Postleitzahl') <span class="text-danger">{{ $message }}</span> @enderror          
+            </div>
+            <div>
+                <label>Stadt</label>
+                <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model="city">
+                @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>  
+        </div>  
+        blade;
+        } else
         return view('livewire.select2-auto-search')->extends('layouts.app');
         
     }

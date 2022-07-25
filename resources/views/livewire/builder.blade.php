@@ -126,7 +126,7 @@
                     </div>
                 </div>
                 <div class="inLineFlex">
-                    <div class="flex">
+                    <div>
                         <livewire:select2-auto-search />  
                     </div>
                 </div>
