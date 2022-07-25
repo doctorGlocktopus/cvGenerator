@@ -33,21 +33,20 @@
     </div> --}}
 
     <div class="list-group pTop1pc flex rowD">
-        @if($step == 0)
         <div class="flex columnD">
             <label>Postleitzahl oder Stadt eingeben</label>
             <input class="form-control" wire:model="input" oninput="check()" type="text" wire:change.lazy ='Utf8_ansi({{$json}})'>
-        </div>
-        @endif
-        @if($step == 1)
-        <div class="searchBar flex">
-            <div class="cursor list-group-item list-group-item-action active">{{$postcode}} {{$city}}</div>
-                @foreach($search as $data)
-                    <div class="cursor list-group-item list-group-item-action" wire:click.lazy="getData({{ $data }})">{{ $data["postcode"] }} {{ $data["city"] }}</div>
-                @endforeach
+            @if($step == 1)
+            <div class="searchBar flex">
+                <div class="cursor list-group-item list-group-item-action active">{{$postcode}} {{$city}}</div>
+                    @foreach($search as $data)
+                        <div class="cursor list-group-item list-group-item-action" wire:click.lazy="getData({{ $data }})">{{ $data["postcode"] }} {{ $data["city"] }}</div>
+                    @endforeach
+                </div>
             </div>
+            @endif
         </div>
-        @endif
+
         {{-- @if($step == 2)
             <div>
                 <label>Postleitzahl</label>

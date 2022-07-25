@@ -52,8 +52,8 @@ align-items: flex-start;">
     @elseif($step == 1)
         <div class="flex columnD padding1pc">
             <h3>Wir brauchen die Adresse des Empfängers</h3>
-            <form wire:submit.prevent="receiverAddress">
-                <div class="inLineFlex">
+            <form class="flex columnD" wire:submit.prevent="receiverAddress">
+                <div>
                     <div class="flex">
                         <div>
                             <label>Straße</label>
@@ -67,11 +67,11 @@ align-items: flex-start;">
                         </div>
                     </div>
                 </div>
-                <div class="inLineFlex">
-                    {{-- <div>
+                <div>
+                    <div>
                         <livewire:select2-auto-search/>  
-                    </div> --}}
-                    <div class="flex">
+                    </div>
+                    {{-- <div class="flex">
                         <div>
                             <label>Postleitzahl</label>
                             <input type="number" class="form-control" placeholder="Postleitzahl" wire:model="postcode">
@@ -82,7 +82,7 @@ align-items: flex-start;">
                             <input type="text" class="form-control" placeholder="Stadt / Dorf" wire:model="city">
                             @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>  
-                    </div> 
+                    </div>  --}}
                 </div>
                 <div class="pTop1pc">
                     <button type="submit" class="btn btn-primary">Empfänger speichern</button>
