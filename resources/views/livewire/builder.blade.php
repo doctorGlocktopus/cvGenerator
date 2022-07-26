@@ -7,6 +7,7 @@
             }
 
             function blend() {
+                // prüfe ob Blend wirklich wirkt
                 console.log(@this.start);
                 @this.start.replace("<br>", /\n/g );
             }
