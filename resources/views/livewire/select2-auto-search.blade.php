@@ -18,10 +18,15 @@
 </script>
 <div>
     <div class="list-group pTop1pc flex rowD">
-        <div class="flex columnD">
+        <div class="flex flexEnd">
             @if($step == 0)
+            <div class="padding1pc">
                 <label>Postleitzahl oder Stadt eingeben</label>
                 <input class="form-control" wire:model="input" oninput="check()" type="text" wire:change ='Utf8_ansi({{$json}})'>
+            </div>
+            <div class="padding1pc">
+                <button class="btn btn-secondary">suchen</button>
+            </div>
             @endif
             @if($step == 1)
             <div class="searchBar flex">

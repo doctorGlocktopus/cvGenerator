@@ -33,7 +33,7 @@
                         @endforeach
                         @if($jump ==1)
                         <div wire:click="jumper()" class="fade modalBody">
-                            <div>willst du die Berwerbung für den job als {{$i->job}} bei {{$i->company}} unwiederuflich</div>
+                            <div>willst du die Bewerbung für den job als {{$i->job}} bei {{$i->company}} unwiederuflich</div>
                             <button wire:click="delete({{$i->id}})" class="btn btn-danger">löschen?</button>
                         </div>
                         @endif

@@ -8,7 +8,7 @@
                 <span onclick="gate('imprint')" class="cursor fontSize50pc">Impressum</span>
 
         </div>
-        <div class="flex collumD fade padding1pc wContent">
+        <div style="background: #faebd780;"class="flex collumD fade padding1pc wContent">
             <div onclick="window.open('https://www.github.com/doctorGlocktopus', '_blank')"
                  style="display: none" id="imprint">
                 <img class="fade cursor" src="http://localhost/bewerbung/resources/gitHub.png">
