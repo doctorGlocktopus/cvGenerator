@@ -72,17 +72,16 @@ class Builder extends Component
     public $message;
 
     public function mount($id = NULL) {
+        $this->user = Auth::user();
+        $this->templates = Template::all();
         if($id){
             if(Announcement::find($id))
             {
                 $this->announcement = Announcement::find($id);
-                $this->user = Auth::user();
-                $this->templates = Template::all();
                 $this->step = 3;     
             }            
         }        
         else {
-            $this->user = Auth::user();
             if($this->user->address_id == NULL) {
                 $this->step = 0;
             } else {
