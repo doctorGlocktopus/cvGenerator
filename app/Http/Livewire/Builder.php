@@ -73,7 +73,7 @@ class Builder extends Component
 
     public function mount($id = NULL) {
         $this->user = Auth::user();
-        $this->templates = Template::all();
+        $this->templates = Template::all()->sortBy("name");;
         if($id){
             if(Announcement::find($id))
             {
