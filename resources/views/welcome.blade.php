@@ -32,7 +32,7 @@
     @endif
     </div>
 @endsection
-<div class="blubb sdhw"></div>
+<div class="blubb sdhw" style="display: none" id="imprint"></div>
 <script>
     function gate(key) {
         if(key == "faq")
