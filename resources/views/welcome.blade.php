@@ -9,8 +9,7 @@
 
         </div>
         <div class="flex collumD fade padding1pc wContent">
-            <div onclick="
-                window.open('https://www.github.com/doctorGlocktopus', '_blank')"
+            <div onclick="window.open('https://www.github.com/doctorGlocktopus', '_blank')"
                  style="display: none" id="imprint">
                 <img class="fade cursor" src="http://localhost/bewerbung/resources/gitHub.png">
             </div>
@@ -32,17 +31,18 @@
     @endif
     </div>
 @endsection
-<div class="blubb sdhw" style="display: none" id="imprint"></div>
+<div class="blubb sdhw" style="display: none"></div>
 <script>
     function gate(key) {
-        if(key == "faq")
-        {
-            document.getElementById('imprint').style.display = "none";
-        }
-        if(key == 'imprint')
-        {
-            document.getElementById("faq").style.display = "none";
-        }
+        // diese Kommtar sorgt für das Schließen des anderen gate
+        // if(key == "faq")
+        // {
+        //     document.getElementById('imprint').style.display = "none";
+        // }
+        // if(key == 'imprint')
+        // {
+        //     document.getElementById("faq").style.display = "none";
+        // }
         if(document.getElementById(key).style.display == "none")
         document.getElementById(key).style.display = "flex";
         else
