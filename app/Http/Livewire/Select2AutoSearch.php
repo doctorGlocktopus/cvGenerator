@@ -97,19 +97,23 @@ class Select2AutoSearch extends Component
             "\u00ff" =>"ÿ");
     
             $x = 0;
-    
-            foreach($valor as $i) {
-                $data[$x] = new Postcode();
-                $data[$x]->postcode = $i[0];
-                $data[$x]->city = strtr($i[1], $utf8_ansi2);
-                array_push($this->search, $data[$x]);
-                $x++;
-                if($x==10)
-                    break;
-            }
+            if(count($valor) >= 1) {
+                foreach($valor as $i) {
+                    $data[$x] = new Postcode();
+                    $data[$x]->postcode = $i[0];
+                    $data[$x]->city = strtr($i[1], $utf8_ansi2);
+                    array_push($this->search, $data[$x]);
+                    $x++;
+                    if($x==10)
+                        break;
+                }
     
             $this->postcode = $data[0]["postcode"];
             $this->city = $data[0]["city"];
+            } else {
+                $this->postcode = $data["postcode"];
+                $this->city = $data["city"];
+            }
         }
     }
 
