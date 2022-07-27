@@ -4,13 +4,17 @@
             // Buff manage the Modals
             function buff(hit) {
                 @this.buff = hit;
+                if(hit == 0) {
+                    @this.step = 1;
+                    @this.buff = 0;
+                }
             }
 
-            function blend() {
-                // prüfe ob Blend wirklich wirkt
-                console.log(@this.start);
-                @this.start.replace("<br>", /\n/g );
-            }
+            // function blend() {
+            //     // prüfe ob Blend wirklich wirkt
+            //     console.log(@this.start);
+            //     @this.start.replace("<br>", /\n/g );
+            // }
             
             function fillValue() {
                 @this.postcode = document.getElementById("autoCode").value;
@@ -27,7 +31,7 @@
                         <div class="flex">
                             <div>
                                 <label>Straße</label>
-                                <input pattern="[a-zA-Z]+" type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
+                                <input type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
                                 @error('Straße') <span class="text-danger">{{ $message }}</span> @enderror          
                             </div>
                             <div>
@@ -48,7 +52,7 @@
                         <div class="flex">
                             <div>
                                 <label>Straße</label>
-                                <input pattern="[a-zA-Z]+" type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
+                                <input type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
                                 @error('Straße') <span class="text-danger">{{ $message }}</span> @enderror          
                             </div>
                             <div>
@@ -94,7 +98,7 @@
                             @error('Beruf') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="pTop1pc flex">
-                            <a class="btn btn-secondary" onclick="buff(1)">zurück</a>
+                            <a class="btn btn-secondary" onclick="buff(0)">zurück</a>
                             <a class="btn btn-primary" onclick="buff(3)">nächster Schritt</a>
                         </div>
                     @endif
@@ -135,7 +139,7 @@
                                     <option value="{{$temp->start}}">{{$temp->name}}</option>
                                 @endforeach
                             </select>
-                            <textarea onchange="blend()" cols="75" rows="15" class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
+                            <textarea cols="75" rows="15" class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
                             @error('Einleitung') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="pTop1pc flex">
@@ -152,7 +156,7 @@
                                     <option value="{{$temp->body}}">{{$temp->name}}</option>
                                 @endforeach
                             </select>
-                            <textarea onchange="blend()" cols="75" rows="15" class="form-control" placeholder="Hauptteil" wire:model="body"></textarea>
+                            <textarea cols="75" rows="15" class="form-control" placeholder="Hauptteil" wire:model="body"></textarea>
                             @error('Hauptteil') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="pTop1pc flex">
@@ -169,7 +173,7 @@
                                     <option value="{{$temp->end}}">{{$temp->name}}</option>
                                 @endforeach
                             </select>
-                            <textarea onchange="blend()" cols="75" rows="15" class="form-control" placeholder="Schluss" wire:model="end"></textarea>
+                            <textarea cols="75" rows="15" class="form-control" placeholder="Schluss" wire:model="end"></textarea>
                             @error('Schluss') <span class="text-danger">{{ $message }}</span> @enderror
 
                         </div>

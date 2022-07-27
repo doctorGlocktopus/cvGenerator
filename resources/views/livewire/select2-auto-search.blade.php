@@ -1,10 +1,14 @@
 <div>
 <script>
 
-    function check() {
-        input = @this.input;
-        string = 'http://127.0.0.1:88/api/code/';
-        @this.json =  httpGet(string+input);
+    function check(y) {
+        @this.stepper = y + y;
+        if(@this.stepper == 2){
+            console.log(@this.stepper);
+            input = @this.input;
+            string = 'http://127.0.0.1:88/api/code/';
+            @this.json =  httpGet(string+input);
+        }
     }
 
     function httpGet(theUrl) {
@@ -22,10 +26,10 @@
             @if($step == 0)
             <div class="padding1pc">
                 <label>Postleitzahl oder Stadt eingeben</label>
-                <input class="form-control" wire:model="input" oninput="check()" type="text" wire:change ='Utf8_ansi({{$json}})'>
+                <input class="form-control" wire:model="input" type="text" oninput="check(1)">
             </div>
             <div class="padding1pc">
-                <button class="btn btn-secondary">suchen</button>
+                <div wire:click='Utf8_ansi({{$json}})' class="btn btn-secondary">suchen</div>
             </div>
             @endif
             @if($step == 1)
