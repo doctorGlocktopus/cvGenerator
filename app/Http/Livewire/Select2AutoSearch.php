@@ -14,8 +14,6 @@ use App\Http\Livewire\Builder;
 
 class Select2AutoSearch extends Component
 {
-    public $stepper = 0;
-
     public $json;
 
     public $postcode;
