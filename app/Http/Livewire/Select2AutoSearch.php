@@ -14,6 +14,8 @@ use App\Http\Livewire\Builder;
 
 class Select2AutoSearch extends Component
 {
+    public $stepper = 0;
+
     public $json;
 
     public $postcode;
@@ -29,7 +31,7 @@ class Select2AutoSearch extends Component
     public $step;
 
     public function Utf8_ansi($valor ='') {
-        
+    
         if(strlen($this->input) >= 2) {
             $this->step = 1;
 
@@ -126,6 +128,11 @@ class Select2AutoSearch extends Component
 
     public function mount() {
 
+    }
+
+    public function back() {
+        $this->step = 0;
+        $this->input = "";
     }
 
 

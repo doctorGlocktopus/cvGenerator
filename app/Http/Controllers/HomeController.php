@@ -35,13 +35,14 @@ class HomeController extends Controller
     public function announcement($id)
     {
         if(Announcement::find($id)) {
+            $case = 3;
             if(!Auth::User()->address) {
                 return view('new');
             }
             $user = Auth::User();
             $announcement = Announcement::find($id);
             
-            return view('announcement', ['id' => $id, 'error' => "", 'announcement' => $announcement, 'user' => $user]);
+            return view('announcement', ['id' => $id, 'error' => "", 'announcement' => $announcement, 'user' => $user, 'case' => $case]);
         }
         else {
             return view('new');

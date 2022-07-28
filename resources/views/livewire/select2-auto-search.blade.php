@@ -15,6 +15,7 @@
         let xmlHttpReq = new XMLHttpRequest();
         xmlHttpReq.open("GET", theUrl, false); 
         xmlHttpReq.send(null);
+        @this.stepper = 0;
 
         return xmlHttpReq.responseText;
         }
@@ -36,8 +37,9 @@
             <div class="searchBar flex">
                 <div class="cursor list-group-item list-group-item-action active">{{$postcode}} {{$city}}</div>
                     @foreach($search as $data)
-                        <div class="cursor list-group-item list-group-item-action" wire:click.lazy="getData({{ $data }})">{{ $data["postcode"] }} {{ $data["city"] }}</div>
+                        <div class="cursor list-group-item list-group-item-action" wire:click="getData({{ $data }})">{{ $data["postcode"] }} {{ $data["city"] }}</div>
                     @endforeach
+                    <div wire:click='back()' class="btn btn-secondary">neue Suche</div>
                 </div>
             </div>
             @endif

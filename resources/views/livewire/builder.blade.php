@@ -22,7 +22,6 @@
             }
 
         </script>
-        
         @if($step == 0)
             <div class="flex columnD padding1pc w88">
                 <h3>Wir brauchen zu erst deine eigene Adresse</h3>
