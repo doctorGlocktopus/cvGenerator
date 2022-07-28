@@ -27,6 +27,7 @@
             </div>
         </div>
         @if(Auth::User())
+            {{-- <livewire:view /> --}}
             <livewire:list-view />
         @endif
     </div>
