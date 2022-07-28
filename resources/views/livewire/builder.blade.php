@@ -1,6 +1,6 @@
 <div>
     <div class="flex spaceAround flexStart">
-        <script>
+        <script>            
             // Buff manage the Modals
             function buff(hit) {
                 @this.buff = hit;
