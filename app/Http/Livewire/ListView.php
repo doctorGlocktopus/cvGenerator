@@ -25,6 +25,10 @@ class ListView extends Component
         $this->mount();
     }
 
+    public function close($i) {
+        $this->close = $i;
+    }
+
     public function render()
     {
         return view('livewire.list-view');

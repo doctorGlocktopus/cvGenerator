@@ -16,7 +16,6 @@ class Modal extends Component
 
     public $buttonName;
 
-
     public $i;
 
     public $close;

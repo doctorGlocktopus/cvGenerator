@@ -46,6 +46,7 @@
 
     .cursor {
         cursor: pointer;
+        z-index: 1;
     }
 
     .pTop1pc {

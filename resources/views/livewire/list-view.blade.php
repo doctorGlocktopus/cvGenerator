@@ -5,21 +5,21 @@
             open
         </div>
     @else
-    <div wire:click="close(1)" class="close cursor">
-        x
-    </div>
+        <div wire:click="close(1)" class="close cursor">
+            x
+        </div>
         @if($user->announcement)
             <div class="myModal fade">
                 <h4>Deine Bewerbungen</h4>
                 <table class="table table-hover">
                     <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Firma</th>
-                        <th scope="col">Addresse</th>
-                        <th scope="col">Anstellung</th>
-                        <th scope="col">Löschen</th>
-                    </tr>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Firma</th>
+                            <th scope="col">Addresse</th>
+                            <th scope="col">Anstellung</th>
+                            <th scope="col">Löschen</th>
+                        </tr>
                     </thead>
                     <tbody>
                         @foreach($user->announcement as $i)
