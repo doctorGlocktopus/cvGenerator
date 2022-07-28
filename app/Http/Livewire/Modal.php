@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Announcement;
+use App\Models\Address;
+use Auth;
 
 class Modal extends Component
 
@@ -14,7 +16,6 @@ class Modal extends Component
 
     public $buttonName;
 
-    public $type;
 
     public $i;
 
@@ -25,7 +26,6 @@ class Modal extends Component
 
     public function mount($inputValue= NULL, $listId= NULL) {
         if($inputValue == "listDelete") {
-            $this->type = "listDelete";
             $this->i = $listId;
         }
         if($inputValue == "") {
@@ -45,6 +45,21 @@ class Modal extends Component
         $data->forceDelete();
         $this->gate = 0;
         $this->mount($inputValue= "", $listId= NULL);
+    }
+
+    public function userDelete() {
+        $user = Auth::User();
+
+        $announcements = $user->announcement;
+
+        foreach($announcements as $i) {
+            $i->forceDelete();
+            Address::where("id", $i->address_id)->forceDelete();
+        }
+
+        $user->forceDelete();
+
+        return view('welcome');        
     }
 
     public function render()

@@ -46,7 +46,6 @@
 
     .cursor {
         cursor: pointer;
-        z-index: 0;
     }
 
     .pTop1pc {
@@ -261,7 +260,6 @@
     }
 
     .modalBody {
-        z-index: 10000;
         position: fixed;
         display: flex;
         left: 0;
@@ -427,7 +425,7 @@
             <a class="btn" href="/print"><i class='fa fa-print'></i> Drucken</a>
 
             @if(Auth::user())
-                <a onclick="alert('wir löschen deine Daten unwiederuflich!')" href="/delete/{{Auth::user()->id}}" class="btn">Account löschen?</a>
+                <livewire:modal :inputValue="'accountDelete'" :listId='Auth::user()->id'/>
             @endif
         @endguest
     </nav>

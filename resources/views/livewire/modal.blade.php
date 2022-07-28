@@ -6,7 +6,7 @@
     @else
         <div wire:click='open(1)' class="cursor">{{$buttonName}}</div>
     @endif --}}
-    @if($type == "listDelete")
+    @if($inputValue == "listDelete")
         <div scope="row" wire:click="gate(1)">
             <i class="fa fa-trash" aria-hidden="true"></i> dauerhaft löschen
         </div>
@@ -17,5 +17,17 @@
             </div>
         @endif
     @endif
+
+    @if($inputValue == "accountDelete")
+        <div style="width: max-content;"  wire:click="gate(1)">
+            <button class="btn">Account löschen</button>
+        </div>
+    @if($gate == 1)
+        <div class="fade modalBody">
+            <div>willst du deinen Account unwiederuflich</div>
+            <button wire:click="userDelete()" class="btn btn-danger">löschen?</button>
+        </div>
+    @endif
+@endif
 
 </div>
