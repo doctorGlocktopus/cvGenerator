@@ -22,6 +22,8 @@
 
 </script>
 <div>
+    {{$error}}
+    {{strlen($input)}}
     <div class="list-group pTop1pc flex rowD">
         <div class="flex flexEnd">
             @if($step == 0)
@@ -29,9 +31,15 @@
                 <label>Postleitzahl oder Stadt eingeben</label>
                 <input class="form-control" wire:model="input" type="text" oninput="check(1)">
             </div>
-            <div class="padding1pc">
-                <div wire:click='Utf8_ansi({{$json}})' class="btn btn-secondary">suchen</div>
-            </div>
+                @if(strlen($input) < 3);
+                    <div class="padding1pc">
+                        <div wire:click='error("Sie müssen mindestens zwei Ziffern eintragen")' class="btn btn-secondary">suchen</div>
+                    </div>
+                @else
+                    <div class="padding1pc">
+                        <div wire:click='Utf8_ansi({{$json}})' class="btn btn-secondary">suchen</div>
+                    </div>
+                @endif
             @endif
             @if($step == 1)
             <div class="searchBar flex">

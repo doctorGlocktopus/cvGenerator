@@ -14,6 +14,9 @@ use App\Http\Livewire\Builder;
 
 class Select2AutoSearch extends Component
 {
+
+    public $error = "";
+
     public $stepper = 0;
 
     public $json;
@@ -115,6 +118,10 @@ class Select2AutoSearch extends Component
                 $this->city = $data["city"];
             }
         }
+    }
+
+    public function error($input) {
+        $this->error = $input;
     }
 
     public function getData($data) {
