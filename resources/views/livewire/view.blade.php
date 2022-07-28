@@ -9,6 +9,11 @@
                 }
 
             });
+
+            function temp($i) {
+                console.log($i);
+                @this.temp = $i;
+            }
         </script>
     @if($temp == "klassischBrieffenster")
         <div>
@@ -71,22 +76,30 @@
     @if($temp == "klassisch")
     <div>
         <div id="element" class="doc flex">
+
             <div id="doc" class="webContainer">
+                <div class="dekoBalken"></div>
                 <div class="flex spaceBetween">
                     <h3>
                         <!-- type + job -->
                         Bewerbung als {{$announcement->job}}<br>in {{$announcement->type}}
                     </h3>
                     <div class="addressLineRight">
-                        <div class="textRight">
-                            {{ $announcement->company }}<br>
-                            {{ $announcement->address->street }} {{ $announcement->address->number }}<br>
-                            {{ $announcement->address->postcode }} {{ $announcement->address->city }}<br>
+                        <div>
+                            <span class="fontSize90pc">Empfänger:</span><br>
+                            <div class="textRight pTop1pc">
+                                {{ $announcement->company }}<br>
+                                {{ $announcement->address->street }} {{ $announcement->address->number }}<br>
+                                {{ $announcement->address->postcode }} {{ $announcement->address->city }}<br>
+                            </div>
                         </div>
-                        <div class="pTop5pc textRight">
-                            {{ $user->first_name }} {{ $user->last_name }}<br>
-                            {{ $user->address->street }} {{ $user->address->number }}<br>
-                            {{ $user->address->postcode }} {{ $user->address->city }}<br>
+                        <div class="pTop20pc">
+                            <span class="fontSize90pc">Absender:</span><br>
+                            <div class="textRight pTop1pc">
+                                {{ $user->first_name }} {{ $user->last_name }}<br>
+                                {{ $user->address->street }} {{ $user->address->number }}<br>
+                                {{ $user->address->postcode }} {{ $user->address->city }}<br>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -121,6 +134,11 @@
                 </div>
             </div>
             <div class="padding1pc w55">
+                foreach templates????
+                <div class="white">
+                    <button class="btn" wire:click="temp(1)">klassisch Sichtfenter</button>
+                    <button class="btn" wire:click="temp(1)">Weblayout ohne Sichtfenter</button>
+                </div>
                 <livewire:list-view />
             </div>
         </div>

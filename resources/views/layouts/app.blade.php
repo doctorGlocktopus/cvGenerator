@@ -64,6 +64,19 @@
         padding-top: 10%;
     }
 
+    .dekoBalken {
+        background: #ff000021;
+        position: absolute;
+        height: 100%;
+        width: 28%;
+        right: 7%;
+        top: 0;
+    }
+
+    .pTop20pc {
+        padding-top: 20%;
+    }
+
     #modal {
         /* position: absolute;
         background: bisque;
@@ -178,6 +191,8 @@
     }
 
     .webContainer {
+        z-index: -1;
+        position: relative;
         font-style: initial;
         font-family: arial;
         padding-top: 5%;
@@ -318,6 +333,9 @@
         z-index: 1;
     }
 
+    .fontSize90pc {
+        font-size: 90%;
+    }
 
 
     .blubb {
@@ -421,15 +439,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    $scope.printDiv = function(divName) {
-        var printContents = document.getElementById(divName).innerHTML;
-        var originalContents = document.body.innerHTML;        
-        document.body.innerHTML = printContents;
-        window.print();
-        document.body.innerHTML = originalContents;
-    }
-</script>
 
 @livewireScripts
 @livewireStyles
@@ -442,6 +451,17 @@
 
 <body>
     <nav class="shdw fade white flex spaceEven">
+
+            <a class="btn" href="/">
+                Home
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+
+            <a class="btn" href="/new">Neues Anschreiben</a>
+
         @guest
             @if (Route::has('login'))
                     <a class="btn" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -456,24 +476,15 @@
                                 document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
             </a>
-
-            <a class="btn" href="/">
-                Home
-            </a>
-
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
-
-            <a class="btn" href="/new">Neues Anschreiben</a>
-
-            <a class="btn" ng-click="printDiv('doc')"><i class='fa fa-print'></i> Drucken</a>
-
-            @if(Auth::user())
-                <livewire:modal :inputValue="'accountDelete'" :listId='Auth::user()->id'/>
-            @endif
         @endguest
+
+        @if(Auth::user())
+            <livewire:modal :inputValue="'accountDelete'" :listId='Auth::user()->id'/>
+        @endif
     </nav>
+
+
+
 
     <main class="shdw fade grey">
         @yield('content')
