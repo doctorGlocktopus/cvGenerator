@@ -46,7 +46,7 @@
 
     .cursor {
         cursor: pointer;
-        z-index: 100;
+        z-index: 0;
     }
 
     .pTop1pc {
@@ -261,6 +261,7 @@
     }
 
     .modalBody {
+        z-index: 10000;
         position: fixed;
         display: flex;
         left: 0;

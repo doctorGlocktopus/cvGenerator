@@ -28,15 +28,11 @@
                                 <td scope="row" onclick="window.location.href='/announcement/{{$i->id}}'">{{$i->company}}</td>
                                 <td scope="row" onclick="window.location.href='/announcement/{{$i->id}}'">{{$i->address->street}} {{$i->address->postcode}}</td>
                                 <td scope="row" onclick="window.location.href='/announcement/{{$i->id}}'">{{$i->job}}</td>
-                                <td scope="row" wire:click="delete({{$i->id}})"><i class="fa fa-trash" aria-hidden="true"></i> dauerhaft löschen</td>
+                                <td wire:click="test()" scope="row">
+                                    <livewire:modal :inputValue="'listDelete'" :listId='$i->id'/>
+                                </td>
                             </tr>
                         @endforeach
-                        @if($jump ==1)
-                        <div wire:click="jumper()" class="fade modalBody">
-                            <div>willst du die Bewerbung für den job als {{$i->job}} bei {{$i->company}} unwiederuflich</div>
-                            <button wire:click="delete({{$i->id}})" class="btn btn-danger">löschen?</button>
-                        </div>
-                        @endif
                     </tbody>
                 </table>
             </div>

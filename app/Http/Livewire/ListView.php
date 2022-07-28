@@ -14,8 +14,6 @@ class ListView extends Component
     public $jump = 0;
 
     public function mount() {
-
-
         $this->user = Auth::user();
     }
     public function choose($id) {
@@ -23,29 +21,13 @@ class ListView extends Component
 
     }
 
-    public function jumper() {
-        $this->jump = 0;
-    }
-
-    public function close($i) {
-        $this->close = $i;
+    public function test() {
+        $this->mount();
     }
 
     public function render()
     {
         return view('livewire.list-view');
-    }
-
-    public function delete($id) {
-        if($this->jump == 0)
-            $this->jump = 1;
-        else {
-            $data = Announcement::find($id);
-            $data->forceDelete();
-            $this->jump = 0;
-            $this->mount();
-        }
-
     }
 
 }
