@@ -10,7 +10,7 @@ use App\Models\Announcement;
 
 class ListView extends Component
 {
-    public $close;
+
     public $jump = 0;
 
     public function mount() {
@@ -23,10 +23,6 @@ class ListView extends Component
 
     public function test() {
         $this->mount();
-    }
-
-    public function close($i) {
-        $this->close = $i;
     }
 
     public function render()

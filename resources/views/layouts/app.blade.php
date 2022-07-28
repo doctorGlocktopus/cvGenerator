@@ -1,6 +1,10 @@
 <head>
 <style>
 
+    content {
+        z-index: none;
+    }
+
     a {
         width: 100%;
 
@@ -46,7 +50,6 @@
 
     .cursor {
         cursor: pointer;
-        z-index: 1;
     }
 
     .pTop1pc {
@@ -75,7 +78,7 @@
     body {
 
         font-style: italic!important;
-        font-family: monospace!important;
+        font-family: var(--bs-body-font-family);
         padding: 1%;
         display: flex;
         justify-content: center;
@@ -280,7 +283,9 @@
     #more {display: none;}
 
 
-
+    nav {
+        z-index: 1;
+    }
 
 
 

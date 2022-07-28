@@ -27,8 +27,8 @@
             </div>
         </div>
         @if(Auth::User())
-        <livewire:list-view />
-    @endif
+            <livewire:list-view />
+        @endif
     </div>
 @endsection
 <div class="blubb sdhw" style="display: none"></div>
