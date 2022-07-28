@@ -22,8 +22,6 @@ class Builder extends Component
 
     public $buff = 1;
 
-    public $template = "Elegant professionell";
-
     public $addressArrayOne = [];
 
     public $salutation;
@@ -107,7 +105,7 @@ class Builder extends Component
             'body' => $this->body,
             'end' => $this->end,
 
-            'temp' => "elegant Proffesionel",
+            'temp' => "klassischBrieffenster",
         ]);
         dd($data);
     }

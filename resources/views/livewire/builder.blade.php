@@ -187,7 +187,7 @@
         @if($step == 3)
         <div class="doc flex">
             <div class="docContainer">
-                <div class="flex spaceBetweeen addressLine">
+                <div class="flex spaceBetween addressLine">
                     <div class="address">
                         {{ $announcement->company }}<br>
                         {{ $announcement->address->street }} {{ $announcement->address->number }}<br>
@@ -242,7 +242,7 @@
         @endif
             @if($step == 2)
                 <div class="docContainer">
-                    <div class="flex spaceBetweeen addressLine">
+                    <div class="flex spaceBetween addressLine">
                         <div class="address">
                             @if(!$company == "")
                                 <div class="fade">

@@ -1,4 +1,3 @@
-
 <div class="fade relativ">
     @if($user->announcement)
         <div class="myModal fade">
@@ -10,17 +9,19 @@
                         <th scope="col">Firma</th>
                         <th scope="col">Addresse</th>
                         <th scope="col">Anstellung</th>
+                        <th scope="col">Template</th>
                         <th scope="col">Löschen</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($user->announcement as $i)
                         <tr class="cursor">
-                            <th scope="row" onclick="window.location.href='/announcement/{{$i->id}}'">{{$i->id}}</th>
-                            <td scope="row" onclick="window.location.href='/announcement/{{$i->id}}'">{{$i->company}}</td>
-                            <td scope="row" onclick="window.location.href='/announcement/{{$i->id}}'">{{$i->address->street}} {{$i->address->postcode}}</td>
-                            <td scope="row" onclick="window.location.href='/announcement/{{$i->id}}'">{{$i->job}}</td>
-                            <td wire:click="test()" scope="row">
+                            <th scope="row" onclick="window.location.href='/view/{{$i->id}}'">{{$i->id}}</th>
+                            <td scope="row" onclick="window.location.href='/view/{{$i->id}}'">{{$i->company}}</td>
+                            <td scope="row" onclick="window.location.href='/view/{{$i->id}}'">{{$i->address->street}} {{$i->address->postcode}}</td>
+                            <td scope="row" onclick="window.location.href='/view/{{$i->id}}'">{{$i->job}}</td>
+                            <td scope="row" onclick="window.location.href='/view/{{$i->id}}'">{{$i->temp}}</td>
+                            <td wire:click="fresh()" scope="row">
                                 <livewire:modal :inputValue="'listDelete'" :listId='$i->id'/>
                             </td>
                         </tr>

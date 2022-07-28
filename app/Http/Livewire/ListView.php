@@ -16,12 +16,8 @@ class ListView extends Component
     public function mount() {
         $this->user = Auth::user();
     }
-    public function choose($id) {
-        $this->announcement = Announcement::find($id);
 
-    }
-
-    public function test() {
+    public function fresh() {
         $this->mount();
     }
 

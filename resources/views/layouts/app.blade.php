@@ -56,6 +56,14 @@
         padding-top: 1%;
     }
 
+    .pTop5pc {
+        padding-top: 5%;
+    }
+
+    .pTop10pc {
+        padding-top: 10%;
+    }
+
     #modal {
         /* position: absolute;
         background: bisque;
@@ -72,6 +80,13 @@
 
     .flexStart {
         align-items: flex-start;
+    }
+
+    .addressLineRight {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
     }
 
 
@@ -149,6 +164,7 @@
         line-height: 1.5;
     }
 
+
     .docContainer {
         font-style: initial;
         font-family: arial;
@@ -158,6 +174,17 @@
         padding-bottom: 2.5cm;
         width: 21cm;
         height: 29.7cm;
+        background-color: white!important;
+    }
+
+    .webContainer {
+        font-style: initial;
+        font-family: arial;
+        padding-top: 5%;
+        padding-left: 2.5cm;
+        padding-right: 2cm;
+        padding-bottom: 2.5cm;
+        width: 21cm;
         background-color: white!important;
     }
 
@@ -203,7 +230,7 @@
         padding: 10%;
     }
 
-    .spaceBetweeen {
+    .spaceBetween {
         justify-content: space-between;
     }
 
@@ -233,6 +260,10 @@
 
     .flexEnd {
         align-items: flex-end;
+    }
+
+    .textRight {
+        text-align: right;
     }
 
     .myModal {
@@ -390,7 +421,15 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
+<script>
+    $scope.printDiv = function(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;        
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+</script>
 
 @livewireScripts
 @livewireStyles
@@ -428,7 +467,7 @@
 
             <a class="btn" href="/new">Neues Anschreiben</a>
 
-            <a class="btn" href="/print"><i class='fa fa-print'></i> Drucken</a>
+            <a class="btn" ng-click="printDiv('doc')"><i class='fa fa-print'></i> Drucken</a>
 
             @if(Auth::user())
                 <livewire:modal :inputValue="'accountDelete'" :listId='Auth::user()->id'/>

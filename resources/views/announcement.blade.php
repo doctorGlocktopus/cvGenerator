@@ -10,7 +10,7 @@
 <div>
     <div id="element" class="doc flex">
         <div class="docContainer">
-            <div class="flex spaceBetweeen addressLine">
+            <div class="flex spaceBetween addressLine">
                 <div class="address">
                     {{ $announcement->company }}<br>
                     {{ $announcement->address->street }} {{ $announcement->address->number }}<br>
