@@ -17,8 +17,8 @@
             // }
             
             function fillValue() {
-                @this.postcode = document.getElementById("autoCode").value;
-                @this.city = document.getElementById("autoCity").value;
+                // @this.postcode = document.getElementById("autoCode").value;
+                // @this.city = document.getElementById("autoCity").value;
             }
 
         </script>
