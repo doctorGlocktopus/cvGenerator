@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section('content')
+
     <div>
         <script>
             $( window ).on( "load", function() {
@@ -10,12 +9,16 @@
 
             });
 
-            function temp($i) {
-                console.log($i);
-                @this.temp = $i;
-            }
+            // function temp($i) {
+            //     console.log($i);
+            //     @this.$announcement->temp = $i;
+            // }
         </script>
-    @if($temp == "klassischBrieffenster")
+        <div class="grey">
+            <button class="btn btn-primary" wire:click="temp('klassischBrieffenster')">klassisch Sichtfenter</button>
+            <button class="btn btn-primary" wire:click="temp('klassisch')">Weblayout ohne Sichtfenter</button>
+        </div>
+    @if($announcement->temp == "klassischBrieffenster")
         <div>
             <div id="element" class="doc flex">
                 <div id="doc" class="docContainer">
@@ -73,7 +76,7 @@
             </div>
         </div>
     @endif
-    @if($temp == "klassisch")
+    @if($announcement->temp == "klassisch")
     <div>
         <div id="element" class="doc flex">
 
@@ -134,15 +137,9 @@
                 </div>
             </div>
             <div class="padding1pc w55">
-                foreach templates????
-                <div class="white">
-                    <button class="btn" wire:click="temp(1)">klassisch Sichtfenter</button>
-                    <button class="btn" wire:click="temp(1)">Weblayout ohne Sichtfenter</button>
-                </div>
                 <livewire:list-view />
             </div>
         </div>
     </div>
 @endif
 </div>
-@endsection

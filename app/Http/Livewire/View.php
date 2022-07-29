@@ -8,18 +8,15 @@ use Auth;
 
 class View extends Component
 {
-    public $temp;
     public $user;
     public $announcement;
 
     public function mount($id) {
         $this->announcement = Announcement::find($id);
-        $this->temp = $this->announcement->temp;
         $this->user = Auth::User();
     }
     
     public function temp($i) {
-        dd(1);
         $this->announcement->temp = $i;
     }
 
