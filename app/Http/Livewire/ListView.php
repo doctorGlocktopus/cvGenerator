@@ -13,12 +13,10 @@ class ListView extends Component
 
     public $jump = 0;
 
+    protected $listeners = ['delete' => 'render'];
+    
     public function mount() {
         $this->user = Auth::user();
-    }
-
-    public function fresh() {
-        $this->mount();
     }
 
     public function render()

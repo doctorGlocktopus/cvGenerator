@@ -33,6 +33,7 @@ class Select2AutoSearch extends Component
 
     public $step;
 
+
     public function Utf8_ansi($valor ='') {
     
         if(strlen($this->input) >= 2) {
@@ -129,18 +130,12 @@ class Select2AutoSearch extends Component
         $this->city = $data["city"];
         $this->step = 2;
         // $this->data = $data;
-        $this->render();
+        $this->emit('search');
     }
 
-
-    public function mount() {
-
-    }
-
-    public function back() {
-        $this->step = 0;
-        $this->input = "";
-    }
+    // public function back() {
+    //     $this->emit('search');
+    // }
 
 
     public function render()

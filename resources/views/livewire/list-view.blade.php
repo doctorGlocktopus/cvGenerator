@@ -21,7 +21,7 @@
                             <td scope="row" onclick="window.location.href='/view/{{$i->id}}'">{{$i->address->street}} {{$i->address->postcode}}</td>
                             <td scope="row" onclick="window.location.href='/view/{{$i->id}}'">{{$i->job}}</td>
                             <td scope="row" onclick="window.location.href='/view/{{$i->id}}'">{{$i->temp}}</td>
-                            <td wire:click="fresh()" scope="row">
+                            <td scope="row">
                                 <livewire:modal :inputValue="'listDelete'" :listId='$i->id'/>
                             </td>
                         </tr>

@@ -22,7 +22,6 @@ class Modal extends Component
 
     public $content;
 
-
     public function mount($inputValue= NULL, $listId= NULL) {
         if($inputValue == "listDelete") {
             $this->i = $listId;
@@ -43,7 +42,7 @@ class Modal extends Component
         $data = Announcement::find($id);
         $data->forceDelete();
         $this->gate = 0;
-        $this->mount($inputValue= "", $listId= NULL);
+        $this->emit('delete');
     }
 
     public function userDelete() {
@@ -56,9 +55,7 @@ class Modal extends Component
             Address::where("id", $i->address_id)->forceDelete();
         }
 
-        $user->forceDelete();
-
-        return view('welcome');        
+        $user->forceDelete(); 
     }
 
     public function render()
