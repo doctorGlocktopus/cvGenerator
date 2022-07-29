@@ -14,10 +14,6 @@
             //     @this.$announcement->temp = $i;
             // }
         </script>
-        <div class="grey">
-            <button class="btn btn-primary" wire:click="temp('klassischBrieffenster')">klassisch Sichtfenter</button>
-            <button class="btn btn-primary" wire:click="temp('klassisch')">Weblayout ohne Sichtfenter</button>
-        </div>
     @if($announcement->temp == "klassischBrieffenster")
         <div>
             <div id="element" class="doc flex">
@@ -71,7 +67,11 @@
                     </div>
                 </div>
                 <div class="padding1pc w55">
-                    <livewire:list-view />
+                    <div class="grey flex">
+                        <button class="btn btn-primary" wire:click="temp('klassischBrieffenster')">klassisch Sichtfenter</button>
+                        <button class="btn btn-primary" wire:click="temp('klassisch')">Weblayout ohne Sichtfenter</button>
+                        <livewire:list-view />
+                    </div>
                 </div>
             </div>
         </div>
@@ -137,7 +137,12 @@
                 </div>
             </div>
             <div class="padding1pc w55">
-                <livewire:list-view />
+                
+                <div class="grey flex">
+                    <button class="btn btn-primary" wire:click="temp('klassischBrieffenster')">klassisch Sichtfenter</button>
+                    <button class="btn btn-primary" wire:click="temp('klassisch')">Weblayout ohne Sichtfenter</button>
+                    <livewire:list-view />
+                </div>
             </div>
         </div>
     </div>

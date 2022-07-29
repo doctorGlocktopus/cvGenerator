@@ -2,9 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Select2AutoSearch;
-use App\Http\Livewire\Builder;
-use App\Http\Livewire\View;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +31,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/new', [App\Http\Controllers\HomeController::class, 'new'])->name('new');
-
-Route::get('/delete/{id}', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
 
 // Route::get('/view/{id?}', View::class);
 
