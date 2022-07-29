@@ -230,7 +230,7 @@
     }
 
     .columnD {
-        flex-direction: column;
+        flex-direction: column !important;
     }
 
     .rowD {

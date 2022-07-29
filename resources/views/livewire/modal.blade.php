@@ -1,8 +1,10 @@
 <div>
     @if($inputValue == "listDelete")
-        <div scope="row" wire:click="gate(1)">
-            <i class="fa fa-trash" aria-hidden="true"></i> dauerhaft löschen
-        </div>
+        @if($gate == 0)
+            <div scope="row" wire:click="gate(1)">
+                <i class="fa fa-trash" aria-hidden="true"></i> dauerhaft löschen
+            </div>
+        @endif
         @if($gate == 1)
             <div wire:click="gate(0)" class="fade modalBody">
                 <div>willst du die Bewerbung für den job als {{$content->job}} bei {{$content->company}} unwiederuflich</div>

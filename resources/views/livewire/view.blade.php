@@ -67,10 +67,10 @@
                     </div>
                 </div>
                 <div class="padding1pc w55">
-                    <div class="grey flex">
+                    <div class="grey flex columnD">
+                        <livewire:list-view />
                         <button class="btn btn-primary" wire:click="temp('klassischBrieffenster')">klassisch Sichtfenter</button>
                         <button class="btn btn-primary" wire:click="temp('klassisch')">Weblayout ohne Sichtfenter</button>
-                        <livewire:list-view />
                     </div>
                 </div>
             </div>
@@ -138,10 +138,10 @@
             </div>
             <div class="padding1pc w55">
                 
-                <div class="grey flex">
+                <div class="grey flex columnD">
+                    <livewire:list-view />
                     <button class="btn btn-primary" wire:click="temp('klassischBrieffenster')">klassisch Sichtfenter</button>
                     <button class="btn btn-primary" wire:click="temp('klassisch')">Weblayout ohne Sichtfenter</button>
-                    <livewire:list-view />
                 </div>
             </div>
         </div>
