@@ -22,7 +22,7 @@
 
 </script>
 <div>
-    {{$error}}
+    <span class="text-danger">{{$error}}</span>
     <div class="list-group pTop1pc flex rowD">
         <div class="flex flexEnd">
             @if($step == 0)

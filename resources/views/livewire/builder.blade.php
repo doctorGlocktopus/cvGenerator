@@ -17,8 +17,8 @@
             // }
             
             function fillValue() {
-                // @this.postcode = document.getElementById("autoCode").value;
-                // @this.city = document.getElementById("autoCity").value;
+                @this.postcode = document.getElementById("autoCode").value;
+                @this.city = document.getElementById("autoCity").value;
             }
 
         </script>
@@ -31,14 +31,16 @@
                             <div>
                                 <label>Straße</label>
                                 <input type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
-                                @error('Straße') <span class="text-danger">{{ $message }}</span> @enderror          
+                                @error('street') <span class="text-danger">{{ $message }}</span> @enderror       
                             </div>
                             <div>
                                 <label>Hausnummer</label>
                                 <input type="number" class="form-control" placeholder="Hausnummer" wire:model.lazy="number">
-                                @error('Hausnummer') <span class="text-danger">{{ $message }}</span> @enderror          
+                                @error('number') <span class="text-danger">{{ $message }}</span> @enderror          
                             </div>
                         </div>
+                            @error('city') <span class="text-danger">{{ $message }}</span> @enderror
+                            @error('postcode') <span class="text-danger">{{ $message }}</span> @enderror    
                             <livewire:select2-auto-search/>  
                     </div>
                 </form>
@@ -52,15 +54,17 @@
                             <div>
                                 <label>Straße</label>
                                 <input type="text" class="form-control" placeholder="Straße" wire:model.lazy="street">
-                                @error('Straße') <span class="text-danger">{{ $message }}</span> @enderror          
+                                @error('street') <span class="text-danger">{{ $message }}</span> @enderror    
                             </div>
                             <div>
                                 <label>Hausnummer</label>
                                 <input type="number" class="form-control" placeholder="Hausnummer" wire:model.lazy="number">
-                                @error('Hausnummer') <span class="text-danger">{{ $message }}</span> @enderror          
+                                @error('number') <span class="text-danger">{{ $message }}</span> @enderror  
                             </div>
                         </div>
-                            <livewire:select2-auto-search/>  
+                            @error('city') <span class="text-danger">{{ $message }}</span> @enderror
+                            @error('postcode') <span class="text-danger">{{ $message }}</span> @enderror    
+                            <livewire:select2-auto-search/>    
                     </div>
                 </form>
             </div>

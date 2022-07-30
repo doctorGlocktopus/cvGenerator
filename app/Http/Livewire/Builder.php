@@ -58,6 +58,7 @@ class Builder extends Component
 
     public $step;
 
+    protected $rules = [];
 
     public $address;
 
@@ -111,19 +112,6 @@ class Builder extends Component
     }
 
     public function submit() {   
-        ##$this->validate();
-
-
-        $this->validate([
-            'company' => 'required',
-            'job' => 'required',
-            'contact' => 'required',
-            'type' => 'required',
-            'start' => 'required',
-            'body' => 'required',
-        ]);
-
-
         $user = Auth::User();
 
 
@@ -132,12 +120,32 @@ class Builder extends Component
         $street = $this->street;
         $street .=  " $this->number";
 
+        $this->rules = [
+            'street' => 'required|Min:5',
+            'number' => 'required|Integer|Min:1',
+            'postcode' => 'required|Integer|Min:5',
+            'city' => 'required|String'
+        ];
+
+        $this->validate();
 
         $address = Address::create([
             'street' => $this->street,
             'postcode' => $this->postcode,
             'city' => $this->city,
         ]);
+
+        $this->rules = [
+            'company' => 'required|String',
+            'job' => 'required|String',
+            'contact' => 'required|String',
+            'type' => 'required|String',
+            'start' => 'required|String',
+            'body' => 'required|String',
+            'end' => 'required|String',
+        ];
+
+        $this->validate();
 
         $data = Announcement::create([
             'user_id' => $user->id,
@@ -152,36 +160,46 @@ class Builder extends Component
             'body' => $this->body,
             'end' => $this->end,
 
-            'temp' => "elegant Proffesionel",
+            'temp' => "klassischBrieffenster",
         ]);
-        
-        return redirect()->to('/announcement'."/".$data->id);
-        
+        return redirect()->to('/view'."/".$data->id);        
     }
 
+
+
+
+
+
+
     public function receiverAddress() {
-        if(        
-            $this->validate([
-            'street' => 'required|String|Min:5',
-            'number' => 'required|Integer',
+
+        $this->rules = [
+            'street' => 'required|Min:5',
+            'number' => 'required|Integer|Min:1',
             'postcode' => 'required|Integer|Min:5',
-            'city' => 'required|String',
-            ])
-        ) {
-            $this->step = 2;
-        }
+            'city' => 'required|String'
+        ];
+
+        $this->validate();
+
+        $this->step = 2;
+    
     }
 
     
     public function address() {
+
+        $this->rules = [
+            'street' => 'required|Min:5',
+            'number' => 'required|Integer|Min:1',
+            'postcode' => 'required|Integer|Min:5',
+            'city' => 'required|String'
+        ];
+
+        $this->validate();
+
         $street = $this->street;
         $street .=  " $this->number";
-
-        $this->validate([
-            'street' => 'required|Min:5',
-            'postcode' => 'required|Integer|Min:5',
-            'city' => 'required|String',
-        ]);
 
         $address = Address::create([
             'street' => $this->street,

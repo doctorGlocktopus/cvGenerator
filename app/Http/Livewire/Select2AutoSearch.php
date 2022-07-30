@@ -146,13 +146,11 @@ class Select2AutoSearch extends Component
             <div class="flex">
                 <div>
                     <label>Postleitzahl</label>
-                    <input id="autoCode" type="number" class="form-control" wire:model="postcode">
-                    @error('Postleitzahl') <span class="text-danger">{{ $message }}</span> @enderror          
+                    <input id="autoCode" type="number" class="form-control" wire:model="postcode">    
                 </div>
                 <div>
                     <label>Stadt</label>
                     <input id="autoCity" type="text" class="form-control" wire:model="city">
-                    @error('Stadt') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>  
             </div>
             <div onclick="fillValue()"class="pTop1pc">
