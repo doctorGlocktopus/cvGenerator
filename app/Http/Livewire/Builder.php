@@ -90,6 +90,13 @@ class Builder extends Component
 
     }
 
+    public function placeTemplate($s) {
+
+        // dd($s);
+        $this->body = $this->start;
+        $this->end = $this->start;
+    }
+
     public function update() {
         $data = Announcement::find($this->announcement->id);
 
@@ -138,7 +145,7 @@ class Builder extends Component
         $this->rules = [
             'company' => 'required|String',
             'job' => 'required|String',
-            'contact' => 'required|String',
+            'contactGender' => 'required|String',
             'type' => 'required|String',
             'start' => 'required|String',
             'body' => 'required|String',
@@ -164,12 +171,6 @@ class Builder extends Component
         ]);
         return redirect()->to('/view'."/".$data->id);        
     }
-
-
-
-
-
-
 
     public function receiverAddress() {
 
@@ -210,6 +211,10 @@ class Builder extends Component
         User::where('id', '=', Auth::User()->id)->update(['address_id' => $address->id]);
 
         $this->step = 1;
+    }
+
+    public function setTemp($i) {
+            dd($i);
     }
 
     public function render()

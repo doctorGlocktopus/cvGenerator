@@ -129,7 +129,6 @@ class Select2AutoSearch extends Component
         $this->postcode = $data["postcode"];
         $this->city = $data["city"];
         $this->step = 2;
-        // $this->data = $data;
         $this->emit('search');
     }
 

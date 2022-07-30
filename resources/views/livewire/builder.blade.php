@@ -80,12 +80,12 @@
                             <div class="form-group">
                                 <label>Firmenname</label>
                                 <input type="text" class="form-control" placeholder="Firma" wire:model="company">
-                                @error('Firma') <span class="text-danger">{{ $message }}</span> @enderror
+                                @error('company') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
                         <div class="form-group">
                             <label>gewünschter Arbeitplatz</label>
                             <input type="text" class="form-control" placeholder="Arbeitsplatz" wire:model="job">
-                            @error('Arbeitsplatz') <span class="text-danger">{{ $message }}</span> @enderror
+                            @error('job') <span class="text-danger">{{ $message }}</span> @enderror
                             <label>Beschäftigungsart</label>
                             @if(!$type == "eigene")
                             <select class="form-control form-select" wire:model="type" aria-label="Beschäftigungsart">
@@ -98,7 +98,7 @@
                             @else
                                 <input class="form-control form-select" wire:model="type" aria-label="Beschäftigungsart">
                             @endif
-                            @error('Beruf') <span class="text-danger">{{ $message }}</span> @enderror
+                            @error('type') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="pTop1pc flex">
                             <a class="btn btn-secondary" onclick="buff(0)">zurück</a>
@@ -117,6 +117,7 @@
                                             <option value="Frau">Frau</option>
                                             <option value="eigene">eigene Definition</option>
                                         </select>
+                                        @error('contactGender') <span class="text-danger">{{ $message }}</span> @enderror
                                         @else
                                             <input class="form-control form-select" wire:model="contactGender" aria-label="Beschäftigungsart">
                                         @endif
@@ -124,6 +125,7 @@
                                     <div>
                                         <label>Nachname</label>
                                         <input type="text" class="form-control" placeholder="Kontaktperson" wire:model="contact">
+                                        @error('contact') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                             @error('Kontaktperson') <span class="text-danger">{{ $message }}</span> @enderror
@@ -136,18 +138,19 @@
                     @if($buff == 4)
                         <div class="form-group">
                             <label>Einleitung</label>
-                            <select class="form-control form-select" wire:model.lazy="start" aria-label="Einleitung">
+                            {{-- wire:change="setTemp($event.target.value)" --}}
+                            <select onchange="test()" class="form-control form-select" wire:model.lazy="start" aria-label="Einleitung">
                                 <option disabled>Einleitung wählen</option>
                                 @foreach($templates as $temp)
                                     <option value="{{$temp->start}}">{{$temp->name}}</option>
                                 @endforeach
                             </select>
                             <textarea cols="75" rows="15" class="form-control" placeholder="Einleitung" wire:model="start"></textarea>
-                            @error('Einleitung') <span class="text-danger">{{ $message }}</span> @enderror
+                            @error('start') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="pTop1pc flex">
                             <a class="btn btn-secondary" onclick="buff(3)">zurück</a>
-                            <a class="btn btn-primary" onclick="buff(5)">nächster Schritt</a>
+                            <a class="btn btn-primary" onclick="buff(5)" >nächster Schritt</a>
                         </div>
                     @endif
                     @if($buff == 5)
@@ -160,7 +163,7 @@
                                 @endforeach
                             </select>
                             <textarea cols="75" rows="15" class="form-control" placeholder="Hauptteil" wire:model="body"></textarea>
-                            @error('Hauptteil') <span class="text-danger">{{ $message }}</span> @enderror
+                            @error('body') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="pTop1pc flex">
                             <a class="btn btn-secondary" onclick="buff(4)">zurück</a>
@@ -177,7 +180,7 @@
                                 @endforeach
                             </select>
                             <textarea cols="75" rows="15" class="form-control" placeholder="Schluss" wire:model="end"></textarea>
-                            @error('Schluss') <span class="text-danger">{{ $message }}</span> @enderror
+                            @error('end') <span class="text-danger">{{ $message }}</span> @enderror
 
                         </div>
                         <div class="pTop1pc flex">
