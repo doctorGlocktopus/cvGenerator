@@ -1,14 +1,10 @@
 <div>
 <script>
 
-    function check(y) {
-        @this.stepper = y + y;
-        if(@this.stepper == 2){
-            console.log(@this.stepper);
-            input = @this.input;
+    function check() {
+        if(@this.input.length >= 2)
             string = 'http://127.0.0.1:88/api/code/';
-            @this.json =  httpGet(string+input);
-        }
+            @this.json =  httpGet(string+@this.input);
     }
 
     function httpGet(theUrl) {
@@ -28,9 +24,10 @@
             @if($step == 0)
             <div class="padding1pc">
                 <label>Postleitzahl oder Stadt eingeben</label>
-                <input class="form-control" wire:model="input" type="text" oninput="check(1)">
+                <input class="form-control" wire:model="input" type="text" oninput="check()">
             </div>
-                @if(strlen($input) < 3)
+            <div wire:click='Utf8_ansi({{$json}})' class="btn btn-secondary">suchen</div>
+                {{-- @if(strlen($input) < 3)
                     <div class="padding1pc">
                         <div wire:click='error("Sie müssen mindestens zwei Ziffern eintragen")' class="btn btn-secondary">suchen</div>
                     </div>
@@ -38,7 +35,7 @@
                     <div class="padding1pc">
                         <div wire:click='Utf8_ansi({{$json}})' class="btn btn-secondary">suchen</div>
                     </div>
-                @endif
+                @endif --}}
             @endif
             @if($step == 1)
             <div class="searchBar flex">
