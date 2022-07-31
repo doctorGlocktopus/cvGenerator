@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<livewire:sign />
     <div>
         <div class="padding1pc banner flex spaceEven flexEnd">
             <span>richtigGutBewerben</span>
@@ -27,7 +28,6 @@
             </div>
         </div>
         @if(Auth::User())
-            {{-- <livewire:view /> --}}
             <livewire:list-view />
         @endif
     </div>

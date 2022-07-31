@@ -233,6 +233,21 @@
         flex-direction: column !important;
     }
 
+    .impUp {   
+        filter: contrast(1.5);
+        
+    }
+
+    .imgUp img {
+        height: 300px;
+        filter: contrast(1000%);
+        filter: brightness(2);
+    }
+
+    .clip-circle {
+        clip-path: inset(10px 20px 30px 40px);
+    }
+
     .rowD {
         flex-direction: row !important;
     }
