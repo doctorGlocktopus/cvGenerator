@@ -1,23 +1,70 @@
+<div>
+    <script>
+    $( window ).on( "load", function() {
+            var element = document.getElementById('element');
+        if(element.offsetHeight >= 1123){
+            document.getElementById("doc").style.height = "unset";
+        }
 
-    <div>
-        <script>
-            $( window ).on( "load", function() {
-                    var element = document.getElementById('element');
-                if(element.offsetHeight >= 1123){
-                    document.getElementById("doc").style.height = "unset";
-                }
+    });
 
-            });
+    // function temp($i) {
+    //     console.log($i);
+    //     @this.$announcement->temp = $i;
+    // }
+    function MyPrintFunction()
+    {
+        var windowContent = '<!DOCTYPE html>';
+        //Starting HTML Tags
+        windowContent += '<html>'
+        
+        //Setting Print Page Title
+        windowContent += '<head><title>Print Content</title></head>';
+        
+        //Starting Body Tag
+        windowContent += '<body>'
+        
+        //Getting Div HTML
+        windowContent +=  document.getElementById("doc").innerHTML;
+        
+        //Closing Body Tag and HTML Tag
+        windowContent += '</body>';
+        windowContent += '</html>';
+        
+        //Calling Print Window
+        var printWin = window.open('','','fullscreen=yes');
+        
+        //Opening Print Window
+        printWin.document.open();
+        
+        //Adding Content in Print Window
+        printWin.document.write(windowContent);
+        
+        //Closing Print Window
+        printWin.document.close();
+        
+        //Focusing User to Print Window
+        printWin.focus();
+        
+        //Calling Default Browser Printer
+        printWin.print();
+        
+        //Closing Print Window
+        printWin.close();
+    }
+                
+    </script>
+    <div class="padding1pc w55 grey flex">
+        <button class="btn btn-primary" onclick="MyPrintFunction()" id="print"> Print</button>
+        <button class="btn btn-primary" wire:click="temp('klassischBrieffenster')">klassisch Sichtfenter</button>
+        <button class="btn btn-primary" wire:click="temp('klassisch')">Weblayout ohne Sichtfenter</button>
+    </div>
 
-            // function temp($i) {
-            //     console.log($i);
-            //     @this.$announcement->temp = $i;
-            // }
-        </script>
+<div>
     @if($announcement->temp == "klassischBrieffenster")
         <div>
-            <div id="element" class="doc flex">
-                <div id="doc" class="docContainer">
+            <div class="doc flex">
+                <div  id="doc" class="docContainer">
                     <div class="flex spaceBetween addressLine">
                         <div class="address">
                             {{ $announcement->company }}<br>
@@ -66,13 +113,7 @@
                         {{ $user->first_name }} {{ $user->last_name }}
                     </div>
                 </div>
-                <div class="padding1pc w55">
-                    <div class="grey flex columnD">
-                        <livewire:list-view />
-                        <button class="btn btn-primary" wire:click="temp('klassischBrieffenster')">klassisch Sichtfenter</button>
-                        <button class="btn btn-primary" wire:click="temp('klassisch')">Weblayout ohne Sichtfenter</button>
-                    </div>
-                </div>
+                <livewire:list-view />
             </div>
         </div>
     @endif
@@ -136,15 +177,9 @@
                     {{ $user->first_name }} {{ $user->last_name }}
                 </div>
             </div>
-            <div class="padding1pc w55">
-                
-                <div class="grey flex columnD">
-                    <livewire:list-view />
-                    <button class="btn btn-primary" wire:click="temp('klassischBrieffenster')">klassisch Sichtfenter</button>
-                    <button class="btn btn-primary" wire:click="temp('klassisch')">Weblayout ohne Sichtfenter</button>
-                </div>
-            </div>
-        </div>
+            <livewire:list-view />
+        </div>   
     </div>
-@endif
+        @endif
+    </div>
 </div>
