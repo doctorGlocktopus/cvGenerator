@@ -1,7 +1,7 @@
 <div>
     <script>
     $( window ).on( "load", function() {
-            var element = document.getElementById('element');
+            var element = document.getElementById('doc');
         if(element.offsetHeight >= 1123){
             document.getElementById("doc").style.height = "unset";
         }
@@ -48,12 +48,13 @@
         
         //Calling Default Browser Printer
         printWin.print();
-        
+        setTimeout(function(){mywindow.print();},1000);
         //Closing Print Window
         printWin.close();
     }
                 
     </script>
+    
     <div class="padding1pc w55 grey flex">
         <button class="btn btn-primary" onclick="MyPrintFunction()" id="print"> Print</button>
         <button class="btn btn-primary" wire:click="temp('klassischBrieffenster')">klassisch Sichtfenter</button>

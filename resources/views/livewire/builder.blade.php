@@ -191,14 +191,17 @@
                 </form>
             </div>
         @endif
-        @if($step == 3)
-        <div class="doc flex">
+        @if($step == 2)
             <div class="docContainer">
                 <div class="flex spaceBetween addressLine">
                     <div class="address">
-                        {{ $announcement->company }}<br>
-                        {{ $announcement->address->street }} {{ $announcement->address->number }}<br>
-                        {{ $announcement->address->postcode }} {{ $announcement->address->city }}<br>
+                        @if(!$company == "")
+                            <div class="fade">
+                                {{$company}}
+                            </div>
+                        @endif   
+                        {{ $street }} {{ $number }}<br>
+                        {{ $postcode }} {{ $city }}<br>
                     </div>
                     <div class="myAddress">
                         {{ $user->first_name }} {{ $user->last_name }}<br>
@@ -206,97 +209,38 @@
                         {{ $user->address->postcode }} {{ $user->address->city }}<br>
                     </div>
                 </div>
-        
-                <div class="date">{{ $user->address->city }} den, {{ date('d.m.Y') }}</div>
-        {{-- user_id	name	street	postcode	country	job	start	contact	type	body	end	 --}}
-                <div class="letter">
-                    <br>
-                    <br>
-                    <!-- type + job -->
-                    Bewerbung als {{$announcement->job}} in {{$announcement->type}}
-                    <br>
-                    <br>
-                    <br>
-                    <!-- contact -->
-                    Sehr geehrter {{$announcement->contact}},
-                    <br>
-                    <br>
-                    <!-- start -->
-                    <span class="input" role="textbox" contenteditable>{!! nl2br(e($announcement->start)) !!}</span>
-                    
-                    <br>
-                    <br>
-                    <!-- body -->
-                    <span class="input" role="textbox" contenteditable>{!! nl2br(e($announcement->body)) !!}</span>
-                    <!-- end -->
-                    <br>
-                    <br>
-                    <span class="input" role="textbox" contenteditable>{!! nl2br(e($announcement->end)) !!}</span>
-                    <br>
-                    <br>
-                    Mit freundlichen Grüßen,
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    {{ $user->first_name }} {{ $user->last_name }}
-                </div>
-            </div>
-            <div class="padding1pc w55">
-                <livewire:list-view />
-            </div>
-        </div>
-        @endif
-            @if($step == 2)
-                <div class="docContainer">
-                    <div class="flex spaceBetween addressLine">
-                        <div class="address">
-                            @if(!$company == "")
-                                <div class="fade">
-                                    {{$company}}
-                                </div>
-                            @endif   
-                            {{ $street }} {{ $number }}<br>
-                            {{ $postcode }} {{ $city }}<br>
-                        </div>
-                        <div class="myAddress">
-                            {{ $user->first_name }} {{ $user->last_name }}<br>
-                            {{ $user->address->street }} {{ $user->address->number }}<br>
-                            {{ $user->address->postcode }} {{ $user->address->city }}<br>
-                        </div>
+                @if(!$company == "")
+                    <div class="myModal fade">
+                        <label>Firma und Stelle</label><br>
+                        {{$company}} als {{$job}} in {{$type}}
                     </div>
-                    @if(!$company == "")
-                        <div class="myModal fade">
-                            <label>Firma und Stelle</label><br>
-                            {{$company}} als {{$job}} in {{$type}}
-                        </div>
-                    @endif      
-                    @if(!$contact == "")
-                        <div class="myModal fade">
-                            <label>Kontaktperson</label><br>
-                            {{$contactGender}} {{$contact}}
-                        </div>
-                    @endif           
-                    @if(!$start == "")
-                        <div class="myModal fade">
-                            <label>Einleitung:</label><br>
-                            {!! nl2br(e($start)) !!}
-                        </div>
-                    @endif
-                    @if(!$body == "")
-                        <div class="myModal fade">
-                            <label>Hauptteil:</label><br>
-                            {!! nl2br(e($body)) !!}
-                        </div>
-                    @endif
-                    @if(!$end == "")
-                        <div class="myModal fade">
-                            <label>Schluss:</label><br>
-                            {!! nl2br(e($end)) !!}
-                        </div>
-                    @endif
-                </div>
-            @endif
+                @endif      
+                @if(!$contact == "")
+                    <div class="myModal fade">
+                        <label>Kontaktperson</label><br>
+                        {{$contactGender}} {{$contact}}
+                    </div>
+                @endif           
+                @if(!$start == "")
+                    <div class="myModal fade">
+                        <label>Einleitung:</label><br>
+                        {!! nl2br(e($start)) !!}
+                    </div>
+                @endif
+                @if(!$body == "")
+                    <div class="myModal fade">
+                        <label>Hauptteil:</label><br>
+                        {!! nl2br(e($body)) !!}
+                    </div>
+                @endif
+                @if(!$end == "")
+                    <div class="myModal fade">
+                        <label>Schluss:</label><br>
+                        {!! nl2br(e($end)) !!}
+                    </div>
+                @endif
+            </div>
+        @endif
         </div>
     </div>   
 </div>
