@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <livewire:sign />
+<livewire:image-upload-component />
+
+<input type="file" name="image" placeholder="Choose image" id="image">
     <div>
         <div class="padding1pc banner flex spaceEven flexEnd">
             <span>richtigGutBewerben</span>

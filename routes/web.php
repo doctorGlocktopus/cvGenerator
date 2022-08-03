@@ -35,3 +35,12 @@ Route::get('/new', [App\Http\Controllers\HomeController::class, 'new'])->name('n
 // Route::get('/view/{id?}', View::class);
 
 Route::get('/view/{id?}', [App\Http\Controllers\HomeController::class, 'announcement'])->name('announcement');
+
+
+
+
+use App\Http\Livewire\ImageUploadComponent;
+
+
+
+Route::get('image-upload', ImageUploadComponent::class);

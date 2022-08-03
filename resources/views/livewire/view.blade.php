@@ -59,6 +59,7 @@
         <button class="btn btn-primary" onclick="MyPrintFunction()" id="print"> Print</button>
         <button class="btn btn-primary" wire:click="temp('klassischBrieffenster')">klassisch Sichtfenter</button>
         <button class="btn btn-primary" wire:click="temp('klassisch')">Weblayout ohne Sichtfenter</button>
+        <input class="btn btn-primary" type="file" name="image" placeholder="Choose image" id="image">
     </div>
 
 <div>
