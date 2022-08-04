@@ -311,8 +311,6 @@ nav {
     text-decoration: underline;
 }
 
-
-
 .modalBody {
     position: fixed;
     display: flex;
@@ -324,6 +322,7 @@ nav {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow:scroll;
 }
 
 .fontSize50pc {
