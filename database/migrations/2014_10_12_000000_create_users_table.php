@@ -24,7 +24,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->unsignedBigInteger('address_id');
-            $table->foreign('address_id')->references('id')->on('addresses')->constrained()->nullable();
+             $table->foreign('address_id')->references('id')->on('addresses')->nullable()->constrained();
+            $table->unsignedBigInteger('image_id');
+                $table->foreign('image_id')->references('id')->on('images')->nullable()->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

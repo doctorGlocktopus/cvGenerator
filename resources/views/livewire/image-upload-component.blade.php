@@ -50,9 +50,11 @@
                                         @if ($images->count() > 0)
                                             <div class="row">
                                                 @foreach ($images as $image)
+                        
                                                     <div class="col-md-2 mb-4">
                                                         <img src="{{ asset('uploads/image_uploads') }}/{{ $image->image }}" class="img-fluid" alt="">
                                                     </div>
+                                                    
                                                 @endforeach
                                             </div>
                                         @else
