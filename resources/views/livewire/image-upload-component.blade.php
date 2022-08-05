@@ -34,9 +34,9 @@
 
                                         {{-- ImagePreview --}}
                                         @if($image)
-
+                                                <input type="range" min="250" max="1000" wire:model="range">
                                                 <div  id="mydivheader" style="height: 239px; width: 432px;" class="mask">
-                                                    <img id="mydiv" class="fade mt-2" src="{{ $image->temporaryUrl() }}"  alt="">
+                                                    <img width="{{$range}}px"  id="mydiv" class="fade mt-2" src="{{ $image->temporaryUrl() }}"  alt="">
                                                 </div>
 
                                         
@@ -88,11 +88,7 @@
                                         @endif
                                     </div>
 
-                                    
-
-
-                                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Using_images">https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Using_images</a>
-                                    
+                                                        
                                     
                                     
                                     <div class="form-group text-center">

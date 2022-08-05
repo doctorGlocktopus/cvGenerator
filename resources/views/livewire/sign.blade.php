@@ -15,4 +15,7 @@
 
     {{$range}}
 </div> --}}
-
+{{-- <div>
+    <input type="range" min="250" max="1000" wire:model="range">
+    <img id="my-img" src="http://localhost/bewerbung/resources/unterschrift.jpg" width="{{$range}}px" />
+</div> --}}

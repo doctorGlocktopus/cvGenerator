@@ -18,6 +18,7 @@ class ImageUploadComponent extends Component
 
     public $image;
 
+    public $range;
 
     public function mount()
     {
