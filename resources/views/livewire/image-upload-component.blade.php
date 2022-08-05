@@ -1,7 +1,4 @@
 <div>
-    <div>
-
-    </div>
     <div class="container mt-5 pt-5">
         <div class="row mt-4">
             <div class="col-md-12">
@@ -39,10 +36,9 @@
                                             <div id="mydivheader" style="height: 239px; width: 432px;" class="mask imgUp">
                                                 <img width="{{$range}}px"  id="mydiv" class="fade imgUpChild" src="{{ $image->temporaryUrl() }}"  alt="">
                                             </div>
-                                            <button type="submit" class="btn btn-primary w-50 mt-2"><div wire:loading wire:target="uploadImage" wire:key="uploadImage"><i class="fa fa-spinner fa-spin"></i></div> Hochladen</button>
+                                            <button onclick="takeshot()" type="submit" class="btn btn-primary w-50 mt-2"><div wire:loading wire:target="uploadImage" wire:key="uploadImage"><i class="fa fa-spinner fa-spin"></i></div> Hochladen</button>
                                         </div>
                                         <script>
-                    
                                             //Make the DIV element draggagle:
                                             dragElement(document.getElementById("mydiv"));
                                         
@@ -87,7 +83,7 @@
                                                 }
                                                 }
                                             </script>
-                                        @endif
+                                        @else
                                     </div>
 
                                                         
@@ -96,7 +92,7 @@
 
                                 </form>
                             </div>
-                            {{-- <div class="col-md-8">
+                            <div class="col-md-8">
                                 <div class="card" style="height: 58vh;">
                                     <div class="card-header">Alle Bilder</div>
                                     <div class="card-body">
@@ -118,8 +114,9 @@
                                             </div>
                                         @endif
                                     </div>
-                                </div> --}}
+                                </div>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
