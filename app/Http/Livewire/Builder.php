@@ -90,13 +90,6 @@ class Builder extends Component
 
     }
 
-    public function placeTemplate($s) {
-
-        // dd($s);
-        $this->body = $this->start;
-        $this->end = $this->start;
-    }
-
     public function update() {
         $data = Announcement::find($this->announcement->id);
 
@@ -114,7 +107,6 @@ class Builder extends Component
 
             'temp' => "klassischBrieffenster",
         ]);
-        dd($data);
     }
 
     public function submit() {   
@@ -195,18 +187,15 @@ class Builder extends Component
             'postcode' => 'required|Integer|Min:5',
             'city' => 'required|String'
         ];
-
         $this->validate();
 
         $street = $this->street;
         $street .=  " $this->number";
-
         $address = Address::create([
             'street' => $this->street,
             'postcode' => $this->postcode,
             'city' => $this->city,
         ]);
-
         User::where('id', '=', Auth::User()->id)->update(['address_id' => $address->id]);
 
         $this->step = 1;
