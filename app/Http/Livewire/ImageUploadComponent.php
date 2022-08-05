@@ -8,6 +8,7 @@ use App\Models\Image;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Auth;
 
 
 class ImageUploadComponent extends Component
@@ -40,9 +41,10 @@ class ImageUploadComponent extends Component
 
         $image = new Image();
 
-
+        
         $imageName = Carbon::now()->timestamp. '.' .$this->image->extension();
         $this->image->storeAs('image_uploads', $imageName);
+        $image->user_id = Auth::User()->id;
         $image->image = $imageName;
 
 
@@ -63,9 +65,10 @@ class ImageUploadComponent extends Component
     {
         //Get Uploaded Images
 
-
-        $images = Image::orderBy('id','DESC')->get();
-
+        if(Auth::User())
+            $images = Image::where("user_id", Auth::User()->id)->orderBy('id','DESC')->get();
+        else
+            $images = [];
 
         return view('livewire.image-upload-component',['images'=>$images])->layout('livewire.layouts.base');
     }

@@ -12,7 +12,8 @@ class Image extends Model
     use SoftDeletes;
     protected $fillable = [
         'id',
-        'image'
+        'image',
+        'user_id'
     ];
 
     public function user()

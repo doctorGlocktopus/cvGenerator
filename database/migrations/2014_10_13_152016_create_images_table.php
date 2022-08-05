@@ -17,6 +17,8 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->string('image')->nullable();
             $table->timestamps();
+            $table->unsignedBigInteger('user_id');
+                $table->foreign('user_id')->references('id')->on('users')->constrained();
             $table->softDeletes();
         });
     }
