@@ -34,13 +34,32 @@
 
                                         {{-- ImagePreview --}}
                                         @if($image)
-                                                <input type="range" min="250" max="1000" wire:model="range">
-                                                <div  id="mydivheader" style="height: 239px; width: 432px;" class="mask">
-                                                    <img width="{{$range}}px"  id="mydiv" class="fade mt-2" src="{{ $image->temporaryUrl() }}"  alt="">
-                                                </div>
-
-                                        
-                                            <script>
+                                        <div id="photo">
+                                            <input type="range" min="250" max="1000" wire:model="range">
+                                            <div  id="mydivheader" style="height: 239px; width: 432px;" class="mask">
+                                                <img onclick="takeshot()" width="{{$range}}px"  id="mydiv" class="fade mt-2" src="{{ $image->temporaryUrl() }}"  alt="">
+                                            </div>
+                                            {{-- <button onclick="takeshot()" >
+                                                Take Screenshot
+                                            </button> --}}
+                                        </div>
+                                        <div id="output"></div>
+                                        <script>
+                                            function takeshot() {
+                                                let div =
+                                                    document.getElementById('photo');
+                                    
+                                                // Use the html2canvas
+                                                // function to take a screenshot
+                                                // and append it
+                                                // to the output div
+                                                html2canvas(div).then(
+                                                    function (canvas) {
+                                                        document
+                                                        .getElementById('output')
+                                                        .appendChild(canvas);
+                                                    })
+                                            }
                                             //Make the DIV element draggagle:
                                             dragElement(document.getElementById("mydiv"));
                                         
