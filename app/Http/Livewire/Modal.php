@@ -20,6 +20,8 @@ class Modal extends Component
 
     public $close;
 
+    public $odd;
+
     public $content;
 
     public function mount($inputValue= NULL, $listId= NULL) {
@@ -32,10 +34,9 @@ class Modal extends Component
          
     }
 
-    public function gate($i) {
+    public function gate($i) { 
         $this->gate = $i;
         $this->content = Announcement::find($this->i);
-        // dd($this->content);
     }
 
     public function delete($id) {

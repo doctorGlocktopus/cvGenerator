@@ -102,12 +102,11 @@ class Builder extends Component
 
         $comboContact = $this->contactGender." ".$this->contact;
 
-        dd($this->announcement->start);
         $data->update([  
-            // 'company' => $this->company,
-            // 'job' => $this->job,
-            // 'contact' => $comboContact,
-            // 'type' => $this->type,
+            'company' => $this->company,
+            'job' => $this->job,
+            'contact' => $comboContact,
+            'type' => $this->type,
 
             'start' => $announcement->start,
             'body' => $this->body,

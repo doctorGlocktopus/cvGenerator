@@ -44,6 +44,54 @@
         @endif
     @endif
 
+
+
+
+    @if($inputValue == "imprint")
+    <div class="padding1pc banner flex spaceEven flexEnd">
+        <span>richtigGutBewerben</span>
+        <span onclick="gate('faq')" class="cursor  fontSize50pc">F.A.Q</span>
+        <span onclick="gate('imprint')" class="cursor fontSize50pc">Impressum</span>
+    </div>
+    <div class="flex">
+        <div class="fade padding1pc wContent" style="display: none; font-size: 180%; justify-content: space-around; align-items: center;" id="imprint">
+            <div onclick="window.open('https://www.github.com/doctorGlocktopus', '_blank')">
+                <img class="fade cursor" src="http://localhost/bewerbung/resources/gitHub.png">
+            </div>
+        </div>
+        <div class="fade padding1pc wContent" style="display: none; font-size: 180%; justify-content: space-around; align-items: center;" id="faq">
+            <div class="flex columnD">
+                <span>Freeware</span>
+                <span>Clever4You</span>
+                <span>SaveTimeAndMoney</span>
+            </div>
+            <div class="flex columnD">
+                <span>Freeware</span>
+                <span>Clever4You</span>
+                <span>SaveTimeAndMoney</span>
+            </div>
+        </div>
+    </div>
+        <script>
+            function gate(key) {
+                // diese Kommtar sorgt für das Schließen des anderen gate
+                if(key == "faq")
+                {
+                    document.getElementById('imprint').style.display = "none";
+                }
+                if(key == 'imprint')
+                {
+                    document.getElementById("faq").style.display = "none";
+                }
+                // 
+                if(document.getElementById(key).style.display == "none")
+                document.getElementById(key).style.display = "flex";
+                else
+                document.getElementById(key).style.display = "none";
+            }
+        </script>
+    @endif
+
     @if($inputValue == "listDelete")
         @if($gate == 0)
             <a scope="row" wire:click.prevent="gate(1)">
@@ -52,7 +100,9 @@
         @endif
         @if($gate == 1)
             <div wire:click="gate(0)" class="fade modalBody">
-                <div>willst du die Bewerbung für den job als {{$content->job}} bei {{$content->company}} unwiederuflich</div>
+                <div>
+                    willst du die Bewerbung für den job als {{$content->job}} bei {{$content->company}} unwiederuflich
+                </div>
                 <button wire:click.prevent="delete({{$content->id}})" class="btn btn-danger">löschen?</button>
             </div>
         @endif
@@ -64,8 +114,10 @@
         </div>
         @if($gate == 1)
             <div wire:click="gate(0)" class="fade modalBody">
-                <div>willst du deinen Account unwiederuflich</div>
-                <button wire:click="userDelete()" class="btn btn-danger">löschen?</button>
+                <div>
+                    willst du deinen Account unwiederuflich
+                </div>
+                <button wire:click="userDelete({{$inputValue}})" class="btn btn-danger">löschen?</button>
             </div>
         @endif
     @endif
