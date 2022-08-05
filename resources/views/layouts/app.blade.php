@@ -246,7 +246,7 @@ main {
     filter: contrast(1.5);
 }
 
-.imgUp img {
+.imgUpChild {
     height: 300px;
     filter: contrast(1000%);
     filter: brightness(2);
