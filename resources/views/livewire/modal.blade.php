@@ -48,30 +48,30 @@
 
 
     @if($inputValue == "imprint")
-    <div class="padding1pc banner flex spaceEven flexEnd">
-        <span>richtigGutBewerben</span>
-        <span onclick="gate('faq')" class="cursor  fontSize50pc">F.A.Q</span>
-        <span onclick="gate('imprint')" class="cursor fontSize50pc">Impressum</span>
-    </div>
-    <div class="flex">
-        <div class="fade padding1pc wContent" style="display: none; font-size: 180%; justify-content: space-around; align-items: center;" id="imprint">
-            <div onclick="window.open('https://www.github.com/doctorGlocktopus', '_blank')">
-                <img class="fade cursor" src="http://localhost/bewerbung/resources/gitHub.png">
+        <div class="padding1pc banner flex spaceEven flexEnd">
+            <span>richtigGutBewerben</span>
+            <span onclick="gate('faq')" class="cursor  fontSize50pc">F.A.Q</span>
+            <span onclick="gate('imprint')" class="cursor fontSize50pc">Impressum</span>
+        </div>
+        <div class="flex">
+            <div class="fade padding1pc wContent" style="display: none; font-size: 180%; justify-content: felx-start; align-items: center;" id="imprint">
+                <div onclick="window.open('https://www.github.com/doctorGlocktopus', '_blank')">
+                    <img class="fade cursor" src="http://localhost/bewerbung/resources/gitHub.png">
+                </div>
+            </div>
+            <div class="fade padding1pc wContent" style="display: none; font-size: 180%; justify-content: space-around; align-items: center;" id="faq">
+                <div class="flex columnD">
+                    <span>Freeware</span>
+                    <span>Clever4You</span>
+                    <span>SaveTimeAndMoney</span>
+                </div>
+                <div class="flex columnD">
+                    <span>Freeware</span>
+                    <span>Clever4You</span>
+                    <span>SaveTimeAndMoney</span>
+                </div>
             </div>
         </div>
-        <div class="fade padding1pc wContent" style="display: none; font-size: 180%; justify-content: space-around; align-items: center;" id="faq">
-            <div class="flex columnD">
-                <span>Freeware</span>
-                <span>Clever4You</span>
-                <span>SaveTimeAndMoney</span>
-            </div>
-            <div class="flex columnD">
-                <span>Freeware</span>
-                <span>Clever4You</span>
-                <span>SaveTimeAndMoney</span>
-            </div>
-        </div>
-    </div>
         <script>
             function gate(key) {
                 // diese Kommtar sorgt für das Schließen des anderen gate

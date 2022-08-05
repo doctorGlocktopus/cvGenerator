@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="flex padding10pc spaceAround">
-    <div class="w33">
+    <div id="key" class="w33">
         <div class="flex columnD">
             <h1><label for="register" >{{ __('Registerierung') }}</label></h1>    
             <div>
@@ -97,14 +97,6 @@
                 </form>
             </div>
         </div>
-        <script>
-            function gate(key) {
-                if(document.getElementById(key).style.display == "none")
-                document.getElementById(key).style.display = "block";
-                else
-                document.getElementById(key).style.display = "none";
-            }
-        </script>
         <div class="w33">
             <h1>Datenschutzerklärung</h1>
             <h2 id="m14">Einleitung</h2>
