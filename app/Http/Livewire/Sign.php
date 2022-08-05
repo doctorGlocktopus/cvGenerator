@@ -11,6 +11,7 @@ class Sign extends Component
 
     public $range;
 
+    
     public function render()
     {
         return view('livewire.sign');

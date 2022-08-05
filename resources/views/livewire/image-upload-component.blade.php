@@ -29,19 +29,18 @@
                                         @enderror
 
 
-                                        <div wire:loading wire:target="image" wire:key="image"><i class="fa fa-spinner fa-spin mt-2 ml-2"></i> wir arbeiten</div>
+                                        <div wire:loading wire:target="image" wire:key="image"><i class="fa fa-spinner fa-spin ml-2"></i> wir arbeiten</div>
 
 
                                         {{-- ImagePreview --}}
                                         @if($image)
+                                        <div class="fade modalBody">
                                         <input type="range" min="250" max="1000" wire:model="range">
-                                        <div id="photo">
                                             <div id="mydivheader" style="height: 239px; width: 432px;" class="mask imgUp">
-                                                <img width="{{$range}}px"  id="mydiv" class="fade mt-2 imgUpChild" src="{{ $image->temporaryUrl() }}"  alt="">
+                                                <img width="{{$range}}px"  id="mydiv" class="fade imgUpChild" src="{{ $image->temporaryUrl() }}"  alt="">
                                             </div>
-
+                                            <button type="submit" class="btn btn-primary w-50 mt-2"><div wire:loading wire:target="uploadImage" wire:key="uploadImage"><i class="fa fa-spinner fa-spin"></i></div> Hochladen</button>
                                         </div>
-
                                         <script>
                     
                                             //Make the DIV element draggagle:
@@ -94,12 +93,10 @@
                                                         
                                     
                                     
-                                    <div class="form-group text-center">
-                                        <button type="submit" class="btn btn-primary w-50 mt-2"><div wire:loading wire:target="uploadImage" wire:key="uploadImage"><i class="fa fa-spinner fa-spin"></i></div> Hochladen</button>
-                                    </div>
+
                                 </form>
                             </div>
-                            <div class="col-md-8">
+                            {{-- <div class="col-md-8">
                                 <div class="card" style="height: 58vh;">
                                     <div class="card-header">Alle Bilder</div>
                                     <div class="card-body">
@@ -121,7 +118,7 @@
                                             </div>
                                         @endif
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

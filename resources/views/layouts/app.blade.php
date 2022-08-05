@@ -245,7 +245,6 @@ main {
 }
 
 .imgUpChild {
-    height: 300px;
     filter: contrast(1000%);
     filter: brightness(2);
 }

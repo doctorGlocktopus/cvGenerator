@@ -25,7 +25,7 @@
     </button>
 </div>
 <h1>Screenshot:</h1>
-<div id="output"></div>
+<div id="output" class="imgUp imgUpChild"></div>
 
 <script type="text/javascript">
 
@@ -33,13 +33,14 @@
     // to screenshot the div
     function takeshot() {
         let div =
-            document.getElementById('photo');
+            document.getElementById('mydivheader');
 
         // Use the html2canvas
         // function to take a screenshot
         // and append it
         // to the output div
-        html2canvas(div).then(
+        x = html2canvas(div)
+        .then(
             function (canvas) {
                 document
                 .getElementById('output')
