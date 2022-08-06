@@ -17,7 +17,7 @@ class ImageUploadComponent extends Component
 
 
     public $image;
-
+    public $cut = 0;
     public $range;
 
     public function mount()
@@ -28,16 +28,16 @@ class ImageUploadComponent extends Component
 
     public function updated($fields)
     {
-        $this->validateOnly($fields,[
-            'image' => 'required',
-        ]);
+        // $this->validateOnly($fields,[
+        //     'image' => 'required',
+        // ]);
     }
     
     public function uploadImage()
     {
-        $this->validate([
-            'image' => 'required',
-        ]);
+        // $this->validate([
+        //     'image' => 'required',
+        // ]);
 
 
         $image = new Image();
