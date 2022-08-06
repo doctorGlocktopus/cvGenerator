@@ -54,10 +54,36 @@
             <span onclick="gate('imprint')" class="cursor fontSize50pc">Impressum</span>
         </div>
         <div class="flex">
-            <div class="fade padding1pc wContent" style="display: none; font-size: 180%; justify-content: felx-start; align-items: center;" id="imprint">
+            <div class="fade padding1pc wContent" style="display: none; font-size: 180%; justify-content: felx-start; align-items: flex-end;" id="imprint">
                 <div onclick="window.open('https://www.github.com/doctorGlocktopus', '_blank')">
                     <img class="fade cursor" src="http://localhost/bewerbung/resources/gitHub.png">
                 </div>
+                <table class="cursor table table-hover pLeft10pc flex fontSize90pc">
+                    <tr class="cursor" onclick="window.open('https://www.github.com/doctorGlocktopus', '_blank')">
+                        <td scope="row">
+                            <i class="fa fa-user-tag"></i>
+                        </td>
+                        <td scope="row">
+                            <span class="pLeft1pc">Fabian Laske</span>
+                        </td>
+                    </tr>
+                    <tr class="cursor" onclick="window.location.href ='mailto:flaske@anche.no'" scope="row">
+                        <td scope="row">
+                            <i class="fa fa-envelope"></i>
+                        </td>
+                        <td>
+                            <span class="pLeft1pc">flaske@anche.no</span>
+                        </td>
+                    </tr>
+                    <tr class="cursor" onclick="window.open('https://www.google.de/maps/dir/Wernerstra%C3%9Fe+6,+Stuttgart//@48.8150535,9.1647313,17z/data=!3m1!4b1!4m9!4m8!1m5!1m1!1s0x4799daea5aa92939:0x622f8efd3a5a80ef!2m2!1d9.16692!2d48.81505!1m0!3e0', '_blank')" >
+                        <td scope="row">
+                            <i class="fa fa-map" aria-hidden="true"></i>
+                        </td>
+                        <td scope="row">
+                            <span class="pLeft1pc">70469 Stuttgart</span>
+                        </td>
+                    </tr>
+                </table>
             </div>
             <div class="fade padding1pc wContent" style="display: none; font-size: 180%; justify-content: space-around; align-items: center;" id="faq">
                 <div class="flex columnD">

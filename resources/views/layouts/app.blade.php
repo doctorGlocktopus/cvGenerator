@@ -23,9 +23,9 @@ a {
 
 }
 
-td:hover {
+/* tr:hover {
     background-color: #596f7f73;
-}
+} */
 
 a:hover {
     background-color: #596f7f73;
@@ -70,6 +70,15 @@ textarea {
 .pTop10pc {
     padding-top: 10%;
 }
+
+.pLeft1pc {
+    padding-left: 1%;
+}
+
+.pLeft10pc {
+    padding-left: 10%;
+}
+
 
 .dekoBalken {
     background: #ff000021;
