@@ -45,6 +45,13 @@ a:hover {
         animation-fill-mode: forwards;
 }
 
+.imprint {
+    display: none;
+    font-size: 180%;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
 .shdw {
     outline: auto;
     outline-style: auto;
@@ -350,106 +357,12 @@ nav {
     font-size: 50%
 }
 
-#more {display: none;}
-
-
 nav {
     z-index: 1;
 }
 
 .fontSize90pc {
     font-size: 90%;
-}
-
-
-.blubb {
-    position: absolute;
-    top: 57%;
-width: 98%;
-height: 40%;
---s: 25vmin;
---p: calc(var(--s) / 2);
---c1: pink;
---c2: dodgerblue;
---c3: white;
---bg: var(--c3);
---d: 4000ms;
---e: cubic-bezier(0.76, 0, 0.24, 1);
-
-background-color: var(--bg);
-background-image:
-linear-gradient(45deg, var(--c1) 25%, transparent 25%),
-linear-gradient(-45deg, var(--c1) 25%, transparent 25%),
-linear-gradient(45deg, transparent 75%, var(--c2) 75%),
-linear-gradient(-45deg, transparent 75%, var(--c2) 75%);
-background-size: var(--s) var(--s);
-background-position: 
-calc(var(--p) *  1) calc(var(--p) *  0), 
-calc(var(--p) * -1) calc(var(--p) *  1), 
-calc(var(--p) *  1) calc(var(--p) * -1), 
-calc(var(--p) * -1) calc(var(--p) *  0);
-animation: 
-color var(--d) var(--e) infinite,
-position var(--d) var(--e) infinite;
-}
-
-@keyframes color {
-0%, 25% {
---bg: var(--c3);
-}
-26%, 50% {
---bg: var(--c1);
-}
-51%, 75% {
---bg: var(--c3);
-}
-76%, 100% {
---bg: var(--c2);
-}
-}
-
-@keyframes position {
-0% {
-background-position: 
-  calc(var(--p) *  1) calc(var(--p) *  0), 
-  calc(var(--p) * -1) calc(var(--p) *  1), 
-  calc(var(--p) *  1) calc(var(--p) * -1), 
-  calc(var(--p) * -1) calc(var(--p) *  0);
-}
-25% {
-background-position: 
-  calc(var(--p) *  1) calc(var(--p) *  4), 
-  calc(var(--p) * -1) calc(var(--p) *  5), 
-  calc(var(--p) *  1) calc(var(--p) *  3), 
-  calc(var(--p) * -1) calc(var(--p) *  4);
-}
-50% {
-background-position: 
-  calc(var(--p) *  3) calc(var(--p) * 8), 
-  calc(var(--p) * -3) calc(var(--p) * 9), 
-  calc(var(--p) *  2) calc(var(--p) * 7), 
-  calc(var(--p) * -2) calc(var(--p) * 8);
-}
-75% {
-background-position: 
-  calc(var(--p) *  3) calc(var(--p) * 12), 
-  calc(var(--p) * -3) calc(var(--p) * 13), 
-  calc(var(--p) *  2) calc(var(--p) * 11), 
-  calc(var(--p) * -2) calc(var(--p) * 12);
-}
-100% {    
-background-position: 
-  calc(var(--p) *  5) calc(var(--p) * 16), 
-  calc(var(--p) * -5) calc(var(--p) * 17), 
-  calc(var(--p) *  5) calc(var(--p) * 15), 
-  calc(var(--p) * -5) calc(var(--p) * 16);
-}
-}
-
-@media (prefers-reduced-motion) {
-.blubb {
-animation: none;
-}
 }
 
 </style>

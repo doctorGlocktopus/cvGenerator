@@ -44,9 +44,6 @@
         @endif
     @endif
 
-
-
-
     @if($inputValue == "imprint")
         <div class="padding1pc banner flex spaceEven flexEnd">
             <span>richtigGutBewerben</span>
@@ -54,7 +51,7 @@
             <span onclick="gate('imprint')" class="cursor fontSize50pc">Impressum</span>
         </div>
         <div class="flex">
-            <div class="fade padding1pc wContent" style="display: none; font-size: 180%; justify-content: felx-start; align-items: flex-end;" id="imprint">
+            <div class=" imprint fade padding1pc wContent" style="display: none; font-size: 180%; justify-content: felx-start; align-items: flex-end;" id="imprint">
                 <div onclick="window.open('https://www.github.com/doctorGlocktopus', '_blank')">
                     <img class="fade cursor" src="http://localhost/bewerbung/resources/gitHub.png">
                 </div>
@@ -85,17 +82,24 @@
                     </tr>
                 </table>
             </div>
-            <div class="fade padding1pc wContent" style="display: none; font-size: 180%; justify-content: space-around; align-items: center;" id="faq">
-                <div class="flex columnD">
-                    <span>Freeware</span>
-                    <span>Clever4You</span>
-                    <span>SaveTimeAndMoney</span>
-                </div>
-                <div class="flex columnD">
-                    <span>Freeware</span>
-                    <span>Clever4You</span>
-                    <span>SaveTimeAndMoney</span>
-                </div>
+            <div class="fade padding1pc imprint" id="faq">
+                <table class="cursor table table-hover pLeft10pc flex fontSize90pc">
+                    <tr class="cursor" onclick="window.open('https://www.github.com/doctorGlocktopus', '_blank')">
+                        <td scope="row">
+                            <span>Freeware</span>
+                        </td>
+                    </tr>
+                    <tr class="cursor" onclick="window.location.href ='mailto:flaske@anche.no'" scope="row">
+                        <td scope="row">
+                            <span>Clever4You</span>
+                        </td>
+                    </tr>
+                    <tr class="cursor" onclick="window.open('https://www.google.de/maps/dir/Wernerstra%C3%9Fe+6,+Stuttgart//@48.8150535,9.1647313,17z/data=!3m1!4b1!4m9!4m8!1m5!1m1!1s0x4799daea5aa92939:0x622f8efd3a5a80ef!2m2!1d9.16692!2d48.81505!1m0!3e0', '_blank')" >
+                        <td scope="row">
+                            <span>SaveTimeAndMoney</span>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
         <script>
