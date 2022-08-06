@@ -19,15 +19,15 @@
     <input type="range" min="250" max="1000" wire:model="range">
     <img id="my-img" src="http://localhost/bewerbung/resources/unterschrift.jpg" width="{{$range}}px" />
 </div> --}}
-<div >
+{{-- <div >
     <button onclick="takeshot()">
         Take Screenshot
     </button>
 </div>
 <h1>Screenshot:</h1>
-<div id="output" class="imgUp imgUpChild"></div>
+<div id="output" class="imgUp imgUpChild"></div> --}}
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
 
     // Define the function 
     // to screenshot the div
@@ -47,4 +47,4 @@
                 .appendChild(canvas);
             })
     }
-</script>
+</script> --}}

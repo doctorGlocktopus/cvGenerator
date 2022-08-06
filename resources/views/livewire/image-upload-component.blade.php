@@ -1,4 +1,27 @@
 <div>
+    <script type="text/javascript">
+
+        // Define the function 
+        // to screenshot the div
+        function takeshot() {
+            console.log(1);
+            let div =
+                document.getElementById('mydivheader');
+    
+            // Use the html2canvas
+            // function to take a screenshot
+            // and append it
+            // to the output div
+            x = html2canvas(div)
+            .then(
+                function (canvas) {
+                    document
+                    .getElementById('output')
+                    .appendChild(canvas);
+                })
+        }
+    </script>
+    <div id="output" class="imgUp imgUpChild"></div>
     <div class="container mt-5 pt-5">
         <div class="row mt-4">
             <div class="col-md-12">
@@ -12,7 +35,7 @@
                                 @if (session()->has('message'))
                                     <div class="alert alert-success text-center">{{ session('message') }}</div>
                                 @endif
-                                <form wire:submit.prevent="uploadImage">
+                                {{-- <form wire:submit.prevent="uploadImage"> --}}
                                     <div class="form-group">
                                         <label for="image" class="font-weight-bold">Wähle dein Bild aus</label>
                                         <div class="row justify-content-center">
@@ -36,7 +59,8 @@
                                             <div id="mydivheader" style="height: 239px; width: 432px;" class="mask imgUp">
                                                 <img width="{{$range}}px"  id="mydiv" class="fade imgUpChild" src="{{ $image->temporaryUrl() }}"  alt="">
                                             </div>
-                                            <button onclick="takeshot()" type="submit" class="btn btn-primary w-50 mt-2"><div wire:loading wire:target="uploadImage" wire:key="uploadImage"><i class="fa fa-spinner fa-spin"></i></div> Hochladen</button>
+                                            <button onclick="takeshot()">ausschneiden</button>
+                                            {{-- <button wire:click="uploadImage" type="submit" class="btn btn-primary w-50 mt-2"><div wire:loading wire:target="uploadImage" wire:key="uploadImage"><i class="fa fa-spinner fa-spin"></i></div> Hochladen</button> --}}
                                         </div>
                                         <script>
                                             //Make the DIV element draggagle:
@@ -83,16 +107,16 @@
                                                 }
                                                 }
                                             </script>
-                                        @else
+                                        @endif
                                     </div>
 
                                                         
                                     
                                     
 
-                                </form>
+                                {{-- </form> --}}
                             </div>
-                            <div class="col-md-8">
+                            {{-- <div class="col-md-8">
                                 <div class="card" style="height: 58vh;">
                                     <div class="card-header">Alle Bilder</div>
                                     <div class="card-body">
@@ -114,9 +138,8 @@
                                             </div>
                                         @endif
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
-                            @endif
                         </div>
                     </div>
                 </div>
