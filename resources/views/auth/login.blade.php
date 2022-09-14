@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="flex padding10pc spaceAround">
     <div class="wContent">
