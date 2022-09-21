@@ -46,14 +46,14 @@
 
     @if($inputValue == "imprint")
         <div class="padding1pc banner flex spaceEven flexEnd">
-            <span>richtigGutBewerben</span>
+            <span>guteDokumente</span>
             <span onclick="gate('faq')" class="cursor  fontSize50pc">F.A.Q</span>
             <span onclick="gate('imprint')" class="cursor fontSize50pc">Impressum</span>
         </div>
         <div class="flex">
             <div class=" imprint fade padding1pc wContent" style="display: none; font-size: 180%; justify-content: felx-start; align-items: flex-end;" id="imprint">
                 <div onclick="window.open('https://www.github.com/doctorGlocktopus', '_blank')">
-                    <img class="fade cursor" src="http://localhost/bewerbung/resources/gitHub.png">
+                    <img class="fade cursor" src="/resources/gitHub.png">
                 </div>
                 <table class="cursor table table-hover pLeft10pc flex fontSize90pc">
                     <tr class="cursor" onclick="window.open('https://www.github.com/doctorGlocktopus', '_blank')">
