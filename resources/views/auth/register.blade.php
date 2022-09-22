@@ -35,7 +35,7 @@
                         </span>
                     @enderror
 
-                    <label for="title" >{{ __('Titel') }}</label>
+                    <label for="title" >{{ __('Titel *optional') }}</label>
 
 
                     <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" autocomplete="title" autofocus>
@@ -72,7 +72,7 @@
 
 
 
-                    <label for="password" >{{ __('Password') }}</label>
+                    <label for="password" >{{ __('Passwort') }}</label>
 
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
@@ -84,14 +84,14 @@
 
 
 
-                    <label for="password-confirm" >{{ __('Confirm Password') }}</label>
+                    <label for="password-confirm" >{{ __('Passwort bestätigen') }}</label>
 
 
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                 </div>
                 <div class="contentWrapper">
                     <button type="submit" class="btn btn-primary btn-lg btn-block">
-                        {{ __('Register') }}
+                        {{ __('Registrieren') }}
                     </button>
                 </div>
                 </form>
@@ -101,7 +101,7 @@
             <h1>Datenschutzerklärung</h1>
             <h2 id="m14">Einleitung</h2>
             <p>Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer personenbezogenen Daten (nachfolgend auch kurz als "Daten“ bezeichnet) wir zu welchen Zwecken und in welchem Umfang verarbeiten. Die Datenschutzerklärung gilt für alle von uns durchgeführten Verarbeitungen personenbezogener Daten, sowohl im Rahmen der Erbringung unserer Leistungen als auch insbesondere auf unseren Webseiten, in mobilen Applikationen sowie innerhalb externer Onlinepräsenzen, wie z.B. unserer Social-Media-Profile (nachfolgend zusammenfassend bezeichnet als "Onlineangebot“).</p>
-            {{-- <livewire:modal :inputValue="'info'"/> --}}
+            <livewire:modal :inputValue="'info'"/>
         </div>
     </div>
 </div>

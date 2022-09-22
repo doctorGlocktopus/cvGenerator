@@ -47,79 +47,21 @@
     @if($inputValue == "imprint")
         <div class="padding1pc banner flex spaceEven flexEnd">
             <span>guteDokumente</span>
-            <span onclick="gate('faq')" class="cursor  fontSize50pc">F.A.Q</span>
-            <span onclick="gate('imprint')" class="cursor fontSize50pc">Impressum</span>
         </div>
-        <div class="flex">
-            <div class=" imprint fade padding1pc wContent" style="display: none; font-size: 180%; justify-content: felx-start; align-items: flex-end;" id="imprint">
-                <div onclick="window.open('https://www.github.com/doctorGlocktopus', '_blank')">
-                    <img class="fade cursor" src="/resources/gitHub.png">
-                </div>
-                <table class="cursor table table-hover pLeft10pc flex fontSize90pc">
-                    <tr class="cursor" onclick="window.open('https://www.github.com/doctorGlocktopus', '_blank')">
-                        <td scope="row">
-                            <i class="fa fa-user-tag"></i>
-                        </td>
-                        <td scope="row">
-                            <span class="pLeft1pc">Fabian Laske</span>
-                        </td>
-                    </tr>
-                    <tr class="cursor" onclick="window.location.href ='mailto:flaske@anche.no'" scope="row">
-                        <td scope="row">
-                            <i class="fa fa-envelope"></i>
-                        </td>
-                        <td>
-                            <span class="pLeft1pc">flaske@anche.no</span>
-                        </td>
-                    </tr>
-                    <tr class="cursor" onclick="window.open('https://www.google.de/maps/dir/Wernerstra%C3%9Fe+6,+Stuttgart//@48.8150535,9.1647313,17z/data=!3m1!4b1!4m9!4m8!1m5!1m1!1s0x4799daea5aa92939:0x622f8efd3a5a80ef!2m2!1d9.16692!2d48.81505!1m0!3e0', '_blank')" >
-                        <td scope="row">
-                            <i class="fa fa-map" aria-hidden="true"></i>
-                        </td>
-                        <td scope="row">
-                            <span class="pLeft1pc">70469 Stuttgart</span>
-                        </td>
-                    </tr>
-                </table>
+        <div class="flex spaceAround">
+            <div onclick="window.location.href ='http://www.github.com/doctorGlocktopus'" class="cursor w33 padding1pc">
+                <i class="fa fa-user-tag"></i>
+                <span class="pLeft1pc">Fabian Laske</span>
             </div>
-            <div class="fade padding1pc imprint" id="faq">
-                <table class="cursor table table-hover pLeft10pc flex fontSize90pc">
-                    <tr class="cursor" onclick="window.open('https://www.github.com/doctorGlocktopus', '_blank')">
-                        <td scope="row">
-                            <span>Freeware</span>
-                        </td>
-                    </tr>
-                    <tr class="cursor" onclick="window.location.href ='mailto:flaske@anche.no'" scope="row">
-                        <td scope="row">
-                            <span>Clever4You</span>
-                        </td>
-                    </tr>
-                    <tr class="cursor" onclick="window.open('https://www.google.de/maps/dir/Wernerstra%C3%9Fe+6,+Stuttgart//@48.8150535,9.1647313,17z/data=!3m1!4b1!4m9!4m8!1m5!1m1!1s0x4799daea5aa92939:0x622f8efd3a5a80ef!2m2!1d9.16692!2d48.81505!1m0!3e0', '_blank')" >
-                        <td scope="row">
-                            <span>SaveTimeAndMoney</span>
-                        </td>
-                    </tr>
-                </table>
+            <div onclick="window.location.href ='mailto:flaske@anche.no'" class="cursor w33 padding1pc">
+                <i class="fa fa-envelope"></i>
+                <span class="pLeft1pc">flaske@anche.no</span>
+            </div>
+            <div class="w33 padding1pc">
+                <i class="fa fa-map" aria-hidden="true"></i>
+                <span class="pLeft1pc">70469 Stuttgart</span>
             </div>
         </div>
-        <script>
-            function gate(key) {
-                // diese Kommtar sorgt für das Schließen des anderen gate
-                if(key == "faq")
-                {
-                    document.getElementById('imprint').style.display = "none";
-                }
-                if(key == 'imprint')
-                {
-                    document.getElementById("faq").style.display = "none";
-                }
-                // 
-                if(document.getElementById(key).style.display == "none")
-                document.getElementById(key).style.display = "flex";
-                else
-                document.getElementById(key).style.display = "none";
-            }
-        </script>
     @endif
 
     @if($inputValue == "listDelete")
